@@ -75,97 +75,98 @@ export function ExploredGlobeSection() {
 
       <div className="py-6 max-w-[960px]">
 
-        {/* Header Row: Logo + 2 Headers, equal width each */}
-        <div className="grid grid-cols-12 items-center mb-4">
+{/* Header Row: Logo + 2 Headers, equal width each */}
+<div className="grid grid-cols-12 items-center mb-4">
 
-          {/* Left: Logo + Title in col-span-4 */}
-          <div className="col-span-4 flex items-center gap-3">
-            <svg
-              className="w-12 h-12 text-gray-400"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z" />
-            </svg>
-            <div>
-              <div className="text-[9px] text-gray-500 tracking-wide">Bennett &amp; Coleman</div>
-              <div
-                className="text-[18px] font-bold text-gray-900 tracking-tight"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                THE TIMES OF INDIA
-              </div>
-            </div>
-          </div>
-
-          {/* Center header in col-span-4 */}
-          <h3 className="col-span-4 text-center text-[15px] font-bold text-gray-900">
-            Living and Entertainment
-          </h3>
-
-          {/* Right header in col-span-4 */}
-          <h3 className="col-span-4 text-center text-[15px] font-bold text-gray-900">
-            Services
-          </h3>
-        </div>
-
-        {/* Content Row: 3 Equal Columns */}
-        <div className="grid grid-cols-12 gap-8">
-
-          {/* Left Content - col-span-4 */}
-          <div className="col-span-4">
-            <div className="border border-gray-200 rounded-lg p-4">
-              <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                {[
-                  "About us",
-                  "Create Your Own Ad",
-                  "Terms of Use and Grievanc...",
-                  "Privacy policy",
-                  "Advertise with us",
-                  "RSS",
-                  "Newsletter",
-                  "Feedback",
-                  "ePaper",
-                  "Sitemap",
-                  "Archives",
-                ].map((link, idx) => (
-                  <Link key={idx} href="#" className="text-[11px] text-gray-700 hover:text-red-600 leading-snug">
-                    {link}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Center Content - col-span-4 */}
-          <div className="col-span-4">
-            <div className="border border-gray-200 rounded-lg p-4">
-              <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                {livingLinks.flat().map((link, idx) => (
-                  <Link key={idx} href="#" className="text-[11px] text-gray-700 hover:text-red-600 leading-snug">
-                    {link}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - col-span-4 */}
-          <div className="col-span-4">
-            <div className="border border-gray-200 rounded-lg p-4">
-              <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                {serviceLinks.flat().map((link, idx) => (
-                  <Link key={idx} href="#" className="text-[11px] text-gray-700 hover:text-red-600 leading-snug">
-                    {link}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
+  {/* Left: Logo + Title in col-span-12 for mobile */}
+  <div className="col-span-12 sm:col-span-4 flex items-center gap-3">
+    <svg
+      className="w-12 h-12 text-gray-400"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z" />
+    </svg>
+    <div>
+      <div className="text-[9px] text-gray-500 tracking-wide">Bennett &amp; Coleman</div>
+      <div
+        className="text-[18px] font-bold text-gray-900 tracking-tight"
+        style={{ fontFamily: "Georgia, serif" }}
+      >
+        THE TIMES OF INDIA
       </div>
+    </div>
+  </div>
+
+  {/* Center header in col-span-12 for mobile */}
+  <h3 className="col-span-12 sm:col-span-4 text-center text-[15px] font-bold text-gray-900">
+    Living and Entertainment
+  </h3>
+
+  {/* Right header in col-span-12 for mobile */}
+  <h3 className="col-span-12 sm:col-span-4 text-center text-[15px] font-bold text-gray-900">
+    Services
+  </h3>
+</div>
+
+{/* Content Row: 3 Equal Columns */}
+<div className="grid grid-cols-12 gap-8">
+
+  {/* Left Content - col-span-12 for mobile */}
+  <div className="col-span-12 sm:col-span-4">
+    <div className="border border-gray-200 rounded-lg p-4">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+        {[
+          "About us",
+          "Create Your Own Ad",
+          "Terms of Use and Grievanc...",
+          "Privacy policy",
+          "Advertise with us",
+          "RSS",
+          "Newsletter",
+          "Feedback",
+          "ePaper",
+          "Sitemap",
+          "Archives",
+        ].map((link, idx) => (
+          <Link key={idx} href="#" className="text-[11px] text-gray-700 hover:text-red-600 leading-snug">
+            {link}
+          </Link>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Center Content - col-span-12 for mobile */}
+  <div className="col-span-12 sm:col-span-4">
+    <div className="border border-gray-200 rounded-lg p-2">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+        {livingLinks.flat().map((link, idx) => (
+          <Link key={idx} href="#" className="text-[11px] text-gray-700 hover:text-red-600 leading-snug">
+            {link}
+          </Link>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Right Content - col-span-12 for mobile */}
+  <div className="col-span-12 sm:col-span-4">
+    <div className="border border-gray-200 rounded-lg p-2">
+      <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+        {serviceLinks.flat().map((link, idx) => (
+          <Link key={idx} href="#" className="text-[11px] text-gray-700 hover:text-red-600 leading-snug">
+            {link}
+          </Link>
+        ))}
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
 
     </section>
 

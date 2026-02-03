@@ -116,7 +116,7 @@ export function YouMayLikeSection() {
         <span className="text-[10px] text-gray-400">by Taboola</span>
       </div>
   
-      <div className="grid grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {visibleItems.map((item, idx) => (
           <Link key={idx} href="#" className="group cursor-pointer">
             <div className="relative aspect-[4/3] mb-2 overflow-hidden rounded">

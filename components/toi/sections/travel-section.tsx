@@ -10,16 +10,15 @@ type TravelItem = {
   title: string;
   href?: string;
 };
-
 const travelNews: TravelItem[] = [
-  { image: "/placeholder.svg?height=110&width=160", title: "Best weekend getaways from Mumbai in January" },
-  { image: "/placeholder.svg?height=110&width=160", title: "Visa-free destinations for Indian passport holders" },
-  { image: "/placeholder.svg?height=110&width=160", title: "Hidden gems of Northeast India to explore" },
-  { image: "/placeholder.svg?height=110&width=160", title: "Budget travel tips for Europe in 2026" },
-  { image: "/placeholder.svg?height=110&width=160", title: "Top hill stations for winter vacation" },
-  { image: "/placeholder.svg?height=110&width=160", title: "Solo travel destinations for women in India" },
-  // Add more items here if you want larger lists; layout scales gracefully.
+  { image: "https://picsum.photos/seed/travel1/160/110", title: "Best weekend getaways from Mumbai in January" },
+  { image: "https://picsum.photos/seed/travel2/160/110", title: "Visa-free destinations for Indian passport holders" },
+  { image: "https://picsum.photos/seed/travel3/160/110", title: "Hidden gems of Northeast India to explore" },
+  { image: "https://picsum.photos/seed/travel4/160/110", title: "Budget travel tips for Europe in 2026" },
+  { image: "https://picsum.photos/seed/travel5/160/110", title: "Top hill stations for winter vacation" },
+  { image: "https://picsum.photos/seed/travel6/160/110", title: "Solo travel destinations for women in India" },
 ];
+
 
 export function TravelSection() {
   // Partition to match Auto section UX

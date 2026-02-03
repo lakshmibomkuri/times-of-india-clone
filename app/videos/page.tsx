@@ -45,7 +45,7 @@ const shorts = [
 const educationVideos = [
   {
     id: 1,
-    title: "Teacher Shares Why She’s Quitting Public School After Years",
+    title: "Teacher Shares Why She's Quitting Public School After Years",
     views: "85K views",
     time: "12 hours ago",
     image: "https://picsum.photos/seed/edu1/600/400",
@@ -85,7 +85,7 @@ const educationVideos = [
   },
   {
     id: 6,
-    title: "Girls’ Education & UNICEF Program Boost Confidence",
+    title: "Girls' Education & UNICEF Program Boost Confidence",
     views: "1.3K views",
     time: "4 days ago",
     image: "https://picsum.photos/seed/edu6/600/400",
@@ -111,7 +111,7 @@ const technologyVideos = [
   },
   {
     id: 3,
-    title: "Big Tech Layoffs: What’s Next?",
+    title: "Big Tech Layoffs: What's Next?",
     views: "5.6K views",
     time: "5 hours ago",
     image: "https://picsum.photos/seed/tech3/600/400",
@@ -147,7 +147,7 @@ const toiShorts = [
   },
   {
     id: 2,
-    title: "India’s strong message at the UN on global security",
+    title: "India's strong message at the UN on global security",
     thumbnail: "https://picsum.photos/seed/toi2/300/500",
   },
   {
@@ -167,7 +167,7 @@ const toiShorts = [
   },
   {
     id: 6,
-    title: "Hidden temples in India you won’t believe exist",
+    title: "Hidden temples in India you won't believe exist",
     thumbnail: "https://picsum.photos/seed/toi6/300/500",
   },
   {
@@ -184,8 +184,17 @@ const toiShorts = [
 
 export default function VideosPage() {
   const [activeCategory, setActiveCategory] = useState("Top Videos");
-
   const [shortIndex, setShortIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleShortNext = () => {
     if (shortIndex < shorts.length - 6) {
@@ -199,7 +208,9 @@ export default function VideosPage() {
     }
   };
   const carouselRef = useRef(null);
+  const techCarouselRef = useRef(null);
   const [page, setPage] = useState(0);
+  const [techPage, setTechPage] = useState(0);
 
   const CARD_WIDTH = 310; // width of each card
   const GAP = 10; // gap between cards
@@ -216,26 +227,44 @@ export default function VideosPage() {
     setPage(index);
   };
 
+  const scrollToTechPage = (index) => {
+    if (!techCarouselRef.current) return;
+    techCarouselRef.current.scrollTo({
+      left: index * (CARD_WIDTH + GAP) * VISIBLE,
+      behavior: "smooth",
+    });
+    setTechPage(index);
+  };
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+      <style jsx global>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
       {/* Shared Ad Strips */}
       {/* <SharedAdStrips /> */}
 
       {/* Main Content Area */}
-      <div className="xl:ml-[145px] xl:mr-[145px]">
+      <div className="xl:ml-[145px] xl:mr-[145px] px-2">
         {/* Top Ad Banner - AU Bank */}
         <div className="w-full bg-gradient-to-r from-[#1a1a2e] to-[#2d2d44] py-2">
-          <div className="max-w-[970px] mx-auto px-0">
-            <div className="flex items-center justify-center gap-4 text-white">
-              <span className="text-[11px]">Still not banking with</span>
-              <span className="text-xl font-bold text-yellow-400">AU?</span>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px]">Up to</span>
-                <span className="text-2xl font-bold text-yellow-400">6.50%</span>
-                <span className="text-[9px]">interest p.a. &<br />Monthly Interest Payment</span>
+          <div className="max-w-[970px] mx-auto px-2 sm:px-4">
+            <div className="flex items-center justify-center gap-2 sm:gap-4 text-white flex-wrap">
+              <span className="text-[10px] sm:text-[11px]">Still not banking with</span>
+              <span className="text-lg sm:text-xl font-bold text-yellow-400">AU?</span>
+              <div className="flex items-center gap-1 sm:gap-2">
+                <span className="text-[9px] sm:text-[10px]">Up to</span>
+                <span className="text-xl sm:text-2xl font-bold text-yellow-400">6.50%</span>
+                <span className="text-[8px] sm:text-[9px] text-center">interest p.a. &<br />Monthly Interest Payment</span>
               </div>
-              <button className="bg-white text-[#1a1a2e] text-[10px] px-3 py-1.5 rounded font-semibold">Open Account</button>
-              <span className="text-[8px] text-gray-400">T&C Apply</span>
+              <button className="bg-white text-[#1a1a2e] text-[9px] sm:text-[10px] px-2 sm:px-3 py-1.5 rounded font-semibold">Open Account</button>
+              <span className="text-[7px] sm:text-[8px] text-gray-400">T&C Apply</span>
             </div>
           </div>
         </div>
@@ -243,15 +272,15 @@ export default function VideosPage() {
         <Header />
 
         <main>
-          <div className="max-w-[980px] mx-auto px-0">
+          <div className="max-w-[980px] mx-auto">
             {/* Page Header with Categories */}
             <div className="flex items-center justify-between mb-3 bg-white rounded">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
                 {categories.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-3 py-1 text-[11px] rounded whitespace-nowrap transition-colors ${activeCategory === cat ? "text-red-600 font-bold" : "text-gray-600 hover:text-red-600"
+                    className={`px-2 sm:px-3 py-1 text-[10px] sm:text-[11px] rounded whitespace-nowrap transition-colors flex-shrink-0 ${activeCategory === cat ? "text-red-600 font-bold" : "text-gray-600 hover:text-red-600"
                       }`}
                   >
                     {cat}
@@ -261,20 +290,20 @@ export default function VideosPage() {
             </div>
 
             {/* Now Playing Banner */}
-            <div className="bg-[#333] text-white px-3 py-1.5 mb-3 rounded flex items-center gap-2 overflow-hidden">
-              <span className="text-[10px] font-bold text-red-500 flex-shrink-0">Now Playing</span>
-              <div className="text-[11px] truncate">PM Modi Joins 10,000 Bodo Zumba Record Event</div>
+            <div className="bg-[#333] text-white px-2 sm:px-3 py-1.5 mb-3 rounded flex items-center gap-2 overflow-hidden">
+              <span className="text-[9px] sm:text-[10px] font-bold text-red-500 flex-shrink-0">Now Playing</span>
+              <div className="text-[10px] sm:text-[11px] truncate">PM Modi Joins 10,000 Bodo Zumba Record Event</div>
             </div>
 
-            <div className="flex gap-4 max-w-[980px]">
+            <div className="flex gap-2 sm:gap-4 w-full">
               {/* Main Content */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 {/* Top Videos Section */}
                 <TopVideosSection />
                 {/* SHORTS SECTION */}
-                <section className="mb-6 max-w-[980px]">
+                <section className="mb-6 w-full">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-[15px] font-bold text-[#333] flex items-center gap-2">
+                    <h2 className="text-[14px] sm:text-[15px] font-bold text-[#333] flex items-center gap-2">
                       <span className="text-m rounded font-bold">
                         Shorts
                       </span>
@@ -284,16 +313,16 @@ export default function VideosPage() {
                   {/* Carousel */}
                   <div className="relative overflow-hidden">
                     <div
-                      className="flex gap-2 transition-transform duration-300 ease-in-out"
+                      className="flex gap-1 sm:gap-2 transition-transform duration-300 ease-in-out"
                       style={{
-                        transform: `translateX(-${shortIndex * 152}px)`, // 150 + gap
+                        transform: `translateX(-${shortIndex * (isMobile ? 122 : 152)}px)`,
                       }}
                     >
                       {shorts.map((short) => (
                         <Link
                           key={short.id}
                           href="#"
-                          className="flex-shrink-0 w-[150px] group"
+                          className="flex-shrink-0 w-[120px] sm:w-[150px] group"
                         >
                           {/* CARD */}
                           <div className="rounded-lg overflow-hidden bg-white">
@@ -308,17 +337,17 @@ export default function VideosPage() {
                               />
 
                               {/* Play Icon Bottom Right */}
-                              <div className="absolute bottom-2 right-2 bg-black/70 w-12 h-6 flex items-center justify-center rounded-2xl">
-                                <Play className="w-4 h-4 text-white fill-white bg-red-500 p-1 rounded-2xl" />
+                              <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black/70 w-10 sm:w-12 h-5 sm:h-6 flex items-center justify-center rounded-2xl">
+                                <Play className="w-3 sm:w-4 h-3 sm:h-4 text-white fill-white bg-red-500 p-0.5 sm:p-1 rounded-2xl" />
                               </div>
                             </div>
 
                             {/* BOTTOM: Content */}
-                            <div className="p-2">
-                              <p className="text-[10px] text-gray-900 font-medium line-clamp-2 leading-tight">
+                            <div className="p-1.5 sm:p-2">
+                              <p className="text-[9px] sm:text-[10px] text-gray-900 font-medium line-clamp-2 leading-tight">
                                 {short.title}
                               </p>
-                              <span className="text-[9px] text-gray-500">{short.views} views</span>
+                              <span className="text-[8px] sm:text-[9px] text-gray-500">{short.views} views</span>
                             </div>
 
                           </div>
@@ -330,26 +359,26 @@ export default function VideosPage() {
                     <button
                       onClick={handleShortPrev}
                       disabled={shortIndex === 0}
-                      className="absolute left-3 top-[120px] bg-white/90 border rounded-full p-1.5 shadow z-10 disabled:opacity-40"
+                      className="absolute left-1 sm:left-3 top-[100px] sm:top-[120px] bg-white/90 border rounded-full p-1 sm:p-1.5 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <ChevronLeft className="w-3 sm:w-4 h-3 sm:h-4" />
                     </button>
 
                     <button
                       onClick={handleShortNext}
                       disabled={shortIndex >= toiShorts.length - 6}
-                      className="absolute right-3 top-[120px] bg-white/90 border rounded-full p-1.5 shadow z-10 disabled:opacity-40"
+                      className="absolute right-1 sm:right-3 top-[100px] sm:top-[120px] bg-white/90 border rounded-full p-1 sm:p-1.5 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
                     </button>
                   </div>
 
                   {/* Pagination Dots */}
-                  <div className="flex justify-center gap-2 mt-2">
+                  <div className="flex justify-center gap-1 sm:gap-2 mt-2">
                     {Array.from({ length: Math.ceil(toiShorts.length / 6) }).map((_, i) => (
                       <span
                         key={i}
-                        className={`w-2 h-2 rounded-full ${i === Math.floor(shortIndex / 6) ? "bg-black" : "bg-gray-300"
+                        className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${i === Math.floor(shortIndex / 6) ? "bg-black" : "bg-gray-300"
                           }`}
                       />
                     ))}
@@ -359,10 +388,10 @@ export default function VideosPage() {
                 <CategoryVideosSection />
 
                 {/* Education Section */}
-                <section className="mb-6 max-w-[980px]">
+                <section className="mb-6 w-full">
                   <div className="flex justify-between items-center mb-3">
-                    <h2 className="text-[16px] font-bold text-[#111]">Education</h2>
-                    <Link href="#" className="text-red-600 text-sm font-medium">
+                    <h2 className="text-[15px] sm:text-[16px] font-bold text-[#111]">Education</h2>
+                    <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium">
                       See All
                     </Link>
                   </div>
@@ -371,11 +400,11 @@ export default function VideosPage() {
                   <div className="relative overflow-hidden">
                     <div
                       ref={carouselRef}
-                      className="flex gap-2 overflow-hidden scroll-smooth"
+                      className="flex gap-1 sm:gap-2 overflow-hidden scroll-smooth"
                     >
                       {educationVideos.map((video) => (
-                        <div key={video.id} className="w-[310px] flex-shrink-0">
-                          <div className="relative h-[180px] rounded-lg overflow-hidden mb-2">
+                        <div key={video.id} className="w-[280px] sm:w-[310px] flex-shrink-0">
+                          <div className="relative h-[160px] sm:h-[180px] rounded-lg overflow-hidden mb-2">
                             <Image
                               src={video.image}
                               alt={video.title}
@@ -384,15 +413,15 @@ export default function VideosPage() {
                             />
 
                             {/* Play Icon */}
-                            <div className="absolute bottom-2 right-2 bg-black/70 w-12 h-6 flex items-center justify-center rounded-2xl">
-                              <Play className="w-4 h-4 text-white fill-white bg-red-500 p-1 rounded-2xl" />
+                            <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black/70 w-10 sm:w-12 h-5 sm:h-6 flex items-center justify-center rounded-2xl">
+                              <Play className="w-3 sm:w-4 h-3 sm:h-4 text-white fill-white bg-red-500 p-0.5 sm:p-1 rounded-2xl" />
                             </div>
                           </div>
 
-                          <p className="text-[14px] leading-snug line-clamp-2 mb-0.5">
+                          <p className="text-[13px] sm:text-[14px] leading-snug line-clamp-2 mb-0.5">
                             {video.title}
                           </p>
-                          <span className="text-[12px] text-gray-500">
+                          <span className="text-[11px] sm:text-[12px] text-gray-500">
                             {video.views} | {video.time}
                           </span>
                         </div>
@@ -403,27 +432,27 @@ export default function VideosPage() {
                     <button
                       onClick={() => scrollToPage(Math.max(page - 1, 0))}
                       disabled={page === 0}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow z-10 disabled:opacity-40"
+                      className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 sm:p-2 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
                     </button>
 
                     {/* Right Arrow */}
                     <button
                       onClick={() => scrollToPage(Math.min(page + 1, totalPages - 1))}
                       disabled={page === totalPages - 1}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow z-10 disabled:opacity-40"
+                      className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 sm:p-2 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
                     </button>
                   </div>
 
                   {/* Pagination Dots */}
-                  <div className="flex justify-center gap-2 mt-3">
+                  <div className="flex justify-center gap-1 sm:gap-2 mt-3">
                     {Array.from({ length: totalPages }).map((_, index) => (
                       <span
                         key={index}
-                        className={`w-2 h-2 rounded-full ${index === page ? "bg-black" : "bg-gray-300"
+                        className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${index === page ? "bg-black" : "bg-gray-300"
                           }`}
                       />
                     ))}
@@ -432,10 +461,10 @@ export default function VideosPage() {
 
 
                 {/* Technology Section */}
-                <section className="mb-6 max-w-[980px]">
+                <section className="mb-6 w-full">
                   <div className="flex justify-between items-center mb-3">
-                    <h2 className="text-[16px] font-bold text-[#111]">Technology</h2>
-                    <Link href="#" className="text-red-600 text-sm font-medium">
+                    <h2 className="text-[15px] sm:text-[16px] font-bold text-[#111]">Technology</h2>
+                    <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium">
                       See All
                     </Link>
                   </div>
@@ -443,12 +472,12 @@ export default function VideosPage() {
                   {/* Carousel */}
                   <div className="relative overflow-hidden">
                     <div
-                      ref={carouselRef}
-                      className="flex gap-2 overflow-hidden scroll-smooth"
+                      ref={techCarouselRef}
+                      className="flex gap-1 sm:gap-2 overflow-hidden scroll-smooth"
                     >
                       {technologyVideos.map((video) => (
-                        <div key={video.id} className="w-[310px] flex-shrink-0">
-                          <div className="relative h-[180px] rounded-lg overflow-hidden mb-2">
+                        <div key={video.id} className="w-[280px] sm:w-[310px] flex-shrink-0">
+                          <div className="relative h-[160px] sm:h-[180px] rounded-lg overflow-hidden mb-2">
                             <Image
                               src={video.image}
                               alt={video.title}
@@ -457,15 +486,15 @@ export default function VideosPage() {
                             />
 
                             {/* Play Icon */}
-                            <div className="absolute bottom-2 right-2 bg-black/70 w-12 h-6 flex items-center justify-center rounded-2xl">
-                              <Play className="w-4 h-4 text-white fill-white bg-red-500 p-1 rounded-2xl" />
+                            <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black/70 w-10 sm:w-12 h-5 sm:h-6 flex items-center justify-center rounded-2xl">
+                              <Play className="w-3 sm:w-4 h-3 sm:h-4 text-white fill-white bg-red-500 p-0.5 sm:p-1 rounded-2xl" />
                             </div>
                           </div>
 
-                          <p className="text-[14px] leading-snug line-clamp-2 mb-0.5">
+                          <p className="text-[13px] sm:text-[14px] leading-snug line-clamp-2 mb-0.5">
                             {video.title}
                           </p>
-                          <span className="text-[12px] text-gray-500">
+                          <span className="text-[11px] sm:text-[12px] text-gray-500">
                             {video.views} | {video.time}
                           </span>
                         </div>
@@ -474,28 +503,28 @@ export default function VideosPage() {
 
                     {/* Arrows */}
                     <button
-                      onClick={() => scrollToPage(Math.max(page - 1, 0))}
-                      disabled={page === 0}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow z-10 disabled:opacity-40"
+                      onClick={() => scrollToTechPage(Math.max(techPage - 1, 0))}
+                      disabled={techPage === 0}
+                      className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 sm:p-2 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
                     </button>
 
                     <button
-                      onClick={() => scrollToPage(Math.min(page + 1, totalPages - 1))}
-                      disabled={page === totalPages - 1}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow z-10 disabled:opacity-40"
+                      onClick={() => scrollToTechPage(Math.min(techPage + 1, totalPages - 1))}
+                      disabled={techPage === totalPages - 1}
+                      className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 sm:p-2 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
                     </button>
                   </div>
 
                   {/* Pagination Dots */}
-                  <div className="flex justify-center gap-2 mt-3">
+                  <div className="flex justify-center gap-1 sm:gap-2 mt-3">
                     {Array.from({ length: totalPages }).map((_, index) => (
                       <span
                         key={index}
-                        className={`w-2 h-2 rounded-full ${index === page ? "bg-black" : "bg-gray-300"
+                        className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${index === techPage ? "bg-black" : "bg-gray-300"
                           }`}
                       />
                     ))}
@@ -503,9 +532,9 @@ export default function VideosPage() {
                 </section>
 
                 {/* TOI Shorts */}
-                <section className="mb-6 max-w-[980px]">
+                <section className="mb-6 w-full">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-[15px] font-bold text-[#333] flex items-center gap-2">
+                    <h2 className="text-[14px] sm:text-[15px] font-bold text-[#333] flex items-center gap-2">
                       <span className="text-m rounded font-bold">
                         TOI Shorts
                       </span>
@@ -515,16 +544,16 @@ export default function VideosPage() {
                   {/* Carousel */}
                   <div className="relative overflow-hidden">
                     <div
-                      className="flex gap-2 transition-transform duration-300 ease-in-out"
+                      className="flex gap-1 sm:gap-2 transition-transform duration-300 ease-in-out"
                       style={{
-                        transform: `translateX(-${shortIndex * 152}px)`, // 150 + gap
+                        transform: `translateX(-${shortIndex * (isMobile ? 122 : 152)}px)`,
                       }}
                     >
                       {toiShorts.map((short) => (
                         <Link
                           key={short.id}
                           href="#"
-                          className="flex-shrink-0 w-[150px] group"
+                          className="flex-shrink-0 w-[120px] sm:w-[150px] group"
                         >
                           {/* CARD */}
                           <div className="rounded-lg overflow-hidden bg-white">
@@ -539,17 +568,17 @@ export default function VideosPage() {
                               />
 
                               {/* Play Icon Bottom Right */}
-                              <div className="absolute bottom-2 right-2 bg-black/70 w-12 h-6 flex items-center justify-center rounded-2xl">
-                                <Play className="w-4 h-4 text-white fill-white bg-red-500 p-1 rounded-2xl" />
+                              <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black/70 w-10 sm:w-12 h-5 sm:h-6 flex items-center justify-center rounded-2xl">
+                                <Play className="w-3 sm:w-4 h-3 sm:h-4 text-white fill-white bg-red-500 p-0.5 sm:p-1 rounded-2xl" />
                               </div>
                             </div>
 
                             {/* BOTTOM: Content */}
-                            <div className="p-2">
-                              <p className="text-[10px] text-gray-900 font-medium line-clamp-2 leading-tight">
+                            <div className="p-1.5 sm:p-2">
+                              <p className="text-[9px] sm:text-[10px] text-gray-900 font-medium line-clamp-2 leading-tight">
                                 {short.title}
                               </p>
-                              <span className="text-[9px] text-gray-500">{short.views} views</span>
+                              <span className="text-[8px] sm:text-[9px] text-gray-500">{short.views} views</span>
                             </div>
 
                           </div>
@@ -561,26 +590,26 @@ export default function VideosPage() {
                     <button
                       onClick={handleShortPrev}
                       disabled={shortIndex === 0}
-                      className="absolute left-3 top-[120px] bg-white/90 border rounded-full p-1.5 shadow z-10 disabled:opacity-40"
+                      className="absolute left-1 sm:left-3 top-[100px] sm:top-[120px] bg-white/90 border rounded-full p-1 sm:p-1.5 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <ChevronLeft className="w-3 sm:w-4 h-3 sm:h-4" />
                     </button>
 
                     <button
                       onClick={handleShortNext}
                       disabled={shortIndex >= toiShorts.length - 6}
-                      className="absolute right-3 top-[120px] bg-white/90 border rounded-full p-1.5 shadow z-10 disabled:opacity-40"
+                      className="absolute right-1 sm:right-3 top-[100px] sm:top-[120px] bg-white/90 border rounded-full p-1 sm:p-1.5 shadow z-10 disabled:opacity-40"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
                     </button>
                   </div>
 
                   {/* Pagination Dots */}
-                  <div className="flex justify-center gap-2 mt-2">
+                  <div className="flex justify-center gap-1 sm:gap-2 mt-2">
                     {Array.from({ length: Math.ceil(toiShorts.length / 6) }).map((_, i) => (
                       <span
                         key={i}
-                        className={`w-2 h-2 rounded-full ${i === Math.floor(shortIndex / 6) ? "bg-black" : "bg-gray-300"
+                        className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${i === Math.floor(shortIndex / 6) ? "bg-black" : "bg-gray-300"
                           }`}
                       />
                     ))}
@@ -627,7 +656,7 @@ export default function VideosPage() {
             </div>
 
             {/* Footer Sections */}
-            <div className="mt-6 bg-white rounded p-4">
+            <div className="mt-6 bg-white rounded p-2 sm:p-4">
               <ExploredGlobeSection />
               <HotOnWebSection />
               <TrendingTopicsSection />

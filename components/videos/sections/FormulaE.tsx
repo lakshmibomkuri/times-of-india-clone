@@ -70,7 +70,7 @@ const videos = [
 // ------------------
 export default function FormulaESection() {
   return (
-    <section className="mb-6 max-w-[980px] mx-auto">
+    <section className="w-full mx-auto pt-5 sm:px-0">
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
         <h2 className="text-[16px] font-bold text-[#111]">Formula E</h2>

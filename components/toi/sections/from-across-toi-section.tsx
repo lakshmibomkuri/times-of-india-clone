@@ -13,14 +13,38 @@ type Article = {
 };
 
 const articles: Article[] = [
-  { title: "Republic Day 2026: History, Significance and celebration ideas", image: "/placeholder.svg?height=200&width=300", category: "India" },
-  { title: "Budget 2026 expectations: What salaried class wants from FM", image: "/placeholder.svg?height=200&width=300", category: "Business" },
-  { title: "Best smartphones under Rs 20,000 to buy in January 2026", image: "/placeholder.svg?height=200&width=300", category: "Tech" },
-  { title: "IPL 2026 mega auction: Complete list of retained players", image: "/placeholder.svg?height=200&width=300", category: "Cricket" },
-  { title: "Top travel destinations in India for winter vacation", image: "/placeholder.svg?height=200&width=300", category: "Travel" },
-  { title: "Health tips: Foods to boost immunity this winter season", image: "/placeholder.svg?height=200&width=300", category: "Health" },
-  // You can add more items; the layout adjusts gracefully.
+  {
+    title: "Republic Day 2026: History, Significance and celebration ideas",
+    image: "https://picsum.photos/seed/1/400/250",
+    category: "India",
+  },
+  {
+    title: "Budget 2026 expectations: What salaried class wants from FM",
+    image: "https://picsum.photos/seed/2/400/250",
+    category: "Business",
+  },
+  {
+    title: "Best smartphones under Rs 20,000 to buy in January 2026",
+    image: "https://picsum.photos/seed/3/400/250",
+    category: "Tech",
+  },
+  {
+    title: "IPL 2026 mega auction: Complete list of retained players",
+    image: "https://picsum.photos/seed/4/400/250",
+    category: "Cricket",
+  },
+  {
+    title: "Top travel destinations in India for winter vacation",
+    image: "https://picsum.photos/seed/5/400/250",
+    category: "Travel",
+  },
+  {
+    title: "Health tips: Foods to boost immunity this winter season",
+    image: "https://picsum.photos/seed/6/400/250",
+    category: "Health",
+  },
 ];
+
 
 export function FromAcrossTOISection() {
   // --- Partition data to match Auto section layout ---

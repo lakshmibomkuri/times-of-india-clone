@@ -68,17 +68,17 @@ const videos = [
 // ------------------
 export default function HealthFItnesSection() {
   return (
-    <section className="mb-6 max-w-[980px] mx-auto">
+    <section className="w-full mx-auto pt-5 sm:px-0">
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-[16px] font-bold text-[#111]">Health & Fitness</h2>
-        <Link href="#" className="text-red-600 text-sm font-medium">
+        <h2 className="text-[16px] sm:text-[18px] font-bold text-[#111]">Health & Fitness</h2>
+        <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium">
           See All
         </Link>
       </div>
 
       {/* Videos Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {videos.slice(0, 6).map((video) => (
           <Link
             key={video.id}
@@ -94,11 +94,11 @@ export default function HealthFItnesSection() {
                 className="object-cover"
               />
               {/* Duration Badge */}
-              <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
+              <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1 select-none">
                 {/* Red circle with white play icon */}
-                <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
+                <div className="bg-red-600 rounded-full w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center">
                   <svg
-                    className="w-3 h-3 text-white"
+                    className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -108,15 +108,15 @@ export default function HealthFItnesSection() {
                   </svg>
                 </div>
                 {/* Duration text */}
-                <span className="text-white text-xs font-semibold">{video.duration}</span>
+                <span className="text-white text-[10px] sm:text-xs font-semibold">{video.duration}</span>
               </div>
             </div>
 
             {/* Bottom Content */}
-            <div className="p-3 border-t border-gray-200">
-              <h3 className="font-semibold text-sm line-clamp-2">{video.title}</h3>
-              <p className="text-xs text-gray-600 mt-1 line-clamp-2">{video.description}</p>
-              <p className="text-xs text-gray-500 mt-2">{video.views} • {video.time}</p>
+            <div className="p-2 sm:p-3 border-t border-gray-200">
+              <h3 className="font-semibold text-[13px] sm:text-sm line-clamp-2">{video.title}</h3>
+              <p className="text-[11px] sm:text-xs text-gray-600 mt-1 line-clamp-2 sm:line-clamp-none">{video.description}</p>
+              <p className="text-[10px] sm:text-xs text-gray-500 mt-1 sm:mt-2">{video.views} • {video.time}</p>
             </div>
           </Link>
         ))}

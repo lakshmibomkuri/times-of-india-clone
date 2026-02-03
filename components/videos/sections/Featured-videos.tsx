@@ -4,20 +4,20 @@ import Link from "next/link";
 
 export default function FeaturedVideosPage() {
     return (
-        <main className="max-w-[980px] mx-auto mt-5">
-{/* Header */}
-<div className="flex justify-between items-center mb-4">
-                <h1 className="text-[20px] font-semibold">Featured Videos</h1>
-                <Link href="#" className="text-red-600 text-sm font-medium">
+        <main className="w-full mx-auto mt-5 sm:px-0">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-4">
+                <h1 className="text-[18px] sm:text-[20px] font-semibold">Featured Videos</h1>
+                <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium">
                     See All
                 </Link>
             </div>
 
             {/* ================= SECTION 1 ================= */}
-            <section className="bg-white rounded-xl grid grid-cols-10 gap-6 mb-3">
+            <section className="bg-white rounded-xl grid grid-cols-1 lg:grid-cols-10 gap-4 lg:gap-6 mb-3">
 
                 {/* LEFT: MAIN VIDEO (70%) */}
-                <div className="col-span-7 relative h-[320px] rounded-xl overflow-hidden">
+                <div className="lg:col-span-7 relative h-[200px] sm:h-[250px] lg:h-[320px] rounded-xl overflow-hidden">
                     <Image
                         src="https://picsum.photos/seed/mainvideo/900/500"
                         alt="Featured Video"
@@ -26,80 +26,72 @@ export default function FeaturedVideosPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-                    <div className="absolute bottom-4 left-4 text-white">
-                        <h2 className="text-lg font-semibold leading-snug">
+                    <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
+                        <h2 className="text-[14px] sm:text-lg font-semibold leading-snug line-clamp-2">
                             Trump Hurts Himself At Board Of Peace Signing
                         </h2>
-                        <p className="text-xs text-gray-300">
+                        <p className="text-[10px] sm:text-xs text-gray-300">
                             1.2K views • 2 hours ago
                         </p>
                     </div>
 
-                    <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
-                                    {/* Red circle with white play icon */}
-                                    <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
-                                        <svg
-                                            className="w-3 h-3 text-white"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            aria-hidden="true"
-                                        >
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </div>
-                                    {/* Duration text */}
-                                    <span className="text-white text-xs font-semibold">07:00</span>
-                                </div>
+                    <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1">
+                        <div className="bg-red-600 rounded-full w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center">
+                            <svg
+                                className="w-2 sm:w-3 h-2 sm:h-3 text-white"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                        <span className="text-white text-[10px] sm:text-xs font-semibold">07:00</span>
+                    </div>
                 </div>
 
                 {/* RIGHT: AD (30%) */}
-                <div className="col-span-3 h-[320px] rounded-xl border flex items-center justify-center bg-blue-700 text-white text-center font-semibold">
+                <div className="lg:col-span-3 h-[150px] sm:h-[200px] lg:h-[320px] rounded-xl border flex items-center justify-center bg-blue-700 text-white text-center font-semibold text-[12px] sm:text-[14px]">
                     SIMPLE MATLAB <br /> INDEX FUNDS
                 </div>
             </section>
 
             {/* ================= SECTION 2 ================= */}
-            <section className="bg-white grid grid-cols-10 gap-6">
+            <section className="bg-white grid grid-cols-1 lg:grid-cols-10 gap-4 lg:gap-6">
 
                 {/* LEFT: FEATURED LIST (70%) */}
-                <div className="col-span-7 space-y-4 rounded-xl border border-gray-200 p-4">
+                <div className="lg:col-span-7 space-y-3 sm:space-y-4 rounded-xl border border-gray-200 p-2 sm:p-4">
 
                     {featuredList.map((item, idx) => (
-                        <div key={idx} className="flex gap-4 border-b pb-4 last:border-b-0">
-                            <div className="relative w-[220px] h-[120px] rounded overflow-hidden">
+                        <div key={idx} className="flex gap-2 sm:gap-4 border-b pb-3 sm:pb-4 last:border-b-0">
+                            <div className="relative w-[120px] sm:w-[180px] lg:w-[220px] h-[68px] sm:h-[100px] lg:h-[120px] rounded overflow-hidden flex-shrink-0">
                                 <Image
                                     src={item.thumbnail}
                                     alt={item.title}
                                     fill
                                     className="object-cover"
                                 />
-                                  <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
-                                    {/* Red circle with white play icon */}
-                                    <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
+                                <div className="absolute bottom-1 right-1 bg-black bg-opacity-80 rounded-full flex items-center gap-1 px-1.5 sm:px-2 py-0.5">
+                                    <div className="bg-red-600 rounded-full w-3 sm:w-4 h-3 sm:h-4 flex items-center justify-center">
                                         <svg
-                                            className="w-3 h-3 text-white"
+                                            className="w-1.5 sm:w-2 h-1.5 sm:h-2 text-white"
                                             fill="currentColor"
                                             viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            aria-hidden="true"
                                         >
                                             <path d="M8 5v14l11-7z" />
                                         </svg>
                                     </div>
-                                    {/* Duration text */}
-                                    <span className="text-white text-xs font-semibold">{item.duration}</span>
+                                    <span className="text-white text-[9px] sm:text-[10px] font-semibold">{item.duration}</span>
                                 </div>
                             </div>
 
-                            <div className="flex-1">
-                                <h4 className="text-sm font-semibold leading-snug mb-1">
+                            <div className="flex-1 min-w-0">
+                                <h4 className="text-[12px] sm:text-sm font-semibold leading-snug mb-1 line-clamp-2">
                                     {item.title}
                                 </h4>
-                                <p className="text-xs text-gray-600 line-clamp-2 mb-1">
+                                <p className="text-[10px] sm:text-xs text-gray-600 line-clamp-2 mb-1 hidden sm:block">
                                     {item.desc}
                                 </p>
-                                <span className="text-[11px] text-gray-500">
+                                <span className="text-[9px] sm:text-[11px] text-gray-500">
                                     {item.views} • {item.time}
                                 </span>
                             </div>
@@ -108,17 +100,17 @@ export default function FeaturedVideosPage() {
                 </div>
 
                 {/* RIGHT: SIDEBAR (30%) */}
-                <div className="col-span-3 space-y-4 rounded-xl border border-gray-200 p-4">
-                    <h3 className="font-semibold text-sm">More News</h3>
+                <div className="lg:col-span-3 space-y-3 sm:space-y-4 rounded-xl border border-gray-200 p-2 sm:p-4">
+                    <h3 className="font-semibold text-[12px] sm:text-sm">More News</h3>
 
                     {sideList.map((item, idx) => (
                         <div key={idx} className="flex gap-2">
-                            <span className="text-red-600 text-lg leading-none">●</span>
-                            <div>
-                                <p className="text-xs font-medium leading-snug">
+                            <span className="text-red-600 text-sm sm:text-lg leading-none flex-shrink-0">●</span>
+                            <div className="min-w-0">
+                                <p className="text-[10px] sm:text-xs font-medium leading-snug line-clamp-2">
                                     {item.title}
                                 </p>
-                                <span className="text-[10px] text-gray-500">
+                                <span className="text-[9px] sm:text-[10px] text-gray-500">
                                     {item.views} • {item.time}
                                 </span>
                             </div>
@@ -134,7 +126,7 @@ export default function FeaturedVideosPage() {
 
 const featuredList = [
     {
-        title: "‘You Won’t Get Greenland’: Denmark Warns Trump",
+        title: "'You Won't Get Greenland': Denmark Warns Trump",
         desc: "Denmark warns US President amid rising geopolitical tensions.",
         views: "9.7K views",
         time: "2 days ago",
@@ -151,7 +143,7 @@ const featuredList = [
     },
     {
         title: "Qatar Signals Eviction Of US Forces",
-        desc: "Qatar’s warning sends shockwaves through Washington.",
+        desc: "Qatar's warning sends shockwaves through Washington.",
         views: "9.8K views",
         time: "4 days ago",
         duration: "14:10",

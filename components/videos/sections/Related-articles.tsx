@@ -69,30 +69,30 @@ const articles: Article[] = [
 
 export default function RelatedArticles(){
   return (
-    <section className="mx-auto max-w-7xl">
-      <h2 className="mb-6 text-xl font-bold">Related Articles</h2>
+    <section className="w-full max-w-[980px] mx-auto px-2 sm:px-0">
+      <h2 className="mb-4 sm:mb-6 text-[18px] sm:text-xl font-bold">Related Articles</h2>
 
       {/* GRID — auto flows into multiple rows */}
-      <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-y-6 sm:gap-y-8 lg:gap-y-10 gap-x-3 sm:gap-x-4 lg:gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
         {articles.map((article, index) => (
           <div key={index}>
             {/* Image */}
-            <div className="relative aspect-video w-full rounded-2xl">
+            <div className="relative aspect-video w-full rounded-xl sm:rounded-2xl">
               <Image
                 src={article.image}
                 alt={article.title}
                 fill
                 className="object-cover rounded-xl"
-                sizes="(max-width: 1024px) 100vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
             </div>
 
             {/* Text */}
-            <div className="mt-3">
-              <p className="cursor-pointer text-sm font-semibold leading-snug hover:underline">
+            <div className="mt-2 sm:mt-3">
+              <p className="cursor-pointer text-[13px] sm:text-sm font-semibold leading-snug hover:underline line-clamp-3">
                 {article.title}
               </p>
-              <span className="mt-1 block text-xs text-gray-500">
+              <span className="mt-1 block text-[11px] sm:text-xs text-gray-500">
                 {article.time}
               </span>
             </div>

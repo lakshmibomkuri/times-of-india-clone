@@ -62,14 +62,14 @@ export function PhotoStories() {
 
     return (
         <section className="py-5 border-t border-dashed border-gray-300">
-            <div className="max-w-[980px] mx-auto px-0">
+            <div className="max-w-[980px] mx-auto px-4 sm:px-6 lg:px-0">
                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1 mb-2">
                     Photostories <ChevronRight className="w-4 h-4" />
                 </h2>
 
                 {/* Carousel - No horizontal scroll */}
                 <div className="relative mb-6">
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {visibleItems.map((news, idx) => (
                             <Link key={idx} href="#" className="group cursor-pointer">
                                 <div className="relative aspect-[4/3] rounded overflow-hidden mb-2">
@@ -80,7 +80,7 @@ export function PhotoStories() {
                                         className="object-cover group-hover:scale-105 transition-transform"
                                     />
                                 </div>
-                                <h3 className="text-[12px] text-[#333] group-hover:text-red-600 line-clamp-2 leading-tight">
+                                <h3 className="text-[11px] sm:text-[12px] text-[#333] group-hover:text-red-600 line-clamp-2 leading-tight">
                                     {news.title}
                                 </h3>
                             </Link>
@@ -88,7 +88,7 @@ export function PhotoStories() {
                     </div>
 
                     {/* Navigation - Dots and Arrows */}
-                    <div className="flex items-center justify-between mt-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-between mt-4 gap-3">
                         <div className="flex gap-2">
                             {Array.from({ length: totalPages }).map((_, dot) => (
                                 <button
@@ -118,7 +118,7 @@ export function PhotoStories() {
 
                 {/* In Focus Tags */}
                 <div className="mt-4 space-y-2">
-                    <div className="grid grid-flow-col auto-cols-max items-center gap-2">
+                    <div className="grid grid-flow-col auto-cols-max items-center gap-2 overflow-x-auto">
                         <span className="font-semibold text-xs whitespace-nowrap">Hot Picks</span>
                         {[
                             "Delhi rain",
@@ -142,7 +142,7 @@ export function PhotoStories() {
                         </button>
                     </div>
 
-                    <div className="grid grid-flow-col auto-cols-max items-center gap-2">
+                    <div className="grid grid-flow-col auto-cols-max items-center gap-2 overflow-x-auto">
                         <span className="font-semibold text-xs whitespace-nowrap">Top Trending</span>
                         {[
                             "Gurgaon Kidnapping Video",

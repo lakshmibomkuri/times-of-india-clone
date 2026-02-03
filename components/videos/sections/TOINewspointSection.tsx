@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
@@ -34,79 +34,96 @@ const topVideos: Video[] = [
 // TOI News Section
 // ------------------
 export default function TOINewsSection() {
-  const VIDEOS_PER_PAGE = 3;
-  const totalPages = Math.ceil(topVideos.length / VIDEOS_PER_PAGE);
-
+  const carouselRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const currentVideos = topVideos.slice(
-    page * VIDEOS_PER_PAGE,
-    page * VIDEOS_PER_PAGE + VIDEOS_PER_PAGE
-  );
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const CARD_WIDTH = isMobile ? 280 : 310;
+  const VISIBLE_CARDS = isMobile ? 1 : 3;
+  const totalPages = Math.ceil(topVideos.length / VISIBLE_CARDS);
+
+  const scrollToPage = (newPage: number) => {
+    if (!carouselRef.current) return;
+    carouselRef.current.scrollTo({
+      left: newPage * CARD_WIDTH * VISIBLE_CARDS,
+      behavior: "smooth",
+    });
+    setPage(newPage);
+  };
 
   return (
-    <section className="mb-6 max-w-[980px] relative mx-auto">
+    <section className="w-full mx-auto pt-5 sm:px-0">
       {/* Header + See All */}
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-[16px] font-bold text-[#111]">TOI Newspoint</h2>
-        <Link href="#" className="text-red-600 text-sm font-medium">
+        <h2 className="text-[16px] sm:text-[18px] font-bold text-[#111]">TOI Newspoint</h2>
+        <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium">
           See All
         </Link>
       </div>
 
-      {/* Video Row with Arrows */}
-      <div className="relative">
-        {/* Videos */}
-        <div className="flex gap-2.5">
-          {currentVideos.map((video) => (
-            <div key={video.id} className="flex-shrink-0 w-[310px]">
-              <div className="relative h-[180px] rounded-lg overflow-hidden mb-2">
+      {/* Carousel */}
+      <div className="relative overflow-hidden">
+        <div
+          ref={carouselRef}
+          className="flex gap-2 overflow-hidden scroll-smooth"
+        >
+          {topVideos.map((video) => (
+            <div key={video.id} className="w-[280px] sm:w-[310px] flex-shrink-0">
+              <div className="relative h-[160px] sm:h-[180px] rounded-lg overflow-hidden mb-2">
                 <Image
                   src={video.image}
                   alt={video.title}
                   fill
                   className="object-cover"
                 />
-                <div className="absolute bottom-2 right-2 bg-black/70 w-12 h-6 flex items-center justify-center rounded-2xl">
-                  <Play className="w-4 h-4 text-white fill-white bg-red-500 p-1 rounded-2xl" />
+                <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black/70 w-10 sm:w-12 h-5 sm:h-6 flex items-center justify-center rounded-2xl">
+                  <Play className="w-3 sm:w-4 h-3 sm:h-4 text-white fill-white bg-red-500 p-0.5 sm:p-1 rounded-2xl" />
                 </div>
               </div>
-              <p className="text-[14px] leading-snug line-clamp-2 mb-0.5">
+              <p className="text-[13px] sm:text-[14px] leading-snug line-clamp-2 mb-0.5">
                 {video.title}
               </p>
-              <span className="text-[12px] text-gray-500">
+              <span className="text-[11px] sm:text-[12px] text-gray-500">
                 {video.views} | {video.time}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Left Arrow */}
+        {/* Arrows */}
         <button
-          onClick={() => setPage(Math.max(page - 1, 0))}
+          onClick={() => scrollToPage(Math.max(page - 1, 0))}
           disabled={page === 0}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow disabled:opacity-40 z-10"
+          className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 sm:p-2 shadow z-10 disabled:opacity-40"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-4 sm:w-5 h-4 sm:h-5" />
         </button>
 
-        {/* Right Arrow */}
         <button
-          onClick={() => setPage(Math.min(page + 1, totalPages - 1))}
+          onClick={() => scrollToPage(Math.min(page + 1, totalPages - 1))}
           disabled={page === totalPages - 1}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow disabled:opacity-40 z-10"
+          className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 sm:p-2 shadow z-10 disabled:opacity-40"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-4 sm:w-5 h-4 sm:h-5" />
         </button>
       </div>
 
       {/* Pagination Dots */}
-      <div className="flex justify-center gap-2 mt-3">
+      <div className="flex justify-center gap-1 sm:gap-2 mt-3">
         {Array.from({ length: totalPages }).map((_, idx) => (
           <span
             key={idx}
-            className={`transition-all duration-300 rounded-full ${
-              idx === page ? "w-5 h-2 bg-black" : "w-2 h-2 bg-gray-300"
+            className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${
+              idx === page ? "bg-black" : "bg-gray-300"
             }`}
           />
         ))}

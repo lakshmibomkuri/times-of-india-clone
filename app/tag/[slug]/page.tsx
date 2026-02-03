@@ -10,6 +10,7 @@ import { TrendingTopicsSection } from "@/components/toi/sections/trending-topics
 import { PopularCategoriesSection } from "@/components/toi/sections/popular-categories-section";
 import { TrendingVideosSection } from "@/components/toi/sections/trending-videos-section";
 import { LatestNewsSection } from "@/components/toi/sections/latest-news-section";
+import { Footer } from "@/components/toi/footer";
 
 /* ---------- MOCK DATA ---------- */
 
@@ -70,8 +71,8 @@ export default function TagPage() {
       <div className="xl:mx-[145px]">
         <Header />
 
-        <main className="bg-white">
-          <div className="max-w-[1000px] mx-auto px-3 pt-4">
+        <main className="bg-white sm:px-6 lg:px-0">
+          <div className="max-w-[1000px] mx-auto px-3 sm:px-4 lg:px-3 pt-4">
 
             {/* Breadcrumb */}
             <div className="text-[13px] text-gray-700 mb-2">
@@ -120,7 +121,7 @@ export default function TagPage() {
 
             {/* CONTENT TABS */}
             <div className="border-b border-gray-200 mb-6">
-              <div className="flex gap-6 text-[13px]">
+              <div className="flex flex-wrap gap-3 sm:gap-6 text-[13px] overflow-x-auto">
                 {[
                   { key: "all", label: `ALL (10000)` },
                   { key: "articles", label: `ARTICLES (${articlesFull.length})` },
@@ -130,7 +131,7 @@ export default function TagPage() {
                   <button
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key as any)}
-                    className={`pb-2 border-b-2 transition-colors ${activeTab === tab.key
+                    className={`pb-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.key
                         ? "border-red-600 text-red-600 font-semibold"
                         : "border-transparent text-gray-500 hover:text-red-600"
                       }`}
@@ -159,16 +160,23 @@ export default function TagPage() {
             {activeTab === "articles" && (
               <>
                 <ArticleList articles={articles} />
-                {articlesCount < articlesFull.length && (
-                  <div className="text-center mt-6 mb-12">
+                <div className="text-center mt-6 mb-12">
+                  {articlesCount < articlesFull.length ? (
                     <button
-                      className="px-4 py-2 border border-red-600 text-red-600 font-semibold rounded hover:bg-red-50"
+                      className="px-4 py-2 border border-red-600 text-red-600 rounded hover:bg-red-50"
                       onClick={() => setArticlesCount((c) => Math.min(c + 10, articlesFull.length))}
                     >
-                      Load More
+                      Load More Articles
                     </button>
-                  </div>
-                )}
+                  ) : (
+                    <button
+                      className="px-4 py-2 border border-gray-400 text-gray-600 rounded hover:bg-gray-50"
+                      onClick={() => setArticlesCount(10)}
+                    >
+                      Load Less Articles
+                    </button>
+                  )}
+                </div>
               </>
             )}
 
@@ -176,16 +184,23 @@ export default function TagPage() {
             {activeTab === "photos" && (
               <>
                 <PhotoGrid photos={photos} />
-                {photosCount < photosFull.length && (
-                  <div className="text-center mt-6 mb-12">
+                <div className="text-center mt-6 mb-12">
+                  {photosCount < photosFull.length ? (
                     <button
-                      className="px-4 py-2 border border-red-600 text-red-600 font-semibold rounded hover:bg-red-50"
+                      className="px-4 py-2 border border-red-600 text-red-600 rounded hover:bg-red-50"
                       onClick={() => setPhotosCount((c) => Math.min(c + 8, photosFull.length))}
                     >
-                      Load More
+                      Load More Photos
                     </button>
-                  </div>
-                )}
+                  ) : (
+                    <button
+                      className="px-4 py-2 border border-gray-400 text-gray-600 rounded hover:bg-gray-50"
+                      onClick={() => setPhotosCount(8)}
+                    >
+                      Load Less Photos
+                    </button>
+                  )}
+                </div>
               </>
             )}
 
@@ -193,16 +208,23 @@ export default function TagPage() {
             {activeTab === "videos" && (
               <>
                 <VideoGrid videos={videos} />
-                {videosCount < videosFull.length && (
-                  <div className="text-center mt-6 mb-12">
+                <div className="text-center mt-6 mb-12">
+                  {videosCount < videosFull.length ? (
                     <button
-                      className="px-4 py-2 border border-red-600 text-red-600 font-semibold rounded hover:bg-red-50"
+                      className="px-4 py-2 border border-red-600 text-red-600 rounded hover:bg-red-50"
                       onClick={() => setVideosCount((c) => Math.min(c + 6, videosFull.length))}
                     >
-                      Load More
+                      Load More Videos
                     </button>
-                  </div>
-                )}
+                  ) : (
+                    <button
+                      className="px-4 py-2 border border-gray-400 text-gray-600 rounded hover:bg-gray-50"
+                      onClick={() => setVideosCount(6)}
+                    >
+                      Load Less Videos
+                    </button>
+                  )}
+                </div>
               </>
             )}
           </div>
@@ -221,7 +243,10 @@ export default function TagPage() {
 
           {/* Latest News */}
           <LatestNewsSection />
+
         </main>
+        <Footer/>
+
       </div>
     </div>
   );
@@ -233,12 +258,12 @@ function ArticleList({ articles }: any) {
   return (
     <div className="divide-y divide-gray-200 mb-8">
       {articles.map((a: any) => (
-        <article key={a.id} className="flex gap-3 py-4">
-          <div className="w-[120px] h-[80px] relative flex-shrink-0">
-            <Image src={a.image} alt={a.title} fill className="object-cover" />
+        <article key={a.id} className="flex flex-col sm:flex-row gap-3 py-4">
+          <div className="w-full sm:w-[120px] h-[200px] sm:h-[80px] relative flex-shrink-0">
+            <Image src={a.image} alt={a.title} fill className="object-cover rounded" />
           </div>
-          <div>
-            <h3 className="text-[15px] text-[#1a0dab] hover:text-red-600 font-medium">
+          <div className="flex-1">
+            <h3 className="text-[14px] sm:text-[15px] text-[#1a0dab] hover:text-red-600 font-medium line-clamp-2 sm:line-clamp-3">
               {a.title}
             </h3>
             <p className="text-[13px] text-gray-700 mt-1 line-clamp-2">
@@ -252,33 +277,33 @@ function ArticleList({ articles }: any) {
   );
 }
 
-function PhotoSection({ photosFull }: { photosFull?: any[] }) {
+function PhotoSection({ photos }: { photos?: any[] }) {
   const [photosCount, setPhotosCount] = useState(8);
 
-  // Ensure photosFull is always an array
-  const photos = (photosFull ?? []).slice(0, photosCount);
+  // Ensure photos is always an array
+  const displayPhotos = (photos ?? []).slice(0, photosCount);
 
   return (
     <section className="mt-4">
       <h2 className="text-[16px] font-bold mb-3">PHOTOS</h2>
 
-      <div className="flex gap-3 overflow-x-scroll scrolling-touch scrollbar-hide">
-        {photos.map((p: any) => (
-          <div key={p.id} className="min-w-[180px] flex-shrink-0">
-            <div className="relative w-[180px] h-[120px] rounded overflow-hidden">
+      <div className="flex gap-2 sm:gap-3 overflow-x-auto scrolling-touch scrollbar-hide pb-2">
+        {displayPhotos.map((p: any) => (
+          <div key={p.id} className="min-w-[140px] sm:min-w-[180px] flex-shrink-0">
+            <div className="relative w-[140px] sm:w-[180px] h-[100px] sm:h-[120px] rounded overflow-hidden">
               <Image src={p.image} alt={p.title} fill className="object-cover" />
             </div>
-            <p className="text-[12px] mt-1">{p.title}</p>
+            <p className="text-[11px] sm:text-[12px] mt-1 line-clamp-2">{p.title}</p>
           </div>
         ))}
       </div>
 
-      {photosCount < (photosFull ?? []).length && (
+      {photosCount < (photos ?? []).length && (
         <div className="text-center mt-4">
           <button
             className="px-4 py-2 border border-red-600 text-red-600 font-semibold rounded hover:bg-red-50"
             onClick={() =>
-              setPhotosCount((c) => Math.min(c + 8, (photosFull ?? []).length))
+              setPhotosCount((c) => Math.min(c + 8, (photos ?? []).length))
             }
           >
             Load More
@@ -289,36 +314,36 @@ function PhotoSection({ photosFull }: { photosFull?: any[] }) {
   );
 }
 
-function VideoSection({ videosFull }: { videosFull?: any[] }) {
+function VideoSection({ videos }: { videos?: any[] }) {
   const [videosCount, setVideosCount] = useState(6);
-  const videos = (videosFull ?? []).slice(0, videosCount);
+  const displayVideos = (videos ?? []).slice(0, videosCount);
 
   return (
     <section className="mt-8">
       <h2 className="text-[16px] font-bold mb-3">VIDEOS</h2>
 
-      <div className="flex gap-3 overflow-x-scroll scrolling-touch scrollbar-hide">
-        {videos.map((v: any) => (
-          <div key={v.id} className="min-w-[180px] flex-shrink-0">
-            <div className="relative w-[180px] h-[120px] rounded overflow-hidden">
+      <div className="flex gap-2 sm:gap-3 overflow-x-auto scrolling-touch scrollbar-hide pb-2">
+        {displayVideos.map((v: any) => (
+          <div key={v.id} className="min-w-[140px] sm:min-w-[180px] flex-shrink-0">
+            <div className="relative w-[140px] sm:w-[180px] h-[100px] sm:h-[120px] rounded overflow-hidden">
               <Image src={v.image} alt={v.title} fill className="object-cover" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-black/60 p-2 rounded-full">
-                  <Play className="w-4 h-4 text-white" />
+                <div className="bg-black/60 p-1.5 sm:p-2 rounded-full">
+                  <Play className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                 </div>
               </div>
             </div>
-            <p className="text-[12px] mt-1">{v.title}</p>
+            <p className="text-[11px] sm:text-[12px] mt-1 line-clamp-2">{v.title}</p>
           </div>
         ))}
       </div>
 
-      {videosCount < (videosFull ?? []).length && (
+      {videosCount < (videos ?? []).length && (
         <div className="text-center mt-4">
           <button
             className="px-4 py-2 border border-red-600 text-red-600 font-semibold rounded hover:bg-red-50"
             onClick={() =>
-              setVideosCount((c) => Math.min(c + 6, (videosFull ?? []).length))
+              setVideosCount((c) => Math.min(c + 6, (videos ?? []).length))
             }
           >
             Load More
@@ -332,13 +357,13 @@ function VideoSection({ videosFull }: { videosFull?: any[] }) {
 
 function PhotoGrid({ photos }: any) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
       {photos.map((p: any) => (
         <div key={p.id} className="rounded overflow-hidden">
-          <div className="relative w-full h-[160px]">
+          <div className="relative w-full h-[160px] sm:h-[140px] md:h-[160px]">
             <Image src={p.image} alt={p.title} fill className="object-cover" />
           </div>
-          <p className="text-[12px] mt-1">{p.title}</p>
+          <p className="text-[12px] mt-1 line-clamp-2">{p.title}</p>
         </div>
       ))}
     </div>
@@ -347,10 +372,10 @@ function PhotoGrid({ photos }: any) {
 
 function VideoGrid({ videos }: any) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
       {videos.map((v: any) => (
         <div key={v.id} className="rounded overflow-hidden">
-          <div className="relative w-full h-[160px]">
+          <div className="relative w-full h-[160px] sm:h-[140px] md:h-[160px]">
             <Image src={v.image} alt={v.title} fill className="object-cover" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-black/60 p-2 rounded-full">
@@ -358,7 +383,7 @@ function VideoGrid({ videos }: any) {
               </div>
             </div>
           </div>
-          <p className="text-[12px] mt-1">{v.title}</p>
+          <p className="text-[12px] mt-1 line-clamp-2">{v.title}</p>
         </div>
       ))}
     </div>
@@ -368,10 +393,10 @@ function VideoGrid({ videos }: any) {
 function AdSlot({ content, image }: { content: string; image: string }) {
   return (
     <div className="border border-gray-300 rounded-md p-2 my-6 text-center text-gray-600 bg-gray-50 text-sm select-none flex flex-col items-center">
-      <div className="relative w-[180px] h-[120px] mb-2">
+      <div className="relative w-[140px] sm:w-[180px] h-[100px] sm:h-[120px] mb-2">
         <Image src={image} alt={content} fill className="object-cover rounded" />
       </div>
-      {content}
+      <span className="text-xs sm:text-sm">{content}</span>
     </div>
   );
 }

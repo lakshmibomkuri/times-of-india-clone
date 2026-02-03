@@ -282,11 +282,11 @@ export default function AuthorPage() {
       {/* <SharedAdStrips /> */}
 
       {/* Main Content Area */}
-      <div className="xl:ml-[145px] xl:mr-[145px]">
+      <div className="xl:ml-[145px] xl:mr-[145px] px-2 lg:px-0">
         <Header />
 
-        <main className="bg-white">
-          <div className="max-w-[980px]">
+        <main className="bg-white md:p-4 sm:p-4">
+          <div className="max-w-[980px] w-full">
             {/* Breadcrumb */}
             <div className="flex items-center gap-1 text-[11px] text-gray-500 mb-4">
               <Link href="/" className="hover:text-red-600">NEWS</Link>
@@ -297,24 +297,24 @@ export default function AuthorPage() {
             </div>
 
             {/* Author Header Section */}
-            <div className="flex gap-8 mb-8 pb-8 border-b border-gray-200">
-              <div className="flex-1">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-gray-200">
+              <div className="flex-1 order-2 sm:order-1">
                 <p className="text-[11px] text-gray-500 uppercase tracking-wide mb-2">ABOUT THE AUTHOR</p>
-                <h1 className="text-[32px] font-serif font-bold text-gray-900 mb-3">{author.name}</h1>
+                <h1 className="text-[24px] sm:text-[32px] font-serif font-bold text-gray-900 mb-3">{author.name}</h1>
                 <p className="text-red-600 text-[13px]">{author.bio}</p>
               </div>
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 order-1 sm:order-2 self-center sm:self-start">
                 <Image
                   src={author.image || "/placeholder.svg"}
                   alt={author.name}
-                  width={150}
-                  height={150}
-                  className="rounded"
+                  width={120}
+                  height={120}
+                  className="rounded sm:w-[150px] sm:h-[150px]"
                 />
               </div>
             </div>
 
-            <div className="flex gap-8">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
               {/* Main Content - Left Column */}
               <div className="flex-1">
                 {/* Section Header */}
@@ -327,13 +327,13 @@ export default function AuthorPage() {
                   {articles.map((article) => (
                     <div
                       key={article.id}
-                      className="flex gap-4 pb-6 border-b border-gray-100"
+                      className="flex flex-col sm:flex-row gap-3 sm:gap-4 pb-6 border-b border-gray-100"
                     >
 
 
                       {/* Left: Avatar + Author Name */}
                       {/* Left: Avatar + Author Name (same line) */}
-                      <div className="flex-shrink-0 w-[140px]">
+                      <div className="flex-shrink-0 sm:w-[140px]">
                         <div className="flex items-center gap-2">
                           <div className="bg-gray-100 rounded-full overflow-hidden w-[35px] h-[35px]">
                             <img
@@ -343,7 +343,7 @@ export default function AuthorPage() {
                             />
                           </div>
                           <p className="text-[12px] font-semibold text-gray-900 leading-tight">
-                            Duvvuri<br />Subbarao
+                            Duvvuri<br className="hidden sm:block" /><span className="sm:hidden"> </span>Subbarao
                           </p>
                         </div>
                       </div>
@@ -358,14 +358,14 @@ export default function AuthorPage() {
                         )}
 
                         <Link href={`/article/${article.id}`}>
-                          <h3 className="text-[16px] font-bold text-gray-900 hover:text-red-600 mb-1 leading-tight">
+                          <h3 className="text-[14px] sm:text-[16px] font-bold text-gray-900 hover:text-red-600 mb-1 leading-tight">
                             {article.title}
                           </h3>
                         </Link>
 
                         <p className="text-[11px] text-gray-500 mb-2">{article.date}</p>
 
-                        <p className="text-[12px] text-gray-600 mb-2 leading-relaxed">
+                        <p className="text-[12px] text-gray-600 mb-2 leading-relaxed line-clamp-3 sm:line-clamp-none">
                           {article.excerpt}
                         </p>
 
@@ -412,7 +412,7 @@ export default function AuthorPage() {
               </div>
          
               {/* Right Sidebar */}
-              <aside className="hidden lg:block w-[300px] flex-shrink-0">
+              <aside className="w-full lg:w-[300px] flex-shrink-0">
                 {/* Write for TOI Voices Button */}
                 <Link
                   href="#"

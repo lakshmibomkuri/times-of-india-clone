@@ -175,7 +175,7 @@ const nflNewsSection = {
     },
     {
       image:
-        "https://images.pexels.com/photos/59944/american-football-sport-football-field-59944.jpeg?auto=compress&cs=tinysrgb&w=300",
+        "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg",
       title: "Rivalry games heating up the NFL season",
     },
     {
@@ -210,7 +210,8 @@ const nflNewsSection = {
 
 const nbaNewsSection = {
   lead: {
-    image: "https://images.pexels.com/photos/70274/pexels-photo-70274.jpeg?auto=compress&cs=tinysrgb&w=700",
+    image:
+      "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=700",
     title:
       "LeBron James leads Lakers to a thrilling overtime win against the Warriors",
   },
@@ -225,54 +226,65 @@ const nbaNewsSection = {
 
   rightStories: [
     {
-      image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=100",
+      image:
+        "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=100",
       title: "Kevin Durant discusses his playoff mindset ahead of Finals",
     },
     {
-      image: "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=100",
+      image:
+        "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=100",
       title: "Luka Doncic dazzles fans with triple-double against Rockets",
     },
     {
-      image: "https://images.pexels.com/photos/1099196/pexels-photo-1099196.jpeg?auto=compress&cs=tinysrgb&w=100",
+      image:
+        "https://images.pexels.com/photos/1099196/pexels-photo-1099196.jpeg?auto=compress&cs=tinysrgb&w=100",
       title: "NBA trade rumors heat up as deadline approaches",
     },
     {
-      image: "https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg?auto=compress&cs=tinysrgb&w=100",
+      image:
+        "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=100",
       title: "Celtics’ defense proves unstoppable in latest matchup",
     },
     {
-      image: "https://images.pexels.com/photos/1100774/pexels-photo-1100774.jpeg?auto=compress&cs=tinysrgb&w=100",
+      image:
+        "https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?auto=compress&cs=tinysrgb&w=100",
       title: "Top 10 dunks of the week: NBA highlights",
     },
     {
-      image: "https://images.pexels.com/photos/1100765/pexels-photo-1100765.jpeg?auto=compress&cs=tinysrgb&w=100",
+      image:
+        "https://images.pexels.com/photos/976873/pexels-photo-976873.jpeg?auto=compress&cs=tinysrgb&w=100",
       title: "Injury report: Key players to watch for upcoming games",
     },
   ],
 
   bottomCards: [
     {
-      image: "https://images.pexels.com/photos/3953092/pexels-photo-3953092.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image:
+        "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=300",
       title:
         "Inside the locker room: How top NBA teams prepare for playoff intensity",
     },
     {
-      image: "https://images.pexels.com/photos/4214036/pexels-photo-4214036.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image:
+        "https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?auto=compress&cs=tinysrgb&w=300",
       title:
         "NBA All-Star voting heats up as fan favorites battle for a spot",
     },
     {
-      image: "https://images.pexels.com/photos/3885790/pexels-photo-3885790.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image:
+        "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=300",
       title:
         "Rising stars: 5 young players changing the NBA landscape this season",
     },
     {
-      image: "https://images.pexels.com/photos/1457367/pexels-photo-1457367.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image:
+        "https://images.pexels.com/photos/976873/pexels-photo-976873.jpeg?auto=compress&cs=tinysrgb&w=300",
       title:
         "Coaching spotlight: Strategies behind the league’s best defensive teams",
     },
   ],
 };
+
 const badmintonNewsSection = {
   lead: {
     image: "https://picsum.photos/seed/cricket-main/500/300",
@@ -408,7 +420,7 @@ const nhlNewsSection = {
     },
     {
       image:
-        "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&q=80",
+        "https://picsum.photos/400/250?random=1",
       title:
         "Preview: Can the Avalanche keep their winning streak alive?",
     },
@@ -420,7 +432,7 @@ const nhlNewsSection = {
     },
     {
       image:
-        "https://images.unsplash.com/photo-1490150395788-1fe12b141fa5?auto=format&fit=crop&w=400&q=80",
+        "https://picsum.photos/400/250?random=2",
       title:
         "Fan reactions: best moments from last weekend",
     },
@@ -499,8 +511,7 @@ const EsportsNewsSection = {
 };
 const wweNewsSection = {
   lead: {
-    image:
-      "https://images.unsplash.com/photos/a-couple-of-people-that-are-wrestling-in-a-ring-tpFAubPKw7Y?auto=format&fit=crop&w=800&q=80",
+    image: "https://picsum.photos/id/1011/800/400", // arena/action vibe
     title:
       "Epic wrestling showdown electrizes crowd with unforgettable finishing move",
   },
@@ -515,68 +526,58 @@ const wweNewsSection = {
 
   rightStories: [
     {
-      image:
-        "https://images.unsplash.com/photos/a-couple-of-people-that-are-wrestling-in-a-ring-tpFAubPKw7Y?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1025/200/200", // athlete/action
       title: "High‑impact action thrills live arena audience",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-in-a-wrestling-match-with-a-crowd-watching-uHx-_x-WaJs?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1035/200/200", // stadium/crowd
       title: "Two wrestlers clash intensely in crowd match",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-grappling-intensely-on-a-mat-D100o5TDCys?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1024/200/200", // energetic/action vibe
       title: "Grappling duel becomes instant highlight reel",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-in-a-wrestling-match-with-a-crowd-watching-uHx-_x-WaJs?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1036/200/200", // crowd
       title: "Crowd roars as rivals trade signature moves",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/a-couple-of-people-that-are-wrestling-in-a-ring-tpFAubPKw7Y?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1015/200/200", // arena/action
       title: "Arena erupts with chant after thrilling twist",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-grappling-intensely-on-a-mat-D100o5TDCys?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1022/200/200", // action/sports vibe
       title: "Tactical takedown heats up mid‑show segment",
     },
   ],
 
   bottomCards: [
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-in-a-wrestling-match-with-a-crowd-watching-uHx-_x-WaJs?auto=format&fit=crop&w=400&q=80",
+      image: "https://picsum.photos/id/1019/400/250", // action/crowd
       title:
         "Backstage insights: Wrestler strategies ahead of title defense",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/a-couple-of-people-that-are-wrestling-in-a-ring-tpFAubPKw7Y?auto=format&fit=crop&w=400&q=80",
+      image: "https://picsum.photos/id/1011/400/250", // arena/action
       title:
         "Match recap: Best moments from last night’s main event",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-grappling-intensely-on-a-mat-D100o5TDCys?auto=format&fit=crop&w=400&q=80",
+      image: "https://picsum.photos/id/1024/400/250", // energetic/action
       title:
         "Analyst breakdown: key moves that defined the bout",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/two-wrestlers-in-a-wrestling-match-with-a-crowd-watching-uHx-_x-WaJs?auto=format&fit=crop&w=400&q=80",
+      image: "https://picsum.photos/id/1036/400/250", // crowd
       title:
         "Fan reactions: crowd highlights you might have missed",
     },
   ],
 };
+
 const mlbNewsSection = {
   lead: {
-    image:
-      "https://images.unsplash.com/photos/people-playing-baseball-on-field-during-daytime-Jxr2dJZ656Q?auto=format&fit=crop&w=800&q=80",
+    image: "https://picsum.photos/id/1012/800/400", // stadium/action vibe
     title: "Thrilling MLB matchup sees walk‑off victory in late inning showdown",
   },
 
@@ -585,69 +586,56 @@ const mlbNewsSection = {
     "Star slugger belts 2 home runs in explosive offensive showing",
     "Yankees rally late to clinch key divisional game",
     "MLB lockout rumors swirl as owners push for new salary cap talks",
-    "Field of Dreams game returns with cinematic matchup excitement", // based on news context :contentReference[oaicite:1]{index=1}
+    "Field of Dreams game returns with cinematic matchup excitement",
   ],
 
   rightStories: [
     {
-      image:
-        "https://images.unsplash.com/photos/baseball-players-playing-baseball-on-baseball-field-ZpQqbXGZD5o?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1020/200/200", // action
       title: "Epic double play electrifies crowd and halts rally",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/baseball-players-on-field-KhVKQWINFvQ?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1021/200/200", // outdoor/stadium
       title: "Pitcher duels for complete game in gritty mound performance",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/people-playing-baseball-on-field-during-daytime-tz_mvwuJGWs?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1022/200/200", // crowd/action
       title: "Crowd cheers as bat cracks fresh off big hit",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/baseball-players-on-field-KhVKQWINFvQ?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1021/200/200",
       title: "Defensive gem saves run, sparks team momentum",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/people-playing-baseball-on-field-during-daytime-Jxr2dJZ656Q?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1012/200/200",
       title: "Starter exits with career‑high strikeouts",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/baseball-players-on-field-KhVKQWINFvQ?auto=format&fit=crop&w=200&q=80",
+      image: "https://picsum.photos/id/1023/200/200", // sports/action feel
       title: "Bullpen shines in critical relief appearance",
     },
   ],
 
   bottomCards: [
     {
-      image:
-        "https://images.unsplash.com/photos/people-playing-baseball-on-field-during-daytime-Jxr2dJZ656Q?auto=format&fit=crop&w=400&q=80",
-      title:
-        "MLB midseason outlook: teams jockeying for playoff positioning",
+      image: "https://picsum.photos/id/1012/400/250",
+      title: "MLB midseason outlook: teams jockeying for playoff positioning",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/baseball-players-playing-baseball-on-baseball-field-ZpQqbXGZD5o?auto=format&fit=crop&w=400&q=80",
-      title:
-        "All‑Star Game previews: top talents selected from around the league",
+      image: "https://picsum.photos/id/1020/400/250",
+      title: "All‑Star Game previews: top talents selected from around the league",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/people-playing-baseball-on-field-during-daytime-tz_mvwuJGWs?auto=format&fit=crop&w=400&q=80",
-      title:
-        "Roster moves and trades shaking up the pennant races",
+      image: "https://picsum.photos/id/1022/400/250",
+      title: "Roster moves and trades shaking up the pennant races",
     },
     {
-      image:
-        "https://images.unsplash.com/photos/baseball-players-on-field-KhVKQWINFvQ?auto=format&fit=crop&w=400&q=80",
-      title:
-        "World Series champions look to defend title in another dominant run",
+      image: "https://picsum.photos/id/1023/400/250",
+      title: "World Series champions look to defend title in another dominant run",
     },
   ],
 };
+
 const mmaNewsSection = {
   lead: {
     image: "https://picsum.photos/seed/cricket-main/500/300",
@@ -719,106 +707,6 @@ const mmaNewsSection = {
     },
   ],
 };
-
-
-
-
-// const sportsData = {
-//   liveMatches: [
-//     {
-//       series: "3rd ODI • England tour of Sri Lanka",
-//       teamA: { code: "ENG", flag: "https://flagcdn.com/w40/gb.png" },
-//       teamB: { code: "SL", flag: "https://flagcdn.com/w40/lk.png" },
-//       score: "ENG 275/3",
-//       status: "LIVE",
-//       time: "45.2 overs",
-//     },
-//     {
-//       series: "1st T20I • West Indies tour of South Africa",
-//       teamA: { code: "SA", flag: "https://flagcdn.com/w40/za.png" },
-//       teamB: { code: "WI", flag: "https://flagcdn.com/w40/jm.png" },
-//       score: "Starts at 7:00 PM",
-//       status: "UPCOMING",
-//       time: "Today",
-//     },
-//     {
-//       series: "4th T20I • New Zealand tour of India",
-//       teamA: { code: "IND", flag: "https://flagcdn.com/w40/in.png" },
-//       teamB: { code: "NZ", flag: "https://flagcdn.com/w40/nz.png" },
-//       score: "IND won by 6 wkts",
-//       status: "COMPLETED",
-//     },
-//     {
-//       series: "2nd Test • Australia tour of Pakistan",
-//       teamA: { code: "AUS", flag: "https://flagcdn.com/w40/au.png" },
-//       teamB: { code: "PAK", flag: "https://flagcdn.com/w40/pk.png" },
-//       score: "PAK 145/4",
-//       status: "LIVE",
-//       time: "Day 2 • Session 3",
-//     },
-//     {
-//       series: "Final • Big Bash League",
-//       teamA: { code: "SYD", flag: "https://flagcdn.com/w40/au.png" },
-//       teamB: { code: "MEL", flag: "https://flagcdn.com/w40/au.png" },
-//       score: "Match starts in 2h",
-//       status: "UPCOMING",
-//       time: "7:30 PM AEST",
-//     },
-//     {
-//       series: "Semi-Final • ICC U19 World Cup 2026",
-//       teamA: { code: "IND", flag: "https://flagcdn.com/w40/in.png" },
-//       teamB: { code: "BAN", flag: "https://flagcdn.com/w40/bd.png" },
-//       score: "IND won by 42 runs",
-//       status: "COMPLETED",
-//     },
-//     {
-//       series: "Qualifier • SA20 League",
-//       teamA: { code: "JSK", flag: "https://flagcdn.com/w40/za.png" },
-//       teamB: { code: "SEC", flag: "https://flagcdn.com/w40/za.png" },
-//       score: "JSK 112/2",
-//       status: "LIVE",
-//       time: "13.4 overs",
-//     },
-//   ],
-//   lead: {
-//     image: "https://picsum.photos/seed/lead/600/360",
-//     title: "U19 WC: Vihaan Malhotra slams century vs Zimbabwe",
-//     desc:
-//       "India vs Zimbabwe Live Score, U19 World Cup 2026: Zimbabwe won the toss...",
-//   },
-
-//   middle: [
-//     {
-//       image: "https://picsum.photos/seed/m1/300/180",
-//       title:
-//         "The day Djokovic broke Federer–Nadal duopoly — and began rewriting tennis history",
-//     },
-//     {
-//       image: "https://picsum.photos/seed/m2/300/180",
-//       title:
-//         "Politics should be eradicated: Ex-Pakistan cricketer issues blunt warning",
-//     },
-//   ],
-
-//   rightAd: {
-//     image: "https://picsum.photos/seed/ad/300/600",
-//   },
-
-//   bottom: [
-//     {
-//       image: "https://picsum.photos/seed/b1/300/200",
-//       title: "ICC U19 World Cup 2026 Live Score: Pakistan vs New Zealand",
-//     },
-//     {
-//       image: "https://picsum.photos/seed/b2/300/200",
-//       title: "It’s been chaos: NZ bowling coach on facing Abhishek Sharma",
-//     },
-//     {
-//       image: "https://picsum.photos/seed/b3/300/200",
-//       title: "He deserves another chance: Ex-India captain backs youngster",
-//     },
-//   ],
-// };
 
 const sportsData = {
   liveMatches: [
@@ -1076,20 +964,20 @@ export default function CategoryPage() {
       <div className="xl:mx-[145px]">
         <Header />
 
-        <main className="bg-white">
-          <div>
+        <main className="bg-white px-2">
+          <div className="max-w-[980px] mx-auto">
             {/* main live new curosol */}
-            <section className="mt-5 rounded-lg max-w-[980px]">
+            <section className="mt-3 sm:mt-5 rounded-lg">
 
               {/* ================= TITLE ================= */}
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-m font-bold tracking-wide">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <h2 className="text-sm sm:text-base font-bold tracking-wide">
                   SPORTS NEWS
                 </h2>
               </div>
 
               {/* ================= LIVE MATCH STRIP ================= */}
-              <div className="relative mb-6 rounded-xl overflow-hidden p-3">
+              <div className="relative mb-4 sm:mb-6 rounded-xl overflow-hidden p-2 sm:p-3">
 
                 {/* BLUE–BLACK BANNER */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-800 to-black" />
@@ -1099,49 +987,50 @@ export default function CategoryPage() {
                   {/* SCROLL AREA */}
                   <div
                     ref={scrollRef}
-                    className="flex gap-4 overflow-x-hidden scroll-smooth p-3"
+                    className="flex gap-2 sm:gap-4 overflow-x-hidden scroll-smooth p-2 sm:p-3"
                   >
                     {sportsData.liveMatches.map((m, i) => (
                       <div
                         key={i}
-                        className={`min-w-[300px] rounded-lg overflow-hidden text-white border border-white/10 shadow-md${m.status === "LIVE"
-                          ? "bg-pink-600"
-                          : m.status === "COMPLETED"
+                        className={`min-w-[250px] sm:min-w-[300px] rounded-lg overflow-hidden text-white border border-white/10 shadow-md ${
+                          m.status === "LIVE"
+                            ? "bg-pink-600"
+                            : m.status === "COMPLETED"
                             ? "bg-green-600"
                             : "bg-red-600"
-                          }`}
+                        }`}
                       >
                         {/* CARD BODY */}
-                        <div className="p-4">
+                        <div className="p-3 sm:p-4">
 
                           {/* STATUS BADGE */}
-                          <span className="text-[10px] px-2 py-[2px] rounded font-bold inline-block bg-white/30">
+                          <span className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-[2px] rounded font-bold inline-block bg-white/30">
                             {m.status}
                           </span>
 
                           {/* TEAMS */}
-                          <div className="flex items-center gap-3 mt-3">
-                            <div className="flex items-center gap-2">
-                              <Image src={m.teamA.flag} alt="" width={24} height={16} />
-                              <span className="font-semibold">{m.teamA.code}</span>
+                          <div className="flex items-center gap-2 sm:gap-3 mt-2 sm:mt-3">
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                              <Image src={m.teamA.flag} alt="" width={20} height={14} className="sm:w-6 sm:h-4" />
+                              <span className="font-semibold text-sm sm:text-base">{m.teamA.code}</span>
                             </div>
 
-                            <span className="text-xs text-white/70">vs</span>
+                            <span className="text-[10px] sm:text-xs text-white/70">vs</span>
 
-                            <div className="flex items-center gap-2">
-                              <Image src={m.teamB.flag} alt="" width={24} height={16} />
-                              <span className="font-semibold">{m.teamB.code}</span>
+                            <div className="flex items-center gap-1.5 sm:gap-2">
+                              <Image src={m.teamB.flag} alt="" width={20} height={14} className="sm:w-6 sm:h-4" />
+                              <span className="font-semibold text-sm sm:text-base">{m.teamB.code}</span>
                             </div>
                           </div>
 
                           {/* SCORE / TIME */}
-                          <p className="text-lg font-bold mt-2">{m.score}</p>
-                          <p className="text-xs mt-1">{m.series}</p>
-                          {m.time && <p className="text-xs text-white/80 mt-1">{m.time}</p>}
+                          <p className="text-base sm:text-lg font-bold mt-1.5 sm:mt-2">{m.score}</p>
+                          <p className="text-[10px] sm:text-xs mt-1">{m.series}</p>
+                          {m.time && <p className="text-[10px] sm:text-xs text-white/80 mt-1">{m.time}</p>}
                         </div>
 
                         {/* ACTION BAR */}
-                        <div className="bg-white px-4 py-2 flex justify-between items-center text-xs text-black font-semibold">
+                        <div className="bg-white px-3 sm:px-4 py-1.5 sm:py-2 flex justify-between items-center text-[10px] sm:text-xs text-black font-semibold">
                           {m.status === "UPCOMING" && (
                             <button className="hover:underline">Match Cards</button>
                           )}
@@ -1161,28 +1050,29 @@ export default function CategoryPage() {
                   </div>
 
                   {/* DOTS */}
-                  <div className="flex justify-center gap-2 mt-4">
+                  <div className="flex justify-center gap-1.5 sm:gap-2 mt-3 sm:mt-4">
                     {sportsData.liveMatches.map((_, i) => (
                       <button
                         key={i}
                         onClick={() => scrollTo(i)}
-                        className={`w-2 h-2 rounded-full ${active === i ? "bg-white" : "bg-white/40"
-                          }`}
+                        className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full ${
+                          active === i ? "bg-white" : "bg-white/40"
+                        }`}
                       />
                     ))}
                   </div>
                 </div>
                 {/* ARROWS (BOTTOM RIGHT) */}
-                <div className="absolute bottom-2 right-4 flex gap-2">
+                <div className="absolute bottom-1 sm:bottom-2 right-2 sm:right-4 flex gap-1.5 sm:gap-2">
                     <button
                       onClick={prev}
-                      className="bg-white/90 text-black rounded-full w-8 h-8 flex items-center justify-center"
+                      className="bg-white/90 text-black rounded-full w-6 sm:w-8 h-6 sm:h-8 flex items-center justify-center text-sm sm:text-base"
                     >
                       ‹
                     </button>
                     <button
                       onClick={next}
-                      className="bg-white/90 text-black rounded-full w-8 h-8 flex items-center justify-center"
+                      className="bg-white/90 text-black rounded-full w-6 sm:w-8 h-6 sm:h-8 flex items-center justify-center text-sm sm:text-base"
                     >
                       ›
                     </button>
@@ -1191,32 +1081,32 @@ export default function CategoryPage() {
 
 
               {/* ================= MAIN CONTENT ================= */}
-              <div className="grid grid-cols-12 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
 
                 {/* ===== LEFT SIDE ===== */}
-                <div className="col-span-9">
+                <div className="lg:col-span-9">
 
-                  <div className="grid grid-cols-12 gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
 
                     {/* BIG STORY */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <Image
                         src={sportsData.lead.image}
                         alt=""
                         width={700}
                         height={400}
-                        className="rounded-lg mb-3"
+                        className="rounded-lg mb-2 sm:mb-3 w-full h-auto"
                       />
-                      <h3 className="text-[18px] font-bold leading-snug mb-2">
+                      <h3 className="text-base sm:text-[18px] font-bold leading-snug mb-1 sm:mb-2">
                         {sportsData.lead.title}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-xs sm:text-sm text-gray-600">
                         {sportsData.lead.desc}
                       </p>
                     </div>
 
                     {/* MIDDLE STACK */}
-                    <div className="col-span-5 space-y-4">
+                    <div className="lg:col-span-5 space-y-3 sm:space-y-4">
                       {sportsData.middle.map((item, i) => (
                         <div key={i}>
                           <Image
@@ -1224,9 +1114,9 @@ export default function CategoryPage() {
                             alt=""
                             width={400}
                             height={240}
-                            className="rounded mb-2"
+                            className="rounded mb-1 sm:mb-2 w-full h-auto"
                           />
-                          <p className="text-sm font-semibold leading-snug">
+                          <p className="text-xs sm:text-sm font-semibold leading-snug">
                             {item.title}
                           </p>
                         </div>
@@ -1237,27 +1127,28 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ===== RIGHT SIDE AD ===== */}
-                <div className="col-span-3">
+                <div className="lg:col-span-3 hidden lg:block">
                   <Image
                     src={sportsData.rightAd.image}
                     alt=""
                     width={300}
                     height={600}
+                    className="w-full h-auto"
                   />
                 </div>
 
                 {/* ===== BOTTOM STORIES ===== */}
-                <div className="grid grid-cols-3 gap-4 mt-6 col-span-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-4 sm:mt-6 lg:col-span-12">
                   {sportsData.bottom.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={120}
                         height={80}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[120px] h-[60px] sm:h-[80px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -1267,24 +1158,24 @@ export default function CategoryPage() {
               </div>
             </section>
             {/* videoes section */}
-            <section className="bg-black px-6 py-6 text-white mt-5">
+            <section className="bg-black px-3 sm:px-6 py-4 sm:py-6 text-white mt-3 sm:mt-5">
               {/* Header */}
-              <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-xl font-bold">
+              <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <h2 className="text-lg sm:text-xl font-bold">
                   Sports Videos <span className="opacity-60">›</span>
                 </h2>
 
-                <div className="flex gap-6 text-sm text-gray-400">
-                  <button className="font-semibold text-white">Featured</button>
-                  <button className="hover:text-white">Cricket</button>
-                  <button className="hover:text-white">Football</button>
-                  <button className="hover:text-white">Tennis</button>
-                  <button className="hover:text-white">Top Tennis Videos</button>
+                <div className="flex gap-3 sm:gap-6 text-xs sm:text-sm text-gray-400 overflow-x-auto">
+                  <button className="font-semibold text-white whitespace-nowrap">Featured</button>
+                  <button className="hover:text-white whitespace-nowrap">Cricket</button>
+                  <button className="hover:text-white whitespace-nowrap">Football</button>
+                  <button className="hover:text-white whitespace-nowrap">Tennis</button>
+                  <button className="hover:text-white whitespace-nowrap">Top Tennis Videos</button>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="grid grid-cols-[1.4fr_1fr] gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4 sm:gap-6">
                 {/* Featured Video */}
                 <div>
                   <div className="relative aspect-video overflow-hidden rounded-lg">
@@ -1295,18 +1186,18 @@ export default function CategoryPage() {
                       className="object-cover"
                       unoptimized
                     />
-                    <span className="absolute bottom-2 left-2 rounded bg-red-600 px-2 py-1 text-xs font-semibold">
+                    <span className="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 rounded bg-red-600 px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold">
                       ▶ {videos[0].duration}
                     </span>
                   </div>
 
-                  <h3 className="mt-3 text-lg font-semibold leading-snug">
+                  <h3 className="mt-2 sm:mt-3 text-base sm:text-lg font-semibold leading-snug">
                     {videos[0].title}
                   </h3>
                 </div>
 
                 {/* Right Grid */}
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
                   {videos.slice(1).map((video) => (
                     <div key={video.id}>
                       <div className="relative aspect-video overflow-hidden rounded-md">
@@ -1317,12 +1208,12 @@ export default function CategoryPage() {
                           className="object-cover"
                           unoptimized
                         />
-                        <span className="absolute bottom-1 left-1 rounded bg-red-600 px-1.5 py-0.5 text-[11px] font-semibold">
+                        <span className="absolute bottom-0.5 sm:bottom-1 left-0.5 sm:left-1 rounded bg-red-600 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[11px] font-semibold">
                           ▶ {video.duration}
                         </span>
                       </div>
 
-                      <p className="mt-2 text-xs leading-snug text-gray-200">
+                      <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs leading-snug text-gray-200">
                         {video.title}
                       </p>
                     </div>
@@ -1331,25 +1222,25 @@ export default function CategoryPage() {
               </div>
             </section>
             {/* cricket news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">CRICKET NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">CRICKET NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={cricketNewsSection.lead.image}
@@ -1359,19 +1250,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {cricketNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {cricketNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== cricketNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== cricketNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1382,7 +1273,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {cricketNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -1390,9 +1281,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -1402,17 +1293,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {cricketNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -1422,47 +1313,47 @@ export default function CategoryPage() {
               </div>
             </section>
             {/* foot ball news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">FOOT BALL NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">FOOT BALL NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={footballNewsSection.lead.image}
                           alt=""
                           width={700}
                           height={420}
-                          className="w-full h-[250px]"
+                          className="w-full h-[200px] sm:h-[250px] object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {footballNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {footballNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== footballNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== footballNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1473,7 +1364,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {footballNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -1481,9 +1372,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -1493,30 +1384,30 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4">
                   {/* Sponsored Ad */}
-                  <div className="border rounded-lg p-3 bg-white shadow-sm">
-                    <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">
+                  <div className="border rounded-lg p-2 sm:p-3 bg-white shadow-sm">
+                    <p className="text-[10px] sm:text-xs text-gray-400 mb-1 sm:mb-2 uppercase tracking-wide">
                       Sponsored
                     </p>
 
                     <Image
-                      src="/ads/cricket-ad.jpg" // dummy ad image
+                      src="https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg" // dummy ad image
                       alt="Ad"
                       width={300}
                       height={180}
-                      className="rounded mb-2"
+                      className="rounded mb-1.5 sm:mb-2 w-full h-auto"
                     />
 
-                    <h3 className="text-sm font-semibold leading-snug mb-1">
+                    <h3 className="text-xs sm:text-sm font-semibold leading-snug mb-1">
                       Win Big This IPL Season 🏏
                     </h3>
 
-                    <p className="text-xs text-gray-600 mb-2">
+                    <p className="text-[10px] sm:text-xs text-gray-600 mb-1.5 sm:mb-2">
                       Join millions playing fantasy cricket. Cash prizes every match.
                     </p>
 
-                    <button className="w-full text-sm bg-green-600 text-white py-1.5 rounded hover:bg-green-700 transition">
+                    <button className="w-full text-xs sm:text-sm bg-green-600 text-white py-1 sm:py-1.5 rounded hover:bg-green-700 transition">
                       Play Now
                     </button>
                   </div>
@@ -1526,47 +1417,47 @@ export default function CategoryPage() {
             </section>
 
             {/* nlf news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">NLF NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">NLF NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={nflNewsSection.lead.image}
                           alt=""
                           width={700}
                           height={420}
-                          className="w-full h-[250px]"
+                          className="w-full h-[200px] sm:h-[250px] object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {nflNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {nflNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== nflNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== nflNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1577,7 +1468,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {nflNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -1585,9 +1476,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full h-[100px]"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-[80px] sm:h-[100px] object-cover"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -1597,17 +1488,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {nflNewsSection.rightSideCards.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -1618,25 +1509,25 @@ export default function CategoryPage() {
             </section>
 
             {/* nba news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">NBA NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">NBA NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={nbaNewsSection.lead.image}
@@ -1646,19 +1537,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {nbaNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {nbaNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== nbaNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== nbaNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1669,7 +1560,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {nbaNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -1677,9 +1568,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full h-[100px]"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-[80px] sm:h-[100px] object-cover"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -1689,17 +1580,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {nbaNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0 h-[60px]"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[48px] sm:h-[60px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -1710,13 +1601,13 @@ export default function CategoryPage() {
             </section>
             <TenninsSection />
             {/* add section */}
-            <section className="max-w-full bg-[#dca6a4] rounded-lg overflow-hidden relative select-none">
-              <div className="flex items-center px-4 py-2 gap-4 max-w-[1200px] mx-auto">
+            <section className="w-full bg-[#dca6a4] rounded-lg overflow-hidden relative select-none">
+              <div className="flex flex-col sm:flex-row items-center px-2 sm:px-4 py-2 sm:py-2 gap-2 sm:gap-4 max-w-[1200px] mx-auto">
 
                 {/* Left: Cartoon farmer in speech bubble */}
-                <div className="relative flex-shrink-0 w-36">
+                <div className="relative flex-shrink-0 w-20 sm:w-28 lg:w-36">
                   {/* Speech bubble */}
-                  <div className="absolute -top-6 left-10 bg-white rounded-full px-4 py-2 shadow-sm text-sm font-semibold text-[#b85b5b] z-10">
+                  <div className="absolute -top-4 sm:-top-6 left-6 sm:left-8 lg:left-10 bg-white rounded-full px-2 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 shadow-sm text-xs sm:text-sm font-semibold text-[#b85b5b] z-10">
                     किसान ध्यान दें
                   </div>
                   <Image
@@ -1724,62 +1615,62 @@ export default function CategoryPage() {
                     alt="Cartoon Farmer"
                     width={120}
                     height={120}
-                    className="rounded-full"
+                    className="rounded-full w-16 sm:w-24 lg:w-[120px] h-16 sm:h-24 lg:h-[120px]"
                   />
                 </div>
 
                 {/* Middle: Main text */}
-                <div className="flex-grow text-center text-white font-semibold">
-                  <p className="text-lg md:text-xl">राष्ट्रीय कृषि सुरक्षा अभियान</p>
-                  <p className="text-sm md:text-base mt-1">(1 फरवरी से 28 फरवरी 2026 तक)</p>
+                <div className="flex-grow text-center text-white font-semibold px-2">
+                  <p className="text-sm sm:text-base lg:text-lg xl:text-xl">राष्ट्रीय कृषि सुरक्षा अभियान</p>
+                  <p className="text-xs sm:text-sm lg:text-base mt-1">(1 फरवरी से 28 फरवरी 2026 तक)</p>
 
-                  <p className="text-yellow-300 font-bold text-2xl md:text-3xl mt-2">
+                  <p className="text-yellow-300 font-bold text-base sm:text-lg lg:text-2xl xl:text-3xl mt-1 sm:mt-2">
                     सही समय पर बीज बोओ, खुशहाली लाओ
                   </p>
                 </div>
 
                 {/* Right: Farmer on tractor image */}
-                <div className="relative flex-shrink-0 w-36">
+                <div className="relative flex-shrink-0 w-20 sm:w-28 lg:w-36">
                   <Image
                     src="https://i.ibb.co/87y4qrs/farmer-tractor.png"
                     alt="Farmer on tractor"
                     width={120}
                     height={120}
-                    className="rounded"
+                    className="rounded w-16 sm:w-24 lg:w-[120px] h-16 sm:h-24 lg:h-[120px]"
                   />
                   {/* Small overlay warning text */}
-                  <div className="absolute bottom-0 right-0 bg-red-700 bg-opacity-80 text-xs text-white px-1 rounded-tl">
+                  <div className="absolute bottom-0 right-0 bg-red-700 bg-opacity-80 text-[10px] sm:text-xs text-white px-1 rounded-tl">
                     कीटनाशक सही मात्रा में लगाएं
                   </div>
                 </div>
               </div>
 
               {/* Bottom branding bar */}
-              <div className="bg-[#a82c2c] text-white text-xs py-1 px-4 flex items-center justify-between max-w-[1200px] mx-auto">
-                <span>कृषि विभाग, उत्तर प्रदेश</span>
-                <span className="opacity-60">सुरक्षा एवं जागरूकता अभियान 2026</span>
+              <div className="bg-[#a82c2c] text-white text-xs py-1 px-2 sm:px-4 flex flex-col sm:flex-row items-center justify-between max-w-[1200px] mx-auto gap-1 sm:gap-0">
+                <span className="text-center sm:text-left">कृषि विभाग, उत्तर प्रदेश</span>
+                <span className="opacity-60 text-center sm:text-right">सुरक्षा एवं जागरूकता अभियान 2026</span>
               </div>
             </section>
 
             {/* batmiton news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">BADMINTON NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">BADMINTON NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={badmintonNewsSection.lead.image}
@@ -1789,19 +1680,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {badmintonNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {badmintonNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== badmintonNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== badmintonNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1812,7 +1703,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {badmintonNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -1820,9 +1711,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -1832,17 +1723,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {badmintonNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -1853,25 +1744,25 @@ export default function CategoryPage() {
             </section>
 
             {/* nhl news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">NHL NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">NHL NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={nhlNewsSection.lead.image}
@@ -1881,19 +1772,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {nhlNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {nhlNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== nhlNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== nhlNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1904,7 +1795,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {nhlNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -1912,9 +1803,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -1924,17 +1815,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {nhlNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -1946,25 +1837,25 @@ export default function CategoryPage() {
 
             {/* esports news */}
 
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">ESPORTS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">ESPORTS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={EsportsNewsSection.lead.image}
@@ -1974,19 +1865,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {EsportsNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {EsportsNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== EsportsNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== EsportsNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -1997,7 +1888,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {EsportsNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -2005,9 +1896,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -2017,17 +1908,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {EsportsNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -2038,25 +1929,25 @@ export default function CategoryPage() {
             </section>
 
             {/* www news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">WWW NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">WWW NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={wweNewsSection.lead.image}
@@ -2066,19 +1957,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {wweNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {wweNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== wweNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== wweNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -2089,7 +1980,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {wweNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -2097,9 +1988,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -2109,17 +2000,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {wweNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -2130,25 +2021,25 @@ export default function CategoryPage() {
             </section>
 
             {/* mlb news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">MLB NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">MLB NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={mlbNewsSection.lead.image}
@@ -2158,19 +2049,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {mlbNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {mlbNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== mlbNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== mlbNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -2181,7 +2072,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {mlbNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -2189,9 +2080,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -2201,17 +2092,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {mlbNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -2223,25 +2114,25 @@ export default function CategoryPage() {
 
 
             {/* formula e news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">FORMULA E NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">FORMULA E NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={cricketNewsSection.lead.image}
@@ -2251,19 +2142,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {cricketNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {cricketNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== cricketNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== cricketNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -2274,7 +2165,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {cricketNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -2282,9 +2173,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -2294,17 +2185,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {cricketNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -2315,25 +2206,25 @@ export default function CategoryPage() {
             </section>
 
             {/* f1 news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">F1 NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">F1 NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={cricketNewsSection.lead.image}
@@ -2343,19 +2234,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {cricketNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {cricketNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== cricketNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== cricketNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -2366,7 +2257,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {cricketNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -2374,9 +2265,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -2386,17 +2277,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {cricketNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>
@@ -2406,25 +2297,25 @@ export default function CategoryPage() {
               </div>
             </section>
             {/* mma news */}
-            <section className="mt-5">
+            <section className="mt-3 sm:mt-5">
 
               {/* TITLE */}
-              <div className="flex items-center gap-2 mb-4">
-                <h2 className="text-sm font-bold tracking-wide">MMA NEWS</h2>
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                <h2 className="text-xs sm:text-sm font-bold tracking-wide">MMA NEWS</h2>
+                <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
               </div>
 
               {/* MAIN TWO-COLUMN LAYOUT */}
-              <div className="grid grid-cols-12 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                 {/* ================= LEFT SIDE (8 COLS) ================= */}
-                <div className="col-span-8">
+                <div className="lg:col-span-8">
 
                   {/* TOP ROW: FEATURED + MIDDLE */}
-                  <div className="grid grid-cols-12 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4">
 
                     {/* FEATURED */}
-                    <div className="col-span-7">
+                    <div className="lg:col-span-7">
                       <div className="relative rounded-lg overflow-hidden">
                         <Image
                           src={mmaNewsSection.lead.image}
@@ -2434,19 +2325,19 @@ export default function CategoryPage() {
                           className="w-full h-auto"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                        <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
+                        <p className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 right-2 sm:right-3 text-white text-xs sm:text-sm font-semibold">
                           {mmaNewsSection.lead.title}
                         </p>
                       </div>
                     </div>
 
                     {/* MIDDLE LIST */}
-                    <div className="col-span-5">
-                      <ul className="space-y-3 text-sm">
+                    <div className="lg:col-span-5">
+                      <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                         {mmaNewsSection.middleList.map((text, i) => (
                           <li
                             key={i}
-                            className={i !== mmaNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                            className={i !== mmaNewsSection.middleList.length - 1 ? "border-b pb-1.5 sm:pb-2" : ""}
                           >
                             {text}
                           </li>
@@ -2457,7 +2348,7 @@ export default function CategoryPage() {
                   </div>
 
                   {/* BOTTOM ROW: 4 CARDS (LEFT ONLY) */}
-                  <div className="grid grid-cols-4 gap-4 mt-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4">
                     {mmaNewsSection.bottomCards.map((card, i) => (
                       <div key={i}>
                         <Image
@@ -2465,9 +2356,9 @@ export default function CategoryPage() {
                           alt=""
                           width={300}
                           height={180}
-                          className="mb-2 rounded w-full"
+                          className="mb-1.5 sm:mb-2 rounded w-full h-auto"
                         />
-                        <p className="text-sm leading-snug">
+                        <p className="text-xs sm:text-sm leading-snug">
                           {card.title}
                         </p>
                       </div>
@@ -2477,17 +2368,17 @@ export default function CategoryPage() {
                 </div>
 
                 {/* ================= RIGHT SIDE (4 COLS) ================= */}
-                <aside className="col-span-4 space-y-4">
+                <aside className="lg:col-span-4 space-y-3 sm:space-y-4">
                   {mmaNewsSection.rightStories.map((item, i) => (
-                    <div key={i} className="flex gap-3">
+                    <div key={i} className="flex gap-2 sm:gap-3">
                       <Image
                         src={item.image}
                         alt=""
                         width={100}
                         height={70}
-                        className="rounded flex-shrink-0"
+                        className="rounded flex-shrink-0 w-[80px] sm:w-[100px] h-[56px] sm:h-[70px] object-cover"
                       />
-                      <p className="text-sm leading-snug">
+                      <p className="text-xs sm:text-sm leading-snug">
                         {item.title}
                       </p>
                     </div>

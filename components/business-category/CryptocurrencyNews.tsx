@@ -42,28 +42,28 @@ const cryptoNewsSection = {
 
 export default function CryptocurrencyNews() {
   return (
-    <section className="mt-5 rounded-lg max-w-[980px]">
+    <section className="mt-5 rounded-lg w-full">
       {/* TITLE */}
       <div className="flex items-center gap-2 mb-4">
         <h2 className="text-m font-bold tracking-wide">CryptoCurrency News</h2>
         <ChevronRight className="w-4 h-4" />
       </div>
 
-
       {/* MAIN TWO-COLUMN LAYOUT */}
-      <div className="grid grid-cols-12 gap-4">
-        {/* LEFT SIDE (8 COLS) */}
-        <div className="col-span-12 md:col-span-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        {/* LEFT SIDE */}
+        <div className="lg:col-span-8">
           {/* TOP ROW: FEATURED + MIDDLE */}
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* FEATURED */}
-            <div className="col-span-7 relative rounded-lg overflow-hidden  h-[200px]">
+            <div className="md:col-span-7 relative rounded-lg overflow-hidden h-[200px] sm:h-[250px] md:h-[280px]">
               <Image
                 src={cryptoNewsSection.lead.image}
                 alt={cryptoNewsSection.lead.title}
-                width={700}
-                height={420}
-                className="w-full"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 58vw, 41vw"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
@@ -72,49 +72,46 @@ export default function CryptocurrencyNews() {
             </div>
 
             {/* MIDDLE LIST */}
-            <div className="col-span-5">
-  <ul className="space-y-3 text-sm">
-    {cryptoNewsSection.middleList.map((text, i) => (
-      <li
-        key={i}
-        className={
-          i !== cryptoNewsSection.middleList.length - 1
-            ? "border-b pb-2 truncate"
-            : "truncate"
-        }
-      >
-        <span className="block whitespace-nowrap overflow-hidden text-ellipsis">
-          {text}
-        </span>
-      </li>
-    ))}
-  </ul>
-</div>
-
+            <div className="md:col-span-5">
+              <ul className="space-y-3 text-sm">
+                {cryptoNewsSection.middleList.map((text, i) => (
+                  <li
+                    key={i}
+                    className={i !== cryptoNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
+                  >
+                    <span className="block line-clamp-2">
+                      {text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* BOTTOM ROW: TEXT ONLY */}
-          <div className="grid grid-cols-4 gap-4 mt-4 text-sm text-gray-700">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-4 text-xs sm:text-sm text-gray-700">
             {cryptoNewsSection.bottomCards.map((text, i) => (
               <div key={i} className="pr-3 border-r last:border-r-0 border-gray-300">
-                {text}
+                <span className="line-clamp-3">{text}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* RIGHT SIDE (4 COLS) */}
-        <aside className="col-span-12 md:col-span-4 space-y-4">
+        {/* RIGHT SIDE */}
+        <aside className="lg:col-span-4 space-y-4 mt-6 lg:mt-0">
           {cryptoNewsSection.rightStories.map((item, i) => (
             <div key={i} className="flex gap-3">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={100}
-                height={70}
-                className="rounded flex-shrink-0 object-cover"
-              />
-              <p className="text-sm leading-snug">{item.title}</p>
+              <div className="relative w-[80px] h-[60px] sm:w-[100px] sm:h-[70px] flex-shrink-0">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="rounded object-cover"
+                  sizes="(max-width: 640px) 80px, 100px"
+                />
+              </div>
+              <p className="text-xs sm:text-sm leading-snug">{item.title}</p>
             </div>
           ))}
         </aside>

@@ -35,26 +35,27 @@ const realEstateNewsSection = {
 
 export default function RealEstateNews() {
   return (
-    <section className="mt-5 rounded-lg max-w-[980px]">
+    <section className="mt-5 rounded-lg w-full">
       {/* Header */}
       <div className="flex items-center gap-2 mb-4">
         <h2 className="text-m font-bold tracking-wide">Real Estate News</h2>
         <ChevronRight className="w-4 h-4" />
       </div>
 
-      <div className="grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* LEFT SIDE */}
-        <div className="col-span-12 lg:col-span-8">
-          <div className="grid grid-cols-12 gap-4">
+        <div className="lg:col-span-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* Featured */}
-            <div className="col-span-7">
-              <div className="relative rounded-lg overflow-hidden">
+            <div className="md:col-span-7">
+              <div className="relative rounded-lg overflow-hidden h-[200px] sm:h-[250px] md:h-[280px]">
                 <Image
                   src={realEstateNewsSection.lead.image}
                   alt={realEstateNewsSection.lead.title}
-                  width={700}
-                  height={420}
-                  className="w-full"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 58vw, 41vw"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold">
@@ -64,18 +65,14 @@ export default function RealEstateNews() {
             </div>
 
             {/* Middle List */}
-            <div className="col-span-5">
+            <div className="md:col-span-5">
               <ul className="space-y-3 text-sm">
                 {realEstateNewsSection.middleList.map((item, i) => (
                   <li
                     key={`realestate-middle-${i}`}
-                    className={
-                      i !== realEstateNewsSection.middleList.length - 1
-                        ? "border-b pb-2 truncate"
-                        : "truncate"
-                    }
+                    className={i !== realEstateNewsSection.middleList.length - 1 ? "border-b pb-2" : ""}
                   >
-                    <span className="block whitespace-nowrap overflow-hidden text-ellipsis">
+                    <span className="block line-clamp-2">
                       {item}
                     </span>
                   </li>
@@ -85,10 +82,10 @@ export default function RealEstateNews() {
           </div>
 
           {/* Bottom Cards */}
-          <div className="grid grid-cols-4 gap-4 mt-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-4">
             {realEstateNewsSection.bottomCards.map((card, i) => (
               <div key={`realestate-bottom-${i}`}>
-                <p className="text-xs text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {card.title}
                 </p>
               </div>
@@ -97,18 +94,20 @@ export default function RealEstateNews() {
         </div>
 
         {/* RIGHT SIDE */}
-        <aside className="col-span-12 lg:col-span-4 space-y-4">
+        <aside className="lg:col-span-4 mt-6 lg:mt-0">
           <div className="border rounded-lg p-3 bg-white shadow-sm">
             <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">
               Sponsored
             </p>
-            <Image
-              src="https://images.unsplash.com/photo-1622630998477-20aa696ecb05?auto=format&fit=crop&w=1600&q=80"
-              alt="Ad"
-              width={300}
-              height={180}
-              className="rounded mb-2"
-            />
+            <div className="relative w-full h-[150px] sm:h-[180px] rounded overflow-hidden mb-2">
+              <Image
+                src="https://images.unsplash.com/photo-1622630998477-20aa696ecb05?auto=format&fit=crop&w=1600&q=80"
+                alt="Ad"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 25vw"
+              />
+            </div>
             <h3 className="text-sm font-semibold leading-snug mb-1">
               Invest Smart in Real Estate 2026 🏢
             </h3>

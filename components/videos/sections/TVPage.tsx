@@ -70,49 +70,48 @@ export default function TVPage() {
   const videos = tvVideosByCategory[activeTab];
 
   return (
-    <section className="max-w-[980px] mx-auto mt-5">
+    <section className="w-full mx-auto mt-5 sm:px-0">
       {/* Header like Entertainment */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-4">
-          <h2 className="text-[18px] font-semibold">TV</h2>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
+          <h2 className="text-[16px] sm:text-[18px] font-semibold">TV</h2>
 
           {/* Vertical separator */}
-          <div className="w-px bg-gray-300 h-6" />
+          <div className="hidden sm:block w-px bg-gray-300 h-6" />
 
           {/* Tabs */}
-          <nav className="flex items-center gap-4 text-sm font-medium flex-1">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`pb-1 ${
-                  tab === activeTab
-                    ? "text-red-600 border-b-2 border-red-600"
-                    : "text-gray-600 hover:text-red-600"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </nav>
-        </div>
-
-        {/* See All Button */}
-        <Link
-          href="#"
-          className="text-red-600 text-sm font-medium hover:underline"
-        >
+          <nav className="flex gap-3 sm:gap-6 text-[12px] sm:text-sm font-medium flex-1 overflow-x-auto scrollbar-hide">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`pb-0 whitespace-nowrap flex-shrink-0 ${
+                tab === activeTab
+                  ? "text-red-600 border-b-2 border-red-600"
+                  : "text-gray-600 hover:text-red-600"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+          <button className="text-gray-600 px-2 hover:text-red-600 flex-shrink-0">⋮</button>
+          <Link href="#" className="text-red-600 font-medium text-xs sm:text-sm">
           See All
         </Link>
+        </nav>
+          
+        </div>
+
+        
       </div>
 
       {/* Videos Grid: 6 videos (3+3) */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {videos.slice(0, 3).map((video) => (
           <VideoCard key={video.id} video={video} />
         ))}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-3">
         {videos.slice(3, 6).map((video) => (
           <VideoCard key={video.id} video={video} />
         ))}
@@ -137,30 +136,22 @@ function VideoCard({ video }: { video: Video }) {
           fill
           className="object-cover group-hover:scale-105 transition-transform"
         />
-        {/* <span className="absolute bottom-2 right-2 bg-red-500  text-white text-[12px] px-2 py-0.5 rounded flex items-center gap-1">
-          <Play className="w-3 h-3 fill-white" />
-          {video.duration}
-        </span> */}
-        <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
-      {/* Red circle with white play icon */}
-          <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
+        <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1">
+          <div className="bg-red-600 rounded-full w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center">
             <svg
-              className="w-3 h-3 text-white"
+              className="w-2 sm:w-3 h-2 sm:h-3 text-white"
               fill="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
             >
               <path d="M8 5v14l11-7z" />
             </svg>
           </div>
-      {/* Duration text */}
-      <span className="text-white text-xs font-semibold">{video.duration}</span>
-    </div>
+          <span className="text-white text-[10px] sm:text-xs font-semibold">{video.duration}</span>
+        </div>
       </div>
       <div className="p-2">
-        <p className="text-[14px] font-medium line-clamp-2 mb-1">{video.title}</p>
-        <span className="text-[12px] text-gray-500">
+        <p className="text-[12px] sm:text-[14px] font-medium line-clamp-2 mb-1">{video.title}</p>
+        <span className="text-[10px] sm:text-[12px] text-gray-500">
           {video.views} • {video.time}
         </span>
       </div>

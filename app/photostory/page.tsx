@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Header } from "@/components/toi/header";
 import { Footer } from "@/components/toi/footer";
 import Image from "next/image";
@@ -148,13 +149,16 @@ const photoStories = [
 
 
 export default function PhotostoriesPage() {
+  const [visibleCount, setVisibleCount] = useState(8);
+  const displayedStories = photoStories.slice(0, visibleCount);
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <div className="xl:ml-[140px] xl:mr-[145px]">
         <Header />
 
-        <main className="bg-white">
-          <div className="max-w-[980px] mx-auto">
+        <main className="bg-white px-2 sm:px-6 lg:px-0">
+          <div className="max-w-[980px] mx-auto w-full">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-1 text-[11px] text-gray-500 mb-3">
               <Link href="/" className="text-red-600 hover:underline">
@@ -165,15 +169,15 @@ export default function PhotostoriesPage() {
             </nav>
 
             {/* Two Column Layout */}
-            <div className="flex gap-6">
+            <div className="flex flex-col lg:flex-row gap-6">
               {/* LEFT: Latest Photostories */}
               <div className="flex-1">
-                <h2 className="text-[18px] font-bold text-gray-900 mb-4">
+                <h2 className="text-[16px] sm:text-[18px] font-bold text-gray-900 mb-4">
                   Latest Photostories
                 </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {photoStories.map((story) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  {displayedStories.map((story) => (
                     <Link
                       key={story.id}
                       href={`/photostory/${encodeURIComponent(
@@ -191,23 +195,42 @@ export default function PhotostoriesPage() {
                       </div>
 
                       <div className="p-3">
-                        <h3 className="text-[14px] font-semibold text-gray-900 leading-snug group-hover:text-red-600">
+                        <h3 className="text-[13px] sm:text-[14px] font-semibold text-gray-900 leading-snug group-hover:text-red-600 line-clamp-2">
                           {story.title}
                         </h3>
                       </div>
                     </Link>
                   ))}
                 </div>
+
+                {/* Load More/Less Button */}
+                <div className="text-center mt-6 mb-12">
+                  {visibleCount < photoStories.length ? (
+                    <button
+                      className="px-4 py-2 border border-red-600 text-red-600 rounded hover:bg-red-50"
+                      onClick={() => setVisibleCount((c) => Math.min(c + 8, photoStories.length))}
+                    >
+                      Load More Photostories
+                    </button>
+                  ) : (
+                    <button
+                      className="px-4 py-2 border border-gray-400 text-gray-600 rounded hover:bg-gray-50"
+                      onClick={() => setVisibleCount(8)}
+                    >
+                      Load Less Photostories
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* RIGHT SIDEBAR */}
-              <aside className="hidden lg:block w-[300px] flex-shrink-0">
+              <aside className="w-full lg:w-[300px] flex-shrink-0">
                  {/* REAL-LOOKING DUMMY AD */}
-                 <div className="mb-6 border rounded-lg overflow-hidden sticky top-24 space-y-6">
+                 <div className="mb-6 border rounded-lg overflow-hidden lg:sticky lg:top-24 space-y-6">
                    <div className="text-[11px] text-gray-500 px-2 py-1 border-b">
                      Advertisement
                    </div>
-                   <div className="relative h-[250px] bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white p-4 flex flex-col justify-between">
+                   <div className="relative h-[200px] sm:h-[250px] bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364] text-white p-4 flex flex-col justify-between">
                      <div>
                        <p className="text-xs uppercase tracking-wide opacity-80">
                          Sponsored
@@ -227,11 +250,11 @@ export default function PhotostoriesPage() {
                  </div>
 
                  {/* Trending Photostories */}
-                 <h3 className="text-[16px] font-bold text-gray-900 mb-3">
+                 <h3 className="text-[14px] sm:text-[16px] font-bold text-gray-900 mb-3">
                   Trending Photostories
                  </h3>
 
-                 <div className="space-y-4">
+                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
                    {photoStories.slice(0, 5).map((story) => (
                     <Link
                       key={story.id}
@@ -247,7 +270,7 @@ export default function PhotostoriesPage() {
                         />
                       </div>
 
-                      <h4 className="text-[13px] text-gray-800 leading-snug group-hover:text-red-600 line-clamp-2">
+                      <h4 className="text-[12px] sm:text-[13px] text-gray-900 group-hover:text-red-600 leading-tight line-clamp-2 flex-1">
                         {story.title}
                       </h4>
                     </Link>

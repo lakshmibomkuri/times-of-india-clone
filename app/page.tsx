@@ -51,6 +51,7 @@ import { PopularCategoriesSection } from "@/components/toi/sections/popular-cate
 import { TrendingVideosSection } from "@/components/toi/sections/trending-videos-section"
 import { LatestNewsSection } from "@/components/toi/sections/latest-news-section"
 import { Play, X } from 'lucide-react';
+import {Entertainment} from "@/components/toi/sections/Entertainment"
 export default function HomePage() {
   const [visible, setVisible] = useState(true);
 
@@ -66,46 +67,78 @@ export default function HomePage() {
         <Header />
         
         <main className="bg-white">
-        <div className="flex items-center bg-red-600 text-white px-4 py-2 rounded-xl">
-      {/* Left label */}
-      <div className="flex items-center bg-white px-3 py-1 rounded mr-4 text-[12px] font-semibold text-red-500">
-        <Play size={14} className="mr-1 text-red-500" />
-        Now Playing
-      </div>
+        {/* Now Playing Banner - Responsive */}
+        <div className="flex items-center bg-red-600 text-white px-2 sm:px-4 py-2 mx-2 sm:mx-0 rounded-xl">
+          {/* Left label */}
+          <div className="flex items-center bg-white px-2 sm:px-3 py-1 rounded mr-2 sm:mr-4 text-[10px] sm:text-[12px] font-semibold text-red-500">
+            <Play size={12} className="mr-1 text-red-500 sm:w-[14px] sm:h-[14px]" />
+            <span className="hidden sm:inline">Now Playing</span>
+            <span className="sm:hidden">Live</span>
+          </div>
 
-      {/* Scrolling text */}
-      <div className="relative overflow-hidden flex-1">
-        <div className="font-medium text-[14px]">
-          Kolkata Warehouse Fire Kills 7, India-EU FTA, Severe Winter Storm In US
-          And More
+          {/* Scrolling text */}
+          <div className="relative overflow-hidden flex-1">
+            <div className="font-medium text-[12px] sm:text-[14px] truncate sm:block">
+              Kolkata Warehouse Fire Kills 7, India-EU FTA, Severe Winter Storm In US
+              <span className="hidden sm:inline"> And More</span>
+            </div>
+          </div>
+
+          {/* Close button */}
+          <button
+            onClick={() => setVisible(false)}
+            className="ml-2 sm:ml-4 hover:opacity-80 flex-shrink-0"
+          >
+            <X size={16} className="sm:w-[18px] sm:h-[18px]" />
+          </button>
         </div>
-      </div>
 
-      {/* Close button */}
-      <button
-        onClick={() => setVisible(false)}
-        className="ml-4 hover:opacity-80"
-      >
-        <X size={18} />
-      </button>
-    </div>
-          {/* 1. Main 3-column layout (one main big section) */}
-          <div className="max-w-[980px] mx-auto px-0 py-4">
-            <div className="flex gap-5">
-              <div className="hidden lg:block w-[190px] flex-shrink-0">
+          {/* 1. Main 3-column layout (responsive) */}
+          <div className="max-w-[980px] mx-auto px-2 sm:px-4 lg:px-0 py-4">
+            {/* Mobile: Single column */}
+            <div className="flex flex-col gap-3 md:hidden">
+              <div className="w-full">
+                <MainContent />
+              </div>
+              <div className="w-full">
+                <LeftSidebar />
+              </div>
+              <div className="w-full">
+                <RightSidebar />
+              </div>
+            </div>
+            
+            {/* Tablet: Left sidebar full width, then main + right in 2 columns */}
+            <div className="hidden md:flex lg:hidden flex-col gap-3">
+              <div className="w-full">
+                <LeftSidebar />
+              </div>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <MainContent />
+                </div>
+                <div className="w-[300px] flex-shrink-0">
+                  <RightSidebar />
+                </div>
+              </div>
+            </div>
+            
+            {/* Desktop: Original 3-column layout */}
+            <div className="hidden lg:flex gap-5">
+              <div className="w-[190px] flex-shrink-0">
                 <LeftSidebar />
               </div>
               <div className="flex-1 min-w-0">
                 <MainContent />
               </div>
-              <div className="hidden md:block w-[300px] flex-shrink-0">
+              <div className="w-[300px] flex-shrink-0">
                 <RightSidebar />
               </div>
             </div>
           </div>
 
-          {/* All Full-Width Sections in exact order from screenshot */}
-          <div className="max-w-[980px] mx-auto px-0">
+          {/* All Full-Width Sections - Responsive container */}
+          <div className="max-w-[980px] mx-auto px-2 sm:px-4 lg:px-0">
             
             {/* Sponsored Cards - 3 promotional images (moved after first section) */}
             <SponsoredCardsSection />
@@ -166,6 +199,7 @@ export default function HomePage() {
 
             {/* Astrology + Astrology News */}
             <AstrologySection />
+            <Entertainment/>
 
             {/* Business */}
             <BusinessSection />

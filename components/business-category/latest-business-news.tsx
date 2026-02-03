@@ -65,40 +65,40 @@ export default function LatestVideosPage() {
   const list = videos.slice(1);
 
   return (
-    <div className="mt-5 rounded-lg max-w-[980px]">
+    <div className="mt-5 rounded-lg w-full">
       {/* Heading */}
       <div className="flex items-center gap-2 mb-4">
         <h2 className="text-m font-bold tracking-wide">Latest Business Videos</h2>
         <ChevronRight className="w-4 h-4" />
       </div>
 
-
       {/* Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         {/* LEFT: Featured Video */}
         <div className="lg:col-span-2">
-          <div className="relative rounded-xl overflow-hidden cursor-pointer">
+          <div className="relative rounded-xl overflow-hidden cursor-pointer aspect-video">
             <Image
               src={featured.thumbnail}
               alt={featured.title}
-              width={800}
-              height={450}
-              className="w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 66vw"
+              priority
             />
 
             {/* Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-black/60 text-white text-3xl w-16 h-16 rounded-full flex items-center justify-center">
+              <div className="bg-black/60 text-white text-2xl sm:text-3xl w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center">
                 ▶
               </div>
             </div>
 
             {/* Overlay Text */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <h2 className="text-white font-semibold text-lg line-clamp-2">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
+              <h2 className="text-white font-semibold text-sm sm:text-lg line-clamp-2">
                 {featured.title}
               </h2>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-300 text-xs sm:text-sm">
                 {featured.published}
               </p>
             </div>
@@ -106,31 +106,32 @@ export default function LatestVideosPage() {
         </div>
 
         {/* RIGHT: Video List */}
-        <div className="flex flex-col gap-4 max-h-[350px] overflow-y-auto">
+        <div className="flex flex-col gap-3 sm:gap-4 max-h-[300px] sm:max-h-[350px] overflow-y-auto">
           {list.map((video) => (
             <div
               key={video.id}
               className="flex gap-3 p-2 rounded-lg hover:bg-gray-100 cursor-pointer transition"
             >
               {/* Thumbnail */}
-              <div className="relative min-w-[120px] p-2 rounded overflow-hidden">
+              <div className="relative w-[100px] h-[60px] sm:w-[120px] sm:h-[70px] flex-shrink-0 rounded overflow-hidden">
                 <Image
                   src={video.thumbnail}
                   alt={video.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 640px) 100px, 120px"
                 />
-                <span className="absolute bottom-1 right-1 bg-black/80 text-white text-xs px-1 rounded">
+                <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] sm:text-xs px-1 rounded">
                   {video.duration}
                 </span>
               </div>
 
               {/* Info */}
-              <div className="flex flex-col text-sm">
+              <div className="flex flex-col text-xs sm:text-sm min-w-0">
                 <p className="font-medium line-clamp-2">
                   {video.title}
                 </p>
-                <span className="text-gray-500 text-xs">
+                <span className="text-gray-500 text-[10px] sm:text-xs mt-1">
                   {video.published}
                 </span>
               </div>

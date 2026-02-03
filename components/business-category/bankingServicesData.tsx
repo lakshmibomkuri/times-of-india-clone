@@ -69,46 +69,44 @@ function BankingServicesCarousel() {
     };
   
     return (
-      <div className="mt-5 rounded-lg max-w-[980px]">
-        {/* Carousel container with overflow hidden */}
-        <div className="flex space-x-4 overflow-hidden">
-          {bankingServicesData.map((item, idx) => {
-            // Show only the current slide and its neighbors for smoothness, else hidden
-            const visible =
-              idx === currentIndex ||
-              idx === (currentIndex + 1) % bankingServicesData.length ||
-              idx === (currentIndex - 1 + bankingServicesData.length) % bankingServicesData.length;
-            return (
+      <div className="mt-5 rounded-lg w-full">
+        {/* Carousel container */}
+        <div className="relative overflow-hidden">
+          <div 
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * (100 / bankingServicesData.length)}%)` }}
+          >
+            {bankingServicesData.map((item, idx) => (
               <div
                 key={idx}
-                className={`min-w-[32%] rounded overflow-hidden relative transition-opacity duration-300 ${
-                  visible ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
+                className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2"
               >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={320}
-                  height={180}
-                  className="object-cover w-full h-[200px]"
-                />
-                <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-semibold bg-opacity-60 rounded px-2 py-1 truncate">
-                  {item.title}
+                <div className="relative w-full h-[150px] sm:h-[180px] lg:h-[200px] rounded overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-semibold bg-black bg-opacity-60 rounded px-2 py-1 line-clamp-2">
+                    {item.title}
+                  </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
   
         {/* Pagination Dots and Arrows */}
-        <div className="flex justify-between items-center mt-2">
+        <div className="flex justify-between items-center mt-4">
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2">
             {bankingServicesData.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-3 h-1 rounded-full ${
+                className={`w-3 h-1 rounded-full transition-colors ${
                   idx === currentIndex ? "bg-gray-900" : "bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
@@ -117,20 +115,20 @@ function BankingServicesCarousel() {
           </div>
   
           {/* Navigation Arrows */}
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <button
               onClick={prev}
-              className="p-2 bg-white rounded-full shadow hover:bg-gray-100"
+              className="p-2 bg-white rounded-full shadow hover:bg-gray-100 transition-colors"
               aria-label="Previous Slide"
             >
-              <ArrowLeft className="w-5 h-5 text-gray-700" />
+              <ArrowLeft className="w-4 h-4 text-gray-700" />
             </button>
             <button
               onClick={next}
-              className="p-2 bg-white rounded-full shadow hover:bg-gray-100"
+              className="p-2 bg-white rounded-full shadow hover:bg-gray-100 transition-colors"
               aria-label="Next Slide"
             >
-              <ArrowRight className="w-5 h-5 text-gray-700" />
+              <ArrowRight className="w-4 h-4 text-gray-700" />
             </button>
           </div>
         </div>
@@ -140,7 +138,7 @@ function BankingServicesCarousel() {
 
 export function BankingServicesSection() {
   return (
-    <section className="mt-5 rounded-lg max-w-[980px]">
+    <section className="mt-5 rounded-lg w-full">
       <h2 className="text-m font-semibold mb-4 flex items-center gap-1">
         Banking Services <ChevronRight className="w-4 h-4" />
       </h2>
@@ -151,21 +149,22 @@ export function BankingServicesSection() {
 }
 export function Budget2025Section() {
   return (
-    <section className="mt-5 rounded-lg max-w-[980px]">
+    <section className="mt-5 rounded-lg w-full">
       <h2 className="text-m font-semibold mb-4 flex items-center gap-1">
         Budget 2025 <span className="inline-block rotate-45">&#8250;</span>
       </h2>
 
-      <div className="grid grid-cols-12 gap-4">
-        {/* Left Side: Featured Image (7 cols) + Bullet List (5 cols) */}
-        <div className="col-span-12 lg:col-span-8 grid grid-cols-12 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        {/* Left Side: Featured Image + Bullet List */}
+        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Featured Image */}
-          <div className="col-span-7 relative rounded overflow-hidden aspect-[16/9]">
+          <div className="md:col-span-7 relative rounded overflow-hidden aspect-[16/9]">
             <Image
               src={budget2025Data.featured.image}
               alt={budget2025Data.featured.title}
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 58vw, 41vw"
               priority
             />
             {budget2025Data.featured.isVideo && (
@@ -179,11 +178,11 @@ export function Budget2025Section() {
           </div>
 
           {/* Bullet List */}
-          <ul className="col-span-5 text-xs list-disc list-inside space-y-2 border-l border-gray-300 pl-4 max-h-[220px] overflow-y-auto">
+          <ul className="md:col-span-5 text-xs list-disc list-inside space-y-2 border-l border-gray-300 pl-4 max-h-[200px] sm:max-h-[220px] overflow-y-auto">
             {budget2025Data.bulletPoints.map((point, idx) => (
               <li
                 key={idx}
-                className="truncate"
+                className="line-clamp-2"
                 title={point}
               >
                 {point}
@@ -192,26 +191,28 @@ export function Budget2025Section() {
           </ul>
 
           {/* Bottom Row with Thumbnails - full width below featured + bullets */}
-          <div className="col-span-12 grid grid-cols-4 gap-4 mt-2">
+          <div className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2">
             {budget2025Data.thumbnails.map((item, idx) => (
               <div
                 key={idx}
                 className="relative rounded overflow-hidden group cursor-pointer"
                 title={item.title}
               >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={300}
-                  height={150}
-                  className="object-cover rounded w-full"
-                />
+                <div className="relative w-full h-[80px] sm:h-[100px] md:h-[120px]">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover rounded"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12vw"
+                  />
+                </div>
                 {item.isVideo && (
                   <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-1 rounded font-semibold select-none">
                     ▶
                   </div>
                 )}
-                <p className="text-[12px] mt-1 line-clamp-2 text-gray-900 group-hover:text-red-600">
+                <p className="text-[10px] sm:text-[12px] mt-1 line-clamp-2 text-gray-900 group-hover:text-red-600">
                   {item.title}
                 </p>
               </div>
@@ -219,18 +220,20 @@ export function Budget2025Section() {
           </div>
         </div>
 
-        {/* Right Side: Advertisement Image (4 cols) */}
-        <aside className="col-span-12 lg:col-span-4">
+        {/* Right Side: Advertisement Image */}
+        <aside className="lg:col-span-4 mt-6 lg:mt-0">
           <div className="border rounded-lg p-3 bg-white shadow-sm h-full flex flex-col justify-center">
             <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Advertisement</p>
-            <Image
-              src={budget2025Data.adImage}
-              alt="Advertisement"
-              width={350}
-              height={200}
-              className="rounded mx-auto"
-              priority
-            />
+            <div className="relative w-full h-[150px] sm:h-[200px]">
+              <Image
+                src={budget2025Data.adImage}
+                alt="Advertisement"
+                fill
+                className="rounded object-cover"
+                sizes="(max-width: 1024px) 100vw, 25vw"
+                priority
+              />
+            </div>
           </div>
         </aside>
       </div>

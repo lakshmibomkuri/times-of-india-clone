@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Play } from "lucide-react";
 
 const tabs = ["Hindi", "Tamil", "Bengali", "Telugu", "Kannada"];
 
@@ -10,57 +11,61 @@ const videosByCategory = {
     Hindi: [
       {
         id: 1,
-        title: "Vijaynagar’er Hirey - Official Teaser",
+        title: "Khel Khel Mein - Official Trailer",
         description:
-          "Watch the Official teaser from hindi movie 'Vijaynagar’er Hirey' starring Prosenjit...",
-        views: "7 days ago",
-        time: "7 days ago",
-        duration: "01:27",
+          "Watch the Official trailer from hindi movie 'Khel Khel Mein' starring Akshay Kumar...",
+        views: "1.2M views",
+        time: "2 days ago",
+        duration: "02:45",
         thumbnail: "https://picsum.photos/seed/hindi1/600/400",
       },
       {
         id: 2,
-        title: "Hindi Movie Trailer 2",
-        description: "Official trailer from Hindi movie 2",
-        views: "3K views",
-        time: "5 days ago",
-        duration: "02:10",
+        title: "Bade Miyan Chote Miyan - Official Teaser",
+        description:
+          "Watch the Official teaser from hindi movie 'Bade Miyan Chote Miyan' starring Akshay Kumar...",
+        views: "2.5M views",
+        time: "3 days ago",
+        duration: "01:30",
         thumbnail: "https://picsum.photos/seed/hindi2/600/400",
       },
       {
         id: 3,
-        title: "Hindi Movie Clip 3",
-        description: "Short description here...",
-        views: "2K views",
-        time: "3 days ago",
-        duration: "01:55",
+        title: "Sarfira - Official Trailer",
+        description:
+          "Watch the Official trailer from hindi movie 'Sarfira' starring Akshay Kumar...",
+        views: "890K views",
+        time: "1 week ago",
+        duration: "02:20",
         thumbnail: "https://picsum.photos/seed/hindi3/600/400",
       },
       {
         id: 4,
-        title: "Hindi Movie Scene 4",
-        description: "Short description here...",
-        views: "10K views",
-        time: "1 week ago",
-        duration: "03:00",
+        title: "Khiladi 1080 - Official Teaser",
+        description:
+          "Watch the Official teaser from hindi movie 'Khiladi 1080' starring Akshay Kumar...",
+        views: "1.5M views",
+        time: "5 days ago",
+        duration: "01:45",
         thumbnail: "https://picsum.photos/seed/hindi4/600/400",
       },
       {
         id: 5,
-        title: "Hindi Movie Interview 5",
-        description: "Short description here...",
-        views: "9K views",
-        time: "2 weeks ago",
-        duration: "02:45",
+        title: "Mission Raniganj - Official Trailer",
+        description:
+          "Watch the Official trailer from hindi movie 'Mission Raniganj' starring Akshay Kumar...",
+        views: "750K views",
+        time: "1 week ago",
+        duration: "02:10",
         thumbnail: "https://picsum.photos/seed/hindi5/600/400",
       },
       {
         id: 6,
-        title: "Hindi Movie Behind the Scenes 6",
-        description: "Short description here...",
-        views: "1.5K views",
+        title: "Hindi Movie Clip 6",
+        description: "Short clip from Hindi movie 6",
+        views: "500K views",
         time: "4 days ago",
-        duration: "01:40",
+        duration: "01:55",
         thumbnail: "https://picsum.photos/seed/hindi6/600/400",
       },
     ],
@@ -69,53 +74,53 @@ const videosByCategory = {
         id: 7,
         title: "Tamil Movie Teaser 1",
         description: "Official teaser from Tamil movie 1",
-        views: "8K views",
-        time: "6 days ago",
-        duration: "01:45",
+        views: "800K views",
+        time: "3 days ago",
+        duration: "01:40",
         thumbnail: "https://picsum.photos/seed/tamil1/600/400",
       },
       {
         id: 8,
         title: "Tamil Movie Trailer 2",
         description: "Official trailer from Tamil movie 2",
-        views: "12K views",
-        time: "9 days ago",
+        views: "1.1M views",
+        time: "4 days ago",
         duration: "02:30",
         thumbnail: "https://picsum.photos/seed/tamil2/600/400",
       },
       {
         id: 9,
         title: "Tamil Movie Scene 3",
-        description: "Short clip from Tamil movie 3",
-        views: "5K views",
-        time: "5 days ago",
-        duration: "02:05",
+        description: "Action scene from Tamil movie 3",
+        views: "650K views",
+        time: "2 days ago",
+        duration: "02:15",
         thumbnail: "https://picsum.photos/seed/tamil3/600/400",
       },
       {
         id: 10,
         title: "Tamil Movie Interview 4",
-        description: "Interview with Tamil star",
-        views: "7K views",
-        time: "12 days ago",
-        duration: "01:50",
+        description: "Interview with Tamil superstar",
+        views: "900K views",
+        time: "6 days ago",
+        duration: "03:00",
         thumbnail: "https://picsum.photos/seed/tamil4/600/400",
       },
       {
         id: 11,
-        title: "Tamil Movie Behind Scenes 5",
-        description: "Behind the scenes of Tamil movie",
-        views: "6K views",
-        time: "7 days ago",
-        duration: "02:15",
+        title: "Tamil Behind Scenes 5",
+        description: "Behind the scenes of Tamil blockbuster",
+        views: "450K views",
+        time: "1 week ago",
+        duration: "02:45",
         thumbnail: "https://picsum.photos/seed/tamil5/600/400",
       },
       {
         id: 12,
         title: "Tamil Movie Clip 6",
         description: "Short clip from Tamil movie 6",
-        views: "4K views",
-        time: "10 days ago",
+        views: "320K views",
+        time: "5 days ago",
         duration: "01:40",
         thumbnail: "https://picsum.photos/seed/tamil6/600/400",
       },
@@ -302,17 +307,17 @@ export default function EntertainmentPage() {
   const videos = videosByCategory[activeTab] || [];
 
   return (
-    <section className="max-w-[980px] mx-auto mt-5">
+    <section className="w-full mx-auto mt-5 sm:px-0">
       {/* Header with Entertainment + Vertical Bar + Tabs */}
-      <div className="flex items-center gap-4 mb-6">
-        <h2 className="text-xl font-semibold">Entertainment</h2>
-        <div className="w-px bg-gray-300 mx-2 h-6" />
-        <nav className="flex gap-6 text-sm font-medium flex-1">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-6">
+        <h2 className="text-[18px] sm:text-xl font-semibold">Entertainment</h2>
+        <div className="hidden sm:block w-px bg-gray-300 mx-2 h-6" />
+        <nav className="flex gap-3 sm:gap-6 text-[12px] sm:text-sm font-medium flex-1 overflow-x-auto scrollbar-hide">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`pb-0 ${
+              className={`pb-0 whitespace-nowrap flex-shrink-0 ${
                 tab === activeTab
                   ? "text-red-600 border-b-2 border-red-600"
                   : "text-gray-600 hover:text-red-600"
@@ -321,16 +326,15 @@ export default function EntertainmentPage() {
               {tab}
             </button>
           ))}
-          <button className="text-gray-600 px-2 hover:text-red-600">⋮</button>
-        </nav>
-
-        <Link href="#" className="text-red-600 font-medium text-sm">
+          <button className="text-gray-600 px-2 hover:text-red-600 flex-shrink-0">⋮</button>
+          <Link href="#" className="text-red-600 font-medium text-xs sm:text-sm">
           See All
         </Link>
+        </nav>
       </div>
 
       {/* Video Grid */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {videos.slice(0, 6).map((video) => (
           <Link
             key={video.id}
@@ -344,27 +348,23 @@ export default function EntertainmentPage() {
                 fill
                 className="object-cover"
               />
-                <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
-                                    {/* Red circle with white play icon */}
-                                    <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
-                                        <svg
-                                            className="w-3 h-3 text-white"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            aria-hidden="true"
-                                        >
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
-                                    </div>
-                                    {/* Duration text */}
-                                    <span className="text-white text-xs font-semibold">{video.duration}</span>
-                                </div>
+              <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1">
+                <div className="bg-red-600 rounded-full w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center">
+                  <svg
+                    className="w-2 sm:w-3 h-2 sm:h-3 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <span className="text-white text-[10px] sm:text-xs font-semibold">{video.duration}</span>
+              </div>
             </div>
-            <div className="p-3">
-              <h3 className="font-semibold text-sm line-clamp-2">{video.title}</h3>
-              <p className="text-xs text-gray-600 mt-1 line-clamp-2">{video.description}</p>
-              <p className="text-xs text-gray-500 mt-2">{video.views} • {video.time}</p>
+            <div className="p-2 sm:p-3">
+              <h3 className="font-semibold text-[12px] sm:text-sm line-clamp-2">{video.title}</h3>
+              <p className="text-[10px] sm:text-xs text-gray-600 mt-1 line-clamp-2">{video.description}</p>
+              <p className="text-[10px] sm:text-xs text-gray-500 mt-2">{video.views} • {video.time}</p>
             </div>
           </Link>
         ))}

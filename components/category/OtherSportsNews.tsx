@@ -55,7 +55,7 @@ const newsData = {
     golf: {
       main: {
         img:
-          'https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&q=80', // golfer swinging
+          'https://picsum.photos/id/1016/400/250', // golfer swinging
         title: 'Govt must intervene to sort golf mess: Jeev Milkha Singh',
       },
       items: [
@@ -73,7 +73,7 @@ const newsData = {
         },
         {
           img:
-            'https://images.unsplash.com/photo-1520697222860-16d04620f162?auto=format&fit=crop&w=100&q=80', // golf trophy or winner celebration
+            'https://picsum.photos/id/1035/100/100', // golf trophy or winner celebration
           title: "Tommy’s golf opera finds its final act! Fleetwood gets Indian Golf’s biggest cheque",
         },
       ],
@@ -83,18 +83,18 @@ const newsData = {
 
 const OtherSportsNews: React.FC = () => {
   return (
-    <section className="mt-5">
+    <section className="mt-3 sm:mt-5 px-2 sm:px-0">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-lg font-bold">Other Sports News</h2>
+      <div className="flex justify-between items-center mb-4 sm:mb-6">
+        <h2 className="text-base sm:text-lg font-bold">Other Sports News</h2>
       </div>
 
       {/* Categories */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Hockey News */}
         <div>
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-base cursor-pointer hover:underline">
+            <h3 className="font-semibold text-sm sm:text-base cursor-pointer hover:underline">
               Hockey News &gt;
             </h3>
           </div>
@@ -106,21 +106,21 @@ const OtherSportsNews: React.FC = () => {
               alt="Hockey Main"
               width={360}
               height={200}
-              className="object-cover w-full h-[200px] group-hover:brightness-90 transition"
+              className="object-cover w-full h-[160px] sm:h-[200px] group-hover:brightness-90 transition"
             />
-            <div className="absolute bottom-3 left-3 text-white font-semibold text-sm md:text-base max-w-[90%]">
+            <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-white font-semibold text-xs sm:text-sm md:text-base max-w-[90%]">
               {newsData.hockey.main.title}
             </div>
           </div>
 
           {/* Smaller Items */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {newsData.hockey.items.map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center space-x-3 cursor-pointer"
+                className="flex items-center space-x-2 sm:space-x-3 cursor-pointer"
               >
-                <div className="w-14 h-10 relative flex-shrink-0 rounded-sm overflow-hidden">
+                <div className="w-12 sm:w-14 h-8 sm:h-10 relative flex-shrink-0 rounded-sm overflow-hidden">
                   <Image
                     src={item.img}
                     alt={`Hockey item ${idx + 1}`}
@@ -128,7 +128,7 @@ const OtherSportsNews: React.FC = () => {
                     objectFit="cover"
                   />
                 </div>
-                <p className="text-xs md:text-sm">{item.title}</p>
+                <p className="text-[11px] sm:text-xs md:text-sm">{item.title}</p>
               </div>
             ))}
           </div>
@@ -137,7 +137,7 @@ const OtherSportsNews: React.FC = () => {
         {/* Boxing News */}
         <div>
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-base cursor-pointer hover:underline">
+            <h3 className="font-semibold text-sm sm:text-base cursor-pointer hover:underline">
               Boxing News &gt;
             </h3>
           </div>
@@ -149,21 +149,21 @@ const OtherSportsNews: React.FC = () => {
               alt="Boxing Main"
               width={360}
               height={200}
-              className="object-cover w-full h-[200px] group-hover:brightness-90 transition"
+              className="object-cover w-full h-[160px] sm:h-[200px] group-hover:brightness-90 transition"
             />
-            <div className="absolute bottom-3 left-3 text-white font-semibold text-sm md:text-base max-w-[90%]">
+            <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-white font-semibold text-xs sm:text-sm md:text-base max-w-[90%]">
               {newsData.boxing.main.title}
             </div>
           </div>
 
           {/* Smaller Items */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {newsData.boxing.items.map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center space-x-3 cursor-pointer"
+                className="flex items-center space-x-2 sm:space-x-3 cursor-pointer"
               >
-                <div className="w-14 h-10 relative flex-shrink-0 rounded-sm overflow-hidden">
+                <div className="w-12 sm:w-14 h-8 sm:h-10 relative flex-shrink-0 rounded-sm overflow-hidden">
                   <Image
                     src={item.img}
                     alt={`Boxing item ${idx + 1}`}
@@ -171,7 +171,7 @@ const OtherSportsNews: React.FC = () => {
                     objectFit="cover"
                   />
                 </div>
-                <p className="text-xs md:text-sm">{item.title}</p>
+                <p className="text-[11px] sm:text-xs md:text-sm">{item.title}</p>
               </div>
             ))}
           </div>
@@ -180,7 +180,7 @@ const OtherSportsNews: React.FC = () => {
         {/* Golf News */}
         <div>
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-base cursor-pointer hover:underline">
+            <h3 className="font-semibold text-sm sm:text-base cursor-pointer hover:underline">
               Golf News &gt;
             </h3>
           </div>
@@ -192,21 +192,21 @@ const OtherSportsNews: React.FC = () => {
               alt="Golf Main"
               width={360}
               height={200}
-              className="object-cover w-full h-[200px] group-hover:brightness-90 transition"
+              className="object-cover w-full h-[160px] sm:h-[200px] group-hover:brightness-90 transition"
             />
-            <div className="absolute bottom-3 left-3 text-white font-semibold text-sm md:text-base max-w-[90%]">
+            <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 text-white font-semibold text-xs sm:text-sm md:text-base max-w-[90%]">
               {newsData.golf.main.title}
             </div>
           </div>
 
           {/* Smaller Items */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {newsData.golf.items.map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center space-x-3 cursor-pointer"
+                className="flex items-center space-x-2 sm:space-x-3 cursor-pointer"
               >
-                <div className="w-14 h-10 relative flex-shrink-0 rounded-sm overflow-hidden">
+                <div className="w-12 sm:w-14 h-8 sm:h-10 relative flex-shrink-0 rounded-sm overflow-hidden">
                   <Image
                     src={item.img}
                     alt={`Golf item ${idx + 1}`}
@@ -214,7 +214,7 @@ const OtherSportsNews: React.FC = () => {
                     objectFit="cover"
                   />
                 </div>
-                <p className="text-xs md:text-sm">{item.title}</p>
+                <p className="text-[11px] sm:text-xs md:text-sm">{item.title}</p>
               </div>
             ))}
           </div>
@@ -222,25 +222,15 @@ const OtherSportsNews: React.FC = () => {
       </div>
 
       {/* Advertisement Banner from uploaded image */}
-      <div className="mt-6 rounded-md overflow-hidden flex items-center">
-        {/* Left content */}
-        <div className="p-4 flex-1">
-          <h2 className="text-lg font-bold text-gray-900">
-            Upgrade Your Sports Gear!
-          </h2>
-          <p className="text-sm text-gray-700 mt-1">
-            Exclusive offers on hockey, boxing & golf equipment. Grab it before it's gone!
-          </p>
-        </div>
-
+      <div className="mt-4 sm:mt-6 rounded-md overflow-hidden flex flex-col sm:flex-row items-center bg-gray-50">
         {/* Right banner image */}
-        <div className="flex-shrink-0 p-5">
+        <div className="flex-shrink-0 p-2 sm:p-5">
           <Image
             src="https://picsum.photos/seed/car/1200/90"
             alt="Sports Advertisement Banner"
             width={400}
             height={450}
-            className="object-cover h-[100px]"
+            className="object-cover h-[60px] sm:h-[80px] lg:h-[100px] w-auto"
           />
         </div>
       </div>

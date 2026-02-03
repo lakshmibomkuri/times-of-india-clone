@@ -73,14 +73,14 @@ export function MainContent() {
   }, [])
   
   return (
-    <div className="space-y-4" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
-      {/* Main Headline with Auto-slider */}
-      <article className="mb-3">
+    <div className="space-y-3 sm:space-y-4 w-full" style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+      {/* Main Headline with Auto-slider - Responsive */}
+      <article className="mb-2 sm:mb-3">
         <Link href="/article/stock-market-crash" className="group block">
-          <h1 className="text-[26px] font-bold text-[#333] group-hover:text-[#e53935] leading-[1.2] mb-3" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+          <h1 className="text-[20px] sm:text-[24px] lg:text-[26px] font-bold text-[#333] group-hover:text-[#e53935] leading-[1.2] mb-2 sm:mb-3" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
             {mainHeadlines[currentHeadline].title}
           </h1>
-          <div className="relative w-full aspect-[16/9] overflow-hidden">
+          <div className="relative w-full aspect-[16/9] overflow-hidden rounded sm:rounded-none">
             <Image
               src={mainHeadlines[currentHeadline].image || "/placeholder.svg"}
               alt={mainHeadlines[currentHeadline].title}
@@ -88,42 +88,31 @@ export function MainContent() {
               className="object-cover transition-opacity duration-500"
               priority
             />
-            {/* Slide indicators */}
-            <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex gap-1">
+            {/* Slide indicators - Responsive */}
+            <div className="absolute bottom-10 sm:bottom-14 left-1/2 -translate-x-1/2 flex gap-1">
               {mainHeadlines.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={(e) => { e.preventDefault(); setCurrentHeadline(idx); }}
-                  className={`w-2 h-2 rounded-full transition-all ${idx === currentHeadline ? 'bg-white w-4' : 'bg-white/50'}`}
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${idx === currentHeadline ? 'bg-white w-3 sm:w-4' : 'bg-white/50'}`}
                 />
               ))}
             </div>
-            {/* New Stories Button */}
-            <button className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1a73e8] text-white text-[13px] px-4 py-2 rounded-full flex items-center gap-2 hover:bg-[#1557b0] transition-colors shadow-lg">
+            {/* New Stories Button - Responsive */}
+            <button className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 bg-[#1a73e8] text-white text-[11px] sm:text-[13px] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 hover:bg-[#1557b0] transition-colors shadow-lg">
               {newStoriesCount} New Stories
-              <RefreshCw className="w-4 h-4" />
+              <RefreshCw className="w-3 h-3 sm:w-4 sm:h-4" />
             </button>
           </div>
         </Link>
       </article>
 
-      {/* News Articles */}
+      {/* News Articles - Responsive */}
       <div className="space-y-0">
         {newsArticles.map((article, index) => (
-          <article key={index} className="flex gap-4 py-4 border-b border-gray-200">
-            <div className="flex-1 min-w-0">
-              <Link href="/article/news" className="group block">
-                <h2 className="text-[15px] font-bold text-[#333] group-hover:text-[#e53935] leading-[1.3] mb-1" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
-                  {article.title}
-                </h2>
-                {article.excerpt && (
-                  <p className="text-[13px] text-[#666] leading-[1.4] mt-1">
-                    {article.excerpt}
-                  </p>
-                )}
-              </Link>
-            </div>
-            <div className="flex-shrink-0 w-[170px] h-[105px] relative overflow-hidden">
+          <article key={index} className="flex flex-col sm:flex-row gap-3 sm:gap-4 py-3 sm:py-4 border-b border-gray-200">
+            {/* Mobile: Image first, then content */}
+            <div className="sm:hidden w-full h-[200px] relative overflow-hidden rounded">
               <Link href="/article/news" className="block w-full h-full">
                 <Image
                   src={article.image || "/placeholder.svg"}
@@ -132,7 +121,7 @@ export function MainContent() {
                   className="object-cover"
                 />
                 {article.videoDuration && (
-                  <div className="absolute bottom-1 right-1 bg-black/80 text-white text-[11px] px-1.5 py-0.5 rounded flex items-center gap-1">
+                  <div className="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] px-1.5 py-0.5 rounded flex items-center gap-1">
                     <svg className="w-2.5 h-2.5 text-[#e53935]" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
@@ -140,7 +129,46 @@ export function MainContent() {
                   </div>
                 )}
                 {article.hasPlus && (
-                  <div className="absolute bottom-1 right-1 bg-[#e53935] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                  <div className="absolute bottom-2 right-2 bg-[#e53935] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                    +
+                  </div>
+                )}
+              </Link>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <Link href="/article/news" className="group block">
+                <h2 className="text-[14px] sm:text-[15px] font-bold text-[#333] group-hover:text-[#e53935] leading-[1.3] mb-1" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+                  {article.title}
+                </h2>
+                {article.excerpt && (
+                  <p className="text-[12px] sm:text-[13px] text-[#666] leading-[1.4] mt-1 line-clamp-2 sm:line-clamp-none">
+                    {article.excerpt}
+                  </p>
+                )}
+              </Link>
+            </div>
+            
+            {/* Desktop: Image on the right */}
+            <div className="hidden sm:block flex-shrink-0 w-[150px] md:w-[170px] h-[90px] md:h-[105px] relative overflow-hidden">
+              <Link href="/article/news" className="block w-full h-full">
+                <Image
+                  src={article.image || "/placeholder.svg"}
+                  alt={article.title}
+                  fill
+                  className="object-cover"
+                />
+                {article.videoDuration && (
+                  <div className="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] sm:text-[11px] px-1.5 py-0.5 rounded flex items-center gap-1">
+                    <svg className="w-2.5 h-2.5 text-[#e53935]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    {article.videoDuration}
+                  </div>
+                )}
+                {article.hasPlus && (
+                  <div className="absolute bottom-1 right-1 bg-[#e53935] text-white text-[9px] sm:text-[10px] w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center font-bold">
                     +
                   </div>
                 )}

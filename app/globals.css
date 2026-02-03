@@ -238,3 +238,99 @@
 .bg-toi-red {
   background-color: #e53935;
 }
+
+/* Responsive Utilities */
+@layer utilities {
+  /* Line clamp utilities for text truncation */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Mobile-first responsive text sizes */
+  .text-responsive-xs {
+    @apply text-[10px] sm:text-[11px] md:text-[12px];
+  }
+  
+  .text-responsive-sm {
+    @apply text-[11px] sm:text-[12px] md:text-[13px];
+  }
+  
+  .text-responsive-base {
+    @apply text-[12px] sm:text-[13px] md:text-[14px];
+  }
+  
+  .text-responsive-lg {
+    @apply text-[14px] sm:text-[16px] md:text-[18px];
+  }
+  
+  /* Responsive spacing */
+  .space-responsive {
+    @apply space-y-2 sm:space-y-3 md:space-y-4;
+  }
+  
+  .gap-responsive {
+    @apply gap-2 sm:gap-3 md:gap-4;
+  }
+  
+  /* Responsive padding */
+  .p-responsive {
+    @apply p-2 sm:p-3 md:p-4;
+  }
+  
+  .px-responsive {
+    @apply px-2 sm:px-3 md:px-4;
+  }
+  
+  .py-responsive {
+    @apply py-2 sm:py-3 md:py-4;
+  }
+}
+
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+  .mobile-nav-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .mobile-nav-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ensure touch targets are at least 44px */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Tablet specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+  .desktop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

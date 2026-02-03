@@ -56,19 +56,19 @@ export default function VideoPage() {
       </div> */}
 
       {/* Main Content Area */}
-      <div className="xl:mx-[145px]">
+      <div className="px-2 sm:px-4 lg:px-6 xl:mx-[145px]">
         <Header />
 
-        <main className="bg-white mt-5">
+        <main className="bg-white mt-3 sm:mt-5">
           <div className="max-w-[980px] mx-auto">
-            <div className="flex gap-6">
+            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
               {/* Left Content */}
               <div className="flex-1">
                 {/* Title above video */}
-                <h1 className="text-lg font-semibold text-gray-900 mb-4">{video.title}</h1>
+                <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">{video.title}</h1>
 
                 {/* Video Player */}
-                <div className="relative aspect-video bg-black rounded-lg overflow-hidden mb-4">
+                <div className="relative aspect-video bg-black rounded-lg overflow-hidden mb-3 sm:mb-4">
                   <Image
                     src={video.thumbnail || "/placeholder.svg"}
                     alt={video.title}
@@ -76,34 +76,34 @@ export default function VideoPage() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <button className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
-                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                    <button className="w-16 sm:w-20 h-16 sm:h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                      <Play className="w-8 sm:w-10 h-8 sm:h-10 text-white ml-1" fill="white" />
                     </button>
                   </div>
-                  <div className="absolute bottom-4 right-4 bg-black/80 text-white text-sm px-3 py-1 rounded">
+                  <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 bg-black/80 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded">
                     {video.duration}
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between mb-4 text-gray-600">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 text-gray-600 gap-2 sm:gap-0">
 
                   {/* Left Side: Views and Date */}
-                  <div className="flex gap-4 text-xs">
+                  <div className="flex gap-3 sm:gap-4 text-xs">
                     <span>{video.views} views</span>
                     <span>{video.date}</span>
                   </div>
 
                   {/* Right Side: Share and Copy Link */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     {/* Share Button */}
-                    <button className="flex items-center gap-2 hover:text-red-600">
-                      <Forward className="w-5 h-5" />
-                      <span className="text-sm">Share</span>
+                    <button className="flex items-center gap-1 sm:gap-2 hover:text-red-600">
+                      <Forward className="w-4 sm:w-5 h-4 sm:h-5" />
+                      <span className="text-xs sm:text-sm">Share</span>
                     </button>
 
                     {/* Copy Link Button */}
                     <button
-                      className="text-gray-600 hover:text-red-600 underline text-sm"
+                      className="text-gray-600 hover:text-red-600 underline text-xs sm:text-sm"
                       onClick={() => {
                         navigator.clipboard.writeText(window.location.href);
                         alert("Link copied!");
@@ -117,33 +117,33 @@ export default function VideoPage() {
 
 
                 {/* Description */}
-                <p className="text-gray-700 leading-relaxed">{video.description}</p>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{video.description}</p>
               </div>
 
               {/* Right Sidebar - Advertisement + Related Videos */}
-              <aside className="hidden lg:block w-[320px] flex-shrink-0">
+              <aside className="w-full lg:w-[320px] flex-shrink-0 mt-6 lg:mt-0">
                 {/* Realistic Advertisement */}
-                <div className="mb-6 rounded-lg border border-orange-300 bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-200 p-4 shadow-lg select-none">
+                <div className="mb-4 sm:mb-6 rounded-lg border border-orange-300 bg-gradient-to-b from-yellow-50 via-yellow-100 to-yellow-200 p-3 sm:p-4 shadow-lg select-none">
                   <h4 className="text-xs font-semibold text-orange-700 mb-2 tracking-widest uppercase">
                     Advertisement
                   </h4>
-                  <div className="flex flex-col items-center gap-3 text-center">
-                    <p className="text-3xl font-handwriting text-orange-600 leading-snug">
+                  <div className="flex flex-col items-center gap-2 sm:gap-3 text-center">
+                    <p className="text-2xl sm:text-3xl font-handwriting text-orange-600 leading-snug">
                       The Touch of Thai
                     </p>
-                    <p className="text-xs text-orange-600 uppercase tracking-widest mb-3">
+                    <p className="text-xs text-orange-600 uppercase tracking-widest mb-2 sm:mb-3">
                       products you can trust
                     </p>
 
-                    <div className="bg-orange-300 rounded-md px-5 py-1 text-sm font-semibold text-orange-900 tracking-widest shadow-sm w-fit mx-auto">
+                    <div className="bg-orange-300 rounded-md px-3 sm:px-5 py-1 text-xs sm:text-sm font-semibold text-orange-900 tracking-widest shadow-sm w-fit mx-auto">
                       1 - 31 JANUARY 2026
                     </div>
 
-                    <div className="flex items-center justify-center gap-4 mt-3 w-full max-w-[260px]">
+                    <div className="flex items-center justify-center gap-3 sm:gap-4 mt-2 sm:mt-3 w-full max-w-[260px]">
                       {/* Left character */}
                       <div className="flex flex-col items-center text-orange-800 text-xs font-semibold">
                         <svg
-                          className="w-10 h-10 mb-1"
+                          className="w-8 sm:w-10 h-8 sm:h-10 mb-1"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1.5"
@@ -160,9 +160,9 @@ export default function VideoPage() {
                             strokeLinejoin="round"
                           />
                         </svg>
-                        <span className="leading-tight">now at</span>
-                        <span className="leading-tight font-bold">Amma Naana</span>
-                        <span className="leading-tight">Stores</span>
+                        <span className="leading-tight text-[10px] sm:text-xs">now at</span>
+                        <span className="leading-tight font-bold text-[10px] sm:text-xs">Amma Naana</span>
+                        <span className="leading-tight text-[10px] sm:text-xs">Stores</span>
                       </div>
 
                       {/* Right logo block */}
@@ -170,37 +170,37 @@ export default function VideoPage() {
                         <img
                           src="/ditp-logo.png" // Replace with your actual logo image URL
                           alt="DITP Logo"
-                          className="w-16 h-auto object-contain"
+                          className="w-12 sm:w-16 h-auto object-contain"
                           loading="lazy"
                         />
-                        <p className="text-orange-700 text-[10px] font-semibold tracking-wide">DITP</p>
+                        <p className="text-orange-700 text-[9px] sm:text-[10px] font-semibold tracking-wide">DITP</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Recommended Playlist */}
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Recommended Playlist</h3>
-                <div className="space-y-4">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4">Recommended Playlist</h3>
+                <div className="space-y-3 sm:space-y-4">
                   {relatedVideos.map((vid) => (
-                    <a key={vid.id} href={`/videos/${vid.id}`} className="flex gap-3 group">
-                      <div className="relative w-[160px] h-[90px] flex-shrink-0 rounded overflow-hidden">
+                    <a key={vid.id} href={`/videos/${vid.id}`} className="flex gap-2 sm:gap-3 group">
+                      <div className="relative w-[120px] sm:w-[160px] h-[68px] sm:h-[90px] flex-shrink-0 rounded overflow-hidden">
                         <Image
                           src={vid.thumbnail || "/placeholder.svg"}
                           alt={vid.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform"
                         />
-                        <div className="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 py-0.5 rounded flex items-center gap-0.5">
+                        <div className="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] sm:text-[10px] px-1 py-0.5 rounded flex items-center gap-0.5">
                           <Play className="w-2 h-2" fill="white" />
                           {vid.duration}
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-sm font-medium text-gray-900 group-hover:text-red-600 line-clamp-2 mb-1">
+                        <h4 className="text-xs sm:text-sm font-medium text-gray-900 group-hover:text-red-600 line-clamp-2 mb-1">
                           {vid.title}
                         </h4>
-                        <p className="text-xs text-gray-500">{vid.views} views</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500">{vid.views} views</p>
                       </div>
                     </a>
                   ))}

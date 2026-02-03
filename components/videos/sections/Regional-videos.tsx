@@ -76,7 +76,7 @@ export const tvVideosByCategory: Record<VideoCategory, Video[]> = {
       time: "2 days ago",
       duration: "11:20",
       thumbnail:
-        "https://images.unsplash.com/photo-1515169067865-5387ec356754?fit=crop&w=900&h=500&q=80"
+        "https://picsum.photos/id/1011/300/170"
     },
   ],
 
@@ -238,7 +238,7 @@ export const tvVideosByCategory: Record<VideoCategory, Video[]> = {
       time: "2 days ago",
       duration: "11:20",
       thumbnail:
-        "https://images.unsplash.com/photo-1515169067865-5387ec356754?fit=crop&w=900&h=500&q=80"
+        "https://picsum.photos/id/1011/300/170"
     },
     {
       id: 6,
@@ -319,18 +319,18 @@ export default function RegionalVideoPage() {
   const tabs = Object.keys(tvVideosByCategory) as VideoCategory[];
 
   return (
-    <section className="max-w-[980px] mx-auto mt-5">
+    <section className="w-full mx-auto pt-5 sm:px-0">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-4">
-          <h2 className="text-[18px] font-semibold">Regional Videos</h2>
-          <div className="w-px bg-gray-300 h-6" />
-          <nav className="flex items-center gap-4 text-sm font-medium flex-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <h2 className="text-[16px] sm:text-[18px] font-semibold">Regional Videos</h2>
+          <div className="hidden sm:block w-px bg-gray-300 h-6" />
+          <nav className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm font-medium overflow-x-auto justify-between">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`pb-1 ${
+                className={`pb-1 whitespace-nowrap ${
                   tab === activeTab
                     ? "text-red-600 border-b-2 border-red-600"
                     : "text-gray-600 hover:text-red-600"
@@ -339,20 +339,21 @@ export default function RegionalVideoPage() {
                 {tab}
               </button>
             ))}
-          </nav>
-        </div>
-        <Link href="#" className="text-red-600 text-sm font-medium hover:underline">
+            <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium hover:underline">
           See All
         </Link>
+          </nav>
+        </div>
+        
       </div>
 
       {/* Videos Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {videos.slice(0, 3).map((video) => (
           <VideoCard key={video.id} video={video} />
         ))}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-3">
         {videos.slice(3, 6).map((video) => (
           <VideoCard key={video.id} video={video} />
         ))}
@@ -377,11 +378,11 @@ function VideoCard({ video }: { video: Video }) {
           fill
           className="object-cover group-hover:scale-105 transition-transform"
         />
-        <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
+        <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1 select-none">
       {/* Red circle with white play icon */}
-      <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
+      <div className="bg-red-600 rounded-full w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center">
         <svg
-          className="w-3 h-3 text-white"
+          className="w-2.5 sm:w-3 h-2.5 sm:h-3 text-white"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -391,12 +392,12 @@ function VideoCard({ video }: { video: Video }) {
         </svg>
       </div>
       {/* Duration text */}
-      <span className="text-white text-xs font-semibold">{video.duration}</span>
+      <span className="text-white text-[10px] sm:text-xs font-semibold">{video.duration}</span>
     </div>
       </div>
       <div className="p-2">
-        <p className="text-[14px] font-medium line-clamp-2 mb-1">{video.title}</p>
-        <span className="text-[12px] text-gray-500">
+        <p className="text-[13px] sm:text-[14px] font-medium line-clamp-2 mb-1">{video.title}</p>
+        <span className="text-[11px] sm:text-[12px] text-gray-500">
           {video.views} • {video.time}
         </span>
       </div>

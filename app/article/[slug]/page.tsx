@@ -9,12 +9,22 @@ import { Facebook, Youtube, Send, Instagram } from "lucide-react";
 import UpNextArticlePage from "@/components/articles/Up-next";
 import { useState, useEffect, useRef } from "react";
 import { PhotoStories } from "@/components/articles/Photostories";
+import { ExploredGlobeSection } from "@/components/toi/sections/explored-globe-section";
+import { HotOnWebSection } from "@/components/toi/sections/hot-on-web-section";
+import { TrendingTopicsSection } from "@/components/toi/sections/trending-topics-section";
+import { PopularCategoriesSection } from "@/components/toi/sections/popular-categories-section";
+import { LatestNewsSection } from "@/components/toi/sections/latest-news-section";
+import { TrendingVideosSection } from "@/components/toi/sections/trending-videos-section";
 /* ---------------- MOCK DATA ---------------- */
 const article = {
   title: "Will US roll back 25% tariffs on India?",
   author: "Times of India",
   date: "Jan 24, 2026, 10:15 IST",
   heroImage: "https://picsum.photos/seed/hero/900/500",
+  summary: "This is a sample summary for the article. You can put any text here.",
+  publishedDate: "Jan 1, 2026",
+  category: "General",
+  readingTime: "5 min",
 
   contentPart1: `
     <p>The United States may reconsider the 25% tariffs imposed on Indian goods, following the collapse of Russian oil purchases.</p>
@@ -72,7 +82,7 @@ const trendingVideos = [
 
 /* ---------------- PAGE ---------------- */
 export default function ArticlePage() {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [mediaTab, setMediaTab] = useState("watch");
   const [infoTab, setInfoTab] = useState("business");
@@ -83,7 +93,7 @@ export default function ArticlePage() {
 
   const totalPages = Math.ceil(photoStories.length / itemsPerPage);
 
-  const scrollToPage = (page) => {
+  const scrollToPage = (page: number) => {
     if (!scrollRef.current) return;
     const scrollLeft = page * (150 + 12) * itemsPerPage; // width + gap approx, times page number
     scrollRef.current.scrollTo({ left: scrollLeft, behavior: 'smooth' });
@@ -117,7 +127,7 @@ export default function ArticlePage() {
     "Tips for small business growth",
     "Industry expert insights and analysis",
   ];
-  
+
   const sitePoints = [
     "Most read stories today",
     "Editors' picks",
@@ -130,21 +140,21 @@ export default function ArticlePage() {
     "Community discussions",
     "Weekly top stories roundup",
   ];
-  
+
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="xl:ml-[140px] xl:mr-[145px]">
+      <div className="xl:ml-[145px] xl:mr-[145px]">
         <Header />
 
-        <main className="bg-white">
-          <div className="flex gap-6">
+        <main className="bg-white lg:p-4 px-2 sm:px-2 lg:px-2">
+          <div className="flex flex-col lg:flex-row gap-6">
 
             {/* ================= LEFT CONTENT ================= */}
-            <article className="flex-1 max-w-[700px]">
+            <article className="flex-1 w-full lg:max-w-[700px]">
 
               {/* Title */}
-              <h1 className="text-[26px] font-bold text-[#1a1a1a] mb-3">
+              <h1 className="text-[20px] sm:text-[26px] font-bold text-[#1a1a1a] mb-3">
                 {article.title}
               </h1>
 
@@ -155,36 +165,36 @@ export default function ArticlePage() {
 
               {/* Hero Image */}
               <div className="flex flex-col lg:flex-row gap-4 mb-4">
-  {/* Left: Hero Image */}
-  <div className="relative w-full lg:w-1/2 aspect-video">
-    <Image
-      src={article.heroImage}
-      alt={article.title || "Hero Image"}
-      fill
-      className="object-cover rounded"
-    />
-  </div>
+                {/* Left: Hero Image */}
+                <div className="relative w-full lg:w-1/2 aspect-video">
+                  <Image
+                    src={article.heroImage}
+                    alt={article.title || "Hero Image"}
+                    fill
+                    className="object-cover rounded"
+                  />
+                </div>
 
-  {/* Right: Content */}
-  <div className="w-full lg:w-1/2 flex flex-col justify-center p-4 bg-white">
-    <p className="text-xl font-bold mb-2">{article.title || "Article Title"}</p>
-    <p className="text-sm text-gray-700 mb-2">
-      {article.summary || "This is a sample summary for the article. You can put any text here."}
-    </p>
-    <p className="text-sm text-gray-700 mb-2">
-      Published on: {article.publishedDate || "Jan 1, 2026"}
-    </p>
-    <p className="text-sm text-gray-700 mb-2">
-      Author: {article.author || "Admin"}
-    </p>
-    <p className="text-sm text-gray-700 mb-2">
-      Category: {article.category || "General"}
-    </p>
-    <p className="text-sm text-gray-700">
-      Reading time: {article.readingTime || "5 min"}
-    </p>
-  </div>
-</div>
+                {/* Right: Content */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center p-3 sm:p-4 bg-white">
+                  <p className="text-lg sm:text-xl font-bold mb-2">{article.title || "Article Title"}</p>
+                  <p className="text-sm text-gray-700 mb-2">
+                    {article.summary || "This is a sample summary for the article. You can put any text here."}
+                  </p>
+                  <p className="text-sm text-gray-700 mb-2">
+                    Published on: {article.publishedDate || "Jan 1, 2026"}
+                  </p>
+                  <p className="text-sm text-gray-700 mb-2">
+                    Author: {article.author || "Admin"}
+                  </p>
+                  <p className="text-sm text-gray-700 mb-2">
+                    Category: {article.category || "General"}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    Reading time: {article.readingTime || "5 min"}
+                  </p>
+                </div>
+              </div>
 
 
               {/* CONTENT – PART 1 */}
@@ -338,7 +348,7 @@ export default function ArticlePage() {
                 </div>
 
                 {/* AI Summary + Top Takes */}
-                <div className="bg-[#eef8f3] rounded-2xl p-6 mb-6">
+                <div className="bg-[#eef8f3] rounded-2xl p-4 sm:p-6 mb-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     {/* Left */}
@@ -428,7 +438,7 @@ export default function ArticlePage() {
                         <button className="border rounded-full px-5 py-2 text-[13px]">
                           See all Comments
                         </button>
-                        <button className="bg-black text-white rounded-full px-5 py-2 text-[13px]">
+                        <button className="bg-black text-white rounded-full px-3 sm:px-5 py-2 text-[13px]">
                           Share Opinion
                         </button>
                       </div>
@@ -588,12 +598,12 @@ export default function ArticlePage() {
                   <div>
                     <span className="text-[11px] text-gray-600 mr-2">Follow Us On Social Media</span>
                   </div>
-                  <div className="flex flex-row gap-2">
+                  <div className="flex flex-wrap gap-2">
 
                     {/* Google */}
                     <Link
                       href="#"
-                      className="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-[12px] hover:bg-gray-50"
+                      className="flex items-center gap-1 sm:gap-2 border border-gray-300 rounded-md px-2 sm:px-3 py-1.5 text-[11px] sm:text-[12px] hover:bg-gray-50"
                     >
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                         <path
@@ -601,54 +611,54 @@ export default function ArticlePage() {
                           d="M12 10.2v3.6h5.1c-.2 1.2-1.4 3.6-5.1 3.6-3.1 0-5.6-2.6-5.6-5.8s2.5-5.8 5.6-5.8c1.8 0 3 .8 3.7 1.5l2.5-2.4C16.7 2.6 14.6 1.5 12 1.5 6.8 1.5 2.5 5.8 2.5 11s4.3 9.5 9.5 9.5c5.5 0 9.2-3.9 9.2-9.3 0-.6-.1-1.1-.2-1.6H12z"
                         />
                       </svg>
-                      Google
+                      <span className="hidden sm:inline">Google</span>
                     </Link>
 
                     {/* Facebook */}
                     <Link
                       href="#"
-                      className="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-[12px] text-[#1877F2] hover:bg-gray-50"
+                      className="flex items-center gap-1 sm:gap-2 border border-gray-300 rounded-md px-2 sm:px-3 py-1.5 text-[11px] sm:text-[12px] text-[#1877F2] hover:bg-gray-50"
                     >
                       <Facebook className="w-3.5 h-3.5" />
-                      Facebook
+                      <span className="hidden sm:inline">Facebook</span>
                     </Link>
 
                     {/* Twitter / X */}
                     <Link
                       href="#"
-                      className="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-[12px] hover:bg-gray-50"
+                      className="flex items-center gap-1 sm:gap-2 border border-gray-300 rounded-md px-2 sm:px-3 py-1.5 text-[11px] sm:text-[12px] hover:bg-gray-50"
                     >
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z" />
                       </svg>
-                      Twitter
+                      <span className="hidden sm:inline">Twitter</span>
                     </Link>
 
                     {/* Instagram */}
                     <Link
                       href="#"
-                      className="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-[12px] text-pink-500 hover:bg-gray-50"
+                      className="flex items-center gap-1 sm:gap-2 border border-gray-300 rounded-md px-2 sm:px-3 py-1.5 text-[11px] sm:text-[12px] text-pink-500 hover:bg-gray-50"
                     >
                       <Instagram className="w-3.5 h-3.5" />
-                      Instagram
+                      <span className="hidden sm:inline">Instagram</span>
                     </Link>
 
                     {/* YouTube */}
                     <Link
                       href="#"
-                      className="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-[12px] text-red-600 hover:bg-gray-50"
+                      className="flex items-center gap-1 sm:gap-2 border border-gray-300 rounded-md px-2 sm:px-3 py-1.5 text-[11px] sm:text-[12px] text-red-600 hover:bg-gray-50"
                     >
                       <Youtube className="w-3.5 h-3.5" />
-                      YouTube
+                      <span className="hidden sm:inline">YouTube</span>
                     </Link>
 
                     {/* Telegram */}
                     <Link
                       href="#"
-                      className="flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-[12px] text-blue-500 hover:bg-gray-50"
+                      className="flex items-center gap-1 sm:gap-2 border border-gray-300 rounded-md px-2 sm:px-3 py-1.5 text-[11px] sm:text-[12px] text-blue-500 hover:bg-gray-50"
                     >
                       <Send className="w-3.5 h-3.5" />
-                      Telegram
+                      <span className="hidden sm:inline">Telegram</span>
                     </Link>
 
                   </div>
@@ -692,12 +702,12 @@ export default function ArticlePage() {
             </article>
 
             {/* ================= RIGHT SIDEBAR ================= */}
-            <aside className="w-[320px] hidden lg:block space-y-6">
+            <aside className="w-full lg:w-[320px] space-y-6">
 
               {/* Ad 1 */}
-              <a href="#" className="block rounded-md overflow-hidden bg-gray-100">
+              <a href="#" className="block rounded-md overflow-hidden">
                 <Image
-                  src="/ads/ad-300x250-1.jpg"
+                  src="https://picsum.photos/300/250?random=1"
                   width={300}
                   height={250}
                   alt="Advertisement"
@@ -707,21 +717,21 @@ export default function ArticlePage() {
 
               {/* Tabs Section 1 */}
               <div>
-                <div className="flex border-b border-gray-300 justify-between">
+                <div className="flex flex-wrap border-b border-gray-300 justify-between">
                   <button
                     onClick={() => setMediaTab("watch")}
                     className={`px-4 py-2 text-sm font-semibold ${mediaTab === "watch"
-                        ? "border-b-2 border-blue-600 text-blue-600"
-                        : "text-gray-600"
+                      ? "border-b-2 border-blue-600 text-blue-600"
+                      : "text-gray-600"
                       }`}
                   >
-                   Also Watch
+                    Also Watch
                   </button>
                   <button
                     onClick={() => setMediaTab("trending")}
                     className={`px-4 py-2 text-sm font-semibold ${mediaTab === "trending"
-                        ? "border-b-2 border-blue-600 text-blue-600"
-                        : "text-gray-600"
+                      ? "border-b-2 border-blue-600 text-blue-600"
+                      : "text-gray-600"
                       }`}
                   >
                     Viral Videos
@@ -754,9 +764,9 @@ export default function ArticlePage() {
               </div>
 
               {/* Ad 2 */}
-              <a href="#" className="block rounded-md overflow-hidden bg-gray-100">
+              <a href="#" className="block rounded-md overflow-hidden">
                 <Image
-                  src="/ads/ad-300x250-2.jpg"
+                  src="https://picsum.photos/300/250?random=3"
                   width={300}
                   height={250}
                   alt="Advertisement"
@@ -766,12 +776,12 @@ export default function ArticlePage() {
 
               {/* Tabs Section 2 */}
               <div>
-                <div className="flex border-b border-gray-300">
+                <div className="flex flex-wrap border-b border-gray-300">
                   <button
                     onClick={() => setInfoTab("business")}
                     className={`px-4 py-2 text-sm font-semibold ${infoTab === "business"
-                        ? "border-b-2 border-blue-600 text-blue-600"
-                        : "text-gray-600"
+                      ? "border-b-2 border-blue-600 text-blue-600"
+                      : "text-gray-600"
                       }`}
                   >
                     In Business
@@ -779,8 +789,8 @@ export default function ArticlePage() {
                   <button
                     onClick={() => setInfoTab("site")}
                     className={`px-4 py-2 text-sm font-semibold ${infoTab === "site"
-                        ? "border-b-2 border-blue-600 text-blue-600"
-                        : "text-gray-600"
+                      ? "border-b-2 border-blue-600 text-blue-600"
+                      : "text-gray-600"
                       }`}
                   >
                     Entire Website
@@ -807,9 +817,9 @@ export default function ArticlePage() {
               </div>
 
               {/* Ad 3 */}
-              <a href="#" className="block rounded-md overflow-hidden bg-gray-100">
+              <a href="#" className="block rounded-md overflow-hidden">
                 <Image
-                  src="/ads/ad-300x250-3.jpg"
+                  src="https://picsum.photos/300/250?random=4"
                   width={300}
                   height={250}
                   alt="Advertisement"
@@ -824,9 +834,15 @@ export default function ArticlePage() {
           </div>
           {/* UP NEXT */}
           <UpNextArticlePage />
+          <ExploredGlobeSection/>
+      <HotOnWebSection/>
+      <TrendingTopicsSection/>
+      <PopularCategoriesSection/>
+      <TrendingVideosSection/>
+      <LatestNewsSection/>
         </main>
       </div>
-
+  
       <Footer />
     </div>
   );

@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 
 const tabs = [
-  "Sports",
   "Cricket",
   "Featured",
   "Football",
@@ -81,12 +80,22 @@ const videosByCategory = {
 
 export default function CategoryVideosSection() {
   const [activeTab, setActiveTab] = useState("Cricket");
+  const [isMobile, setIsMobile] = useState(false);
   const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const videos = videosByCategory[activeTab] || [];
 
-  const CARD_WIDTH = 320; // card width + gap
-  const VISIBLE_CARDS = 3;
+  const CARD_WIDTH = isMobile ? 280 : 320;
+  const VISIBLE_CARDS = isMobile ? 1 : 3;
   const totalPages = Math.ceil(videos.length / VISIBLE_CARDS);
   const [page, setPage] = useState(0);
 
@@ -121,41 +130,43 @@ export default function CategoryVideosSection() {
   };
 
   return (
-    <section className="mb-6 max-w-[980px] mt-5">
-      {/* Tabs */}
+    <section className="mb-6 w-full mt-5 sm:px-0">
+      {/* Section Header */}
       <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center gap-5 text-[15px]">
-          {tabs.map((tab) => (
-            <span
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`cursor-pointer pb-1 ${
-                tab === activeTab
-                  ? "text-red-600 border-b-2 border-red-600 font-medium"
-                  : "text-gray-700"
-              }`}
-            >
-              {tab}
-            </span>
-          ))}
-          <MoreVertical className="w-4 h-4 text-gray-500 cursor-pointer" />
-        </div>
-
-        <Link href="#" className="text-red-600 text-sm font-medium">
+        <h2 className="text-[15px] sm:text-[16px] font-bold text-[#111]">Sports</h2>
+        <Link href="#" className="text-red-600 text-xs sm:text-sm font-medium">
           See All
         </Link>
+      </div>
+
+      {/* Tabs */}
+      <div className="flex items-center gap-2 sm:gap-5 text-[13px] sm:text-[15px] overflow-x-auto scrollbar-hide mb-3">
+        {tabs.map((tab) => (
+          <span
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`cursor-pointer pb-1 whitespace-nowrap flex-shrink-0 ${
+              tab === activeTab
+                ? "text-red-600 border-b-2 border-red-600 font-medium"
+                : "text-gray-700"
+            }`}
+          >
+            {tab}
+          </span>
+        ))}
+        <MoreVertical className="w-3 sm:w-4 h-3 sm:h-4 text-gray-500 cursor-pointer flex-shrink-0" />
       </div>
 
       {/* Carousel */}
       <div className="relative overflow-hidden">
         <div
           ref={carouselRef}
-          className="flex gap-5 overflow-x-hidden scroll-smooth"
+          className="flex gap-2 sm:gap-5 overflow-x-hidden scroll-smooth"
         >
           {videos.map((video) => (
-            <div key={video.id} className="w-[300px] flex-shrink-0">
+            <div key={video.id} className="w-[270px] sm:w-[300px] flex-shrink-0">
               {/* Thumbnail */}
-              <div className="relative h-[165px] rounded-xl overflow-hidden mb-2 bg-black">
+              <div className="relative h-[150px] sm:h-[165px] rounded-xl overflow-hidden mb-2 bg-black">
                 <Image
                   src={video.image}
                   alt={video.title}
@@ -164,30 +175,26 @@ export default function CategoryVideosSection() {
                 />
 
                 {/* Play Icon */}
-                <div className="absolute bottom-2 right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-2 px-3 py-1 select-none">
-                  {/* Red circle with white play icon */}
-                  <div className="bg-red-600 rounded-full w-5 h-5 flex items-center justify-center">
+                <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 bg-black bg-opacity-80 rounded-full flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1">
+                  <div className="bg-red-600 rounded-full w-4 sm:w-5 h-4 sm:h-5 flex items-center justify-center">
                     <svg
-                      className="w-3 h-3 text-white"
+                      className="w-2 sm:w-3 h-2 sm:h-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
                     >
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  {/* Duration text */}
                 </div>
               </div>
 
               {/* Title */}
-              <p className="text-[15px] font-medium leading-snug mb-1 line-clamp-2">
+              <p className="text-[13px] sm:text-[15px] font-medium leading-snug mb-1 line-clamp-2">
                 {video.title}
               </p>
 
               {/* Meta */}
-              <span className="text-[13px] text-gray-500">
+              <span className="text-[11px] sm:text-[13px] text-gray-500">
                 {video.views} | {video.time}
               </span>
             </div>
@@ -198,35 +205,33 @@ export default function CategoryVideosSection() {
         <button
           onClick={scrollLeft}
           disabled={page === 0}
-          className="absolute left-3 top-[75px] z-10 bg-white/90 border rounded-full p-2 shadow hover:bg-white disabled:opacity-40"
+          className="absolute left-1 sm:left-3 top-[65px] sm:top-[75px] z-10 bg-white/90 border rounded-full p-1.5 sm:p-2 shadow hover:bg-white disabled:opacity-40"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-3 sm:w-4 h-3 sm:h-4" />
         </button>
 
         <button
           onClick={scrollRight}
           disabled={page === totalPages - 1}
-          className="absolute right-10 top-[75px] z-10 bg-white/90 border rounded-full p-2 shadow hover:bg-white disabled:opacity-40"
+          className="absolute right-1 sm:right-10 top-[65px] sm:top-[75px] z-10 bg-white/90 border rounded-full p-1.5 sm:p-2 shadow hover:bg-white disabled:opacity-40"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-3 sm:w-4 h-3 sm:h-4" />
         </button>
       </div>
 
       {/* Pagination Dots */}
-      {/* Pagination (EXACT like image) */}
-<div className="flex justify-center items-center gap-2 mt-4">
-  {Array.from({ length: totalPages }).map((_, index) => (
-    <span
-      key={index}
-      className={`transition-all duration-300 ${
-        index === page
-          ? "w-5 h-2 bg-black rounded-full"
-          : "w-2 h-2 bg-gray-300 rounded-full"
-      }`}
-    />
-  ))}
-</div>
-
+      <div className="flex justify-center items-center gap-1 sm:gap-2 mt-4">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <span
+            key={index}
+            className={`transition-all duration-300 ${
+              index === page
+                ? "w-4 sm:w-5 h-1.5 sm:h-2 bg-black rounded-full"
+                : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gray-300 rounded-full"
+            }`}
+          />
+        ))}
+      </div>
     </section>
   );
 }

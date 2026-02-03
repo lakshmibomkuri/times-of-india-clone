@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/toi/header";
 import { Play, ChevronRight, ChevronLeft, Facebook, Twitter, Bookmark, Share2, Instagram, Youtube, Send } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { HotOnWebSection } from "@/components/toi/sections/hot-on-web-section";
 import { TrendingTopicsSection } from "@/components/toi/sections/trending-topics-section";
 import { PopularCategoriesSection } from "@/components/toi/sections/popular-categories-section";
@@ -255,9 +255,9 @@ interface SidebarContent {
   youMayLike: { id: number; title: string; thumbnail: string; source: string }[];
 }
 
-function StorySidebar({ content, activeVideoTab, setActiveVideoTab }: { content: SidebarContent; activeVideoTab: string; setActiveVideoTab: (tab: string) => void }) {
+function StorySidebar({ content, activeVideoTab, setActiveVideoTab, isSticky, youMayLikeRef }: { content: SidebarContent; activeVideoTab: string; setActiveVideoTab: (tab: string) => void; isSticky: boolean; youMayLikeRef: React.RefObject<HTMLDivElement> }) {
   return (
-    <div className="w-[300px] flex-shrink-0 ml-4 hidden lg:block sticky top-[88px] self-start">
+    <div className={`w-full lg:w-[300px] lg:flex-shrink-0 lg:ml-4 ${isSticky ? 'lg:sticky lg:top-[88px]' : ''} lg:self-start`}>
       <div className="space-y-4">
 
         {/* Ad Block */}
@@ -285,7 +285,7 @@ function StorySidebar({ content, activeVideoTab, setActiveVideoTab }: { content:
               <button onClick={() => setActiveVideoTab("latest")} className={`text-[11px] px-3 py-1 rounded ${activeVideoTab === "latest" ? "bg-red-600 text-white" : "bg-gray-100 text-gray-600"}`}>Latest</button>
             </div>
           </div>
-          <div className="p-3 grid grid-cols-2 gap-2">
+          <div className="p-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2">
             {content.viralVideos.map((video) => (
               <Link key={video.id} href="#" className="group">
                 <div className="relative aspect-video rounded overflow-hidden mb-1">
@@ -319,7 +319,7 @@ function StorySidebar({ content, activeVideoTab, setActiveVideoTab }: { content:
           </div>
 
           {/* GRID */}
-          <div className="p-3 grid grid-cols-2 gap-3">
+          <div className="p-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
             {featuredInAuto.map((item) => (
               <Link
                 key={item.id}
@@ -347,7 +347,7 @@ function StorySidebar({ content, activeVideoTab, setActiveVideoTab }: { content:
 
 
         {/* You May Like */}
-        <section className="mt-5 relative">                         {/* Section Title */}                        <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1 mb-4">                           You May Like <ChevronRight className="w-5 h-5" />                         </h2>
+        <section className="mt-5 relative" ref={youMayLikeRef}>                         {/* Section Title */}                        <h2 className="text-lg font-bold text-gray-900 flex items-center gap-1 mb-4">                           You May Like <ChevronRight className="w-5 h-5" />                         </h2>
           {/* Cards Container */}
           <div className="flex flex-col gap-6 mb-6">
             {youMayLike.map(({ img, alt, title, description, brand }, idx) => (
@@ -396,7 +396,7 @@ function PhotostoriesCarousel() {
       <h2 className="text-[16px] font-bold text-[#1a1a1a] mb-4 flex items-center gap-1">
         Photostories <ChevronRight className="w-4 h-4" />
       </h2>
-      <div className="grid grid-cols-3 gap-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         {getCurrentItems().map((ps) => (
           <Link key={ps.id} href={`/photostory/${ps.id}`} className="group">
             <div className="relative aspect-[3/2] rounded overflow-hidden mb-2">
@@ -432,8 +432,27 @@ export default function PhotostorySlugPage() {
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
   const [mainVideoTab, setMainVideoTab] = useState("trending");
   const [upNextVideoTabs, setUpNextVideoTabs] = useState<Record<number, string>>({});
+  const [isSticky, setIsSticky] = useState(true);
+  const leftContentRef = useRef<HTMLDivElement>(null);
+  const youMayLikeRef = useRef<HTMLDivElement>(null);
 
   const story = photoStories.find((s) => s.slug === slug) || photoStories[0];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!youMayLikeRef.current) return;
+      
+      const youMayLikeRect = youMayLikeRef.current.getBoundingClientRect();
+      const isYouMayLikeVisible = youMayLikeRect.top <= window.innerHeight;
+      
+      setIsSticky(!isYouMayLikeVisible);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (!story) {
     return (
@@ -467,15 +486,13 @@ export default function PhotostorySlugPage() {
 
       <div className="xl:ml-[145px] xl:mr-[145px]">
         <Header />
-        <main className="h-[calc(100vh-88px)]">
-          {/* <div className="max-w-[980px] h-full"> */}
-
+        <main className="min-h-screen px-4 sm:px-4 lg:px-1">
             {/* =================== MAIN STORY SECTION =================== */}
             <section className="relative">
-              <div className="flex items-start">
+              <div className="flex flex-col lg:flex-row lg:items-start gap-6">
 
                 {/* Left - Story Content */}
-                <div className="flex-1 bg-white">
+                <div className="flex-1 bg-white w-full lg:w-auto" ref={leftContentRef}>
                   <div>
                     {/* Breadcrumb */}
                     <nav className="flex items-center gap-1 text-[11px] text-gray-500 mb-4">
@@ -487,14 +504,14 @@ export default function PhotostorySlugPage() {
                     </nav>
 
                     {/* Title */}
-                    <h1 className="text-[24px] lg:text-[28px] font-bold leading-tight text-[#1a1a1a] mb-3">{story.title}</h1>
+                    <h1 className="text-xl sm:text-2xl lg:text-[28px] font-bold leading-tight text-[#1a1a1a] mb-3">{story.title}</h1>
 
                     {/* Meta Info */}
-                    <div className="flex items-center justify-between flex-wrap gap-3 mb-4 pb-4 border-b">
-                      <div className="text-[12px] text-gray-500">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 pb-4 border-b">
+                      <div className="text-xs sm:text-[12px] text-gray-500">
                         <span className="text-red-600">{story.author}</span>
                         <span className="mx-2">|</span>
-                        <span>{story.date}</span>
+                        <span className="block sm:inline mt-1 sm:mt-0">{story.date}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <button className="w-7 h-7 rounded bg-[#3b5998] flex items-center justify-center"><Facebook className="w-3.5 h-3.5 text-white" /></button>
@@ -508,13 +525,13 @@ export default function PhotostorySlugPage() {
                     <div className="space-y-6">
                       {story.images.map((img, index) => (
                         <div key={index}>
-                          <div className="relative w-full aspect-[3/2] rounded overflow-hidden">
-                            <Image src={img.src || "/placeholder.svg"} alt={`Photo ${index + 1}`} fill className="object-cover" />
+                          <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] rounded overflow-hidden">
+                            <Image src={img.src || "/placeholder.svg"} alt={`Photo ${index + 1}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 60vw" />
                             <div className="absolute top-3 left-3 bg-black/70 text-white text-[11px] px-2 py-1 rounded">
                               {String(index + 1).padStart(2, '0')}/{String(story.photos).padStart(2, '0')}
                             </div>
                           </div>
-                          <p className="mt-3 text-[14px] text-[#333] leading-relaxed">{img.caption}</p>
+                          <p className="mt-3 text-sm sm:text-[14px] text-[#333] leading-relaxed">{img.caption}</p>
 
                           {/* Inline Ad after every 5th image */}
                           {(index + 1) % 5 === 0 && index < story.images.length - 1 && (
@@ -535,17 +552,17 @@ export default function PhotostorySlugPage() {
 
                     {/* Comment Section */}
                     <section className="mt-8 pt-6 border-t relative">
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <div className="flex-1">
-                          <input type="text" placeholder="Start a Conversation" className="w-full border border-gray-300 rounded-full px-4 py-2 text-[12px] focus:outline-none focus:border-gray-400" />
+                          <input type="text" placeholder="Start a Conversation" className="w-full border border-gray-300 rounded-full px-4 py-2 text-xs sm:text-[12px] focus:outline-none focus:border-gray-400" />
                         </div>
-                        <button className="bg-red-600 text-white text-[12px] font-medium px-4 py-2 rounded hover:bg-red-700">Post comment</button>
+                        <button className="bg-red-600 text-white text-xs sm:text-[12px] font-medium px-4 py-2 rounded hover:bg-red-700 whitespace-nowrap">Post comment</button>
                       </div>
                     </section>
 
                     {/* Follow Us On Social Media */}
                     <section className="mt-6 pt-6 border-t relative mb-2">
-                      <h3 className="text-[13px] font-bold text-[#333] mb-3">Follow Us On Social Media</h3>
+                      <h3 className="text-sm sm:text-[13px] font-bold text-[#333] mb-3">Follow Us On Social Media</h3>
                       <div className="flex items-center gap-2 flex-wrap">
                         <Link href="#" className="flex items-center gap-1.5 border border-gray-300 rounded px-3 py-1.5 hover:bg-gray-50 text-[11px] text-gray-600"><Facebook className="w-3.5 h-3.5" /> Facebook</Link>
                         <Link href="#" className="flex items-center gap-1.5 border border-gray-300 rounded px-3 py-1.5 hover:bg-gray-50 text-[11px] text-gray-600"><Twitter className="w-3.5 h-3.5" /> X</Link>
@@ -561,14 +578,16 @@ export default function PhotostorySlugPage() {
                 </div>
 
                 {/* Right - Sidebar (unique content for main story) */}
-                <StorySidebar content={story.sidebarContent} activeVideoTab={mainVideoTab} setActiveVideoTab={setMainVideoTab} />
+                <div className="w-full lg:w-auto">
+                  <StorySidebar content={story.sidebarContent} activeVideoTab={mainVideoTab} setActiveVideoTab={setMainVideoTab} isSticky={isSticky} youMayLikeRef={youMayLikeRef} />
+                </div>
               </div>
             </section>
           {/* </div> */}
-          <section className="w-full bg-white">
+          <section className="w-full bg-white mt-8">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
           <span className="text-black">TIMES</span>{" "}
           <span className="text-red-600">ENTERTAINMENT</span>
         </h1>

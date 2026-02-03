@@ -138,7 +138,7 @@ function CalculatorCarousel() {
   };
 
   return (
-    <div className="h-full rounded-xl bg-white p-4">
+    <div className="h-full rounded-xl bg-white">
       <h3 className="mb-3 text-base font-semibold">Financial Calculators</h3>
 
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-teal-50 to-teal-100">
@@ -217,7 +217,7 @@ const tags = [
 export default function IndiaBusinessNewsSection() {
   return (
     <>
-    <section className="mt-5 rounded-lg max-w-[980px]">
+    <section className="mt-5 rounded-lg w-full">
       {/* TITLE */}
       <div className="flex items-center gap-2 mb-4">
         <h2 className="text-m font-bold tracking-wide">India Business News</h2>
@@ -225,28 +225,30 @@ export default function IndiaBusinessNewsSection() {
       </div>
 
       {/* MAIN TWO-COLUMN LAYOUT */}
-      <div className="grid grid-cols-12 gap-4">
-        {/* LEFT SIDE (8 COLS) */}
-        <div className="col-span-12 md:col-span-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        {/* LEFT SIDE */}
+        <div className="lg:col-span-8">
           {/* TOP ROW: FEATURED + MIDDLE */}
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* FEATURED */}
-            <div className="col-span-7 relative rounded-lg overflow-hidden h-[250px] md:h-[250px] cursor-pointer group">
+            <div className="md:col-span-7 relative rounded-lg overflow-hidden h-[200px] sm:h-[250px] cursor-pointer group">
               <Image
                 src={indiaBusinessNews.lead.image}
                 alt={indiaBusinessNews.lead.title}
                 fill
-                // className="h-[100px]"
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 58vw, 41vw"
                 priority
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <p className="absolute bottom-3 left-3 right-3 text-white text-sm font-semibold drop-shadow-lg">
                 {indiaBusinessNews.lead.title}
               </p>
             </div>
 
             {/* MIDDLE LIST */}
-            <nav className="col-span-5 flex flex-col justify-between">
-              <ul className="divide-y divide-dotted divide-gray-300 text-sm text-gray-800">
+            <nav className="md:col-span-5 flex flex-col justify-between">
+              <ul className="divide-y divide-dotted divide-gray-300 text-sm text-gray-800 space-y-2">
                 {indiaBusinessNews.middleList.map((text, i) => (
                   <li
                     key={i}
@@ -265,36 +267,37 @@ export default function IndiaBusinessNewsSection() {
           </div>
 
           {/* BOTTOM ROW: 4 CARDS */}
-          <div className="grid grid-cols-4 gap-4 mt-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-4">
             {indiaBusinessNews.bottomCards.map((card, i) => (
               <div key={i} className="cursor-pointer">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  width={300}
-                  height={180}
-                  className="rounded mb-2 h-[100px]"
-                  sizes="(min-width: 768px) 22vw, 100vw"
-                  priority={i === 0}
-                />
-                <p className="text-sm leading-snug">{card.title}</p>
+                <div className="relative w-full h-[80px] sm:h-[100px] rounded overflow-hidden mb-2">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12vw"
+                    priority={i === 0}
+                  />
+                </div>
+                <p className="text-xs sm:text-sm leading-snug">{card.title}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* RIGHT SIDE (4 COLS): Financial calculators carousel */}
-        <aside className="col-span-12 md:col-span-4 h-full">
+        {/* RIGHT SIDE: Financial calculators carousel */}
+        <aside className="lg:col-span-4 h-full mt-6 lg:mt-0">
           <CalculatorCarousel />
         </aside>
       </div>
       {/* Tags/chips row */}
-      <div className="mt-6 flex flex-wrap gap-3 text-xs font-medium">
+      <div className="mt-6 flex flex-wrap gap-2 sm:gap-3 text-xs font-medium">
                       <span className="text-gray-500">In Focus</span>
                       {tags.map((tag, i) => (
                           <span
                               key={i}
-                              className="bg-gray-100 rounded-full px-3 py-1 whitespace-nowrap cursor-pointer hover:bg-gray-200"
+                              className="bg-gray-100 rounded-full px-2 sm:px-3 py-1 whitespace-nowrap cursor-pointer hover:bg-gray-200 text-xs"
                           >
                               {tag}
                           </span>
@@ -302,16 +305,16 @@ export default function IndiaBusinessNewsSection() {
                   </div>
 
     </section>
-    <section className="max-w-7xl mx-auto px-4 mt-6">
-    <div className="relative rounded-lg bg-red-700 text-white flex items-center justify-between overflow-hidden p-6 md:p-7 gap-4 shadow-lg h-[100px] w-[700px] m-auto">
+    <section className="w-full px-4 mt-6">
+    <div className="relative rounded-lg bg-red-700 text-white flex flex-col sm:flex-row items-center justify-between overflow-hidden p-4 sm:p-6 md:p-7 gap-4 shadow-lg max-w-4xl mx-auto">
       {/* Left part with helmet icon and text */}
-      <div className="flex items-center gap-4 max-w-xs">
-        <div className="flex flex-col items-start">
-          <div className="bg-white rounded-full p-3">
+      <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex flex-col items-center sm:items-start">
+          <div className="bg-white rounded-full p-2 sm:p-3">
             {/* Simple helmet icon - stylized SVG */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 text-red-700"
+              className="h-8 w-8 sm:h-12 sm:w-12 text-red-700"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -324,26 +327,26 @@ export default function IndiaBusinessNewsSection() {
               />
             </svg>
           </div>
-          <span className="mt-2 font-bold text-lg leading-none text-yellow-300">जरा बच के</span>
+          <span className="mt-2 font-bold text-sm sm:text-lg leading-none text-yellow-300">जरा बच के</span>
         </div>
       </div>
 
       {/* Center Text */}
-      <div className="flex-1 px-4 text-center md:text-left">
-        <h2 className="text-yellow-400 font-extrabold text-xl md:text-2xl leading-snug">
+      <div className="flex-1 text-center sm:text-left">
+        <h2 className="text-yellow-400 font-extrabold text-lg sm:text-xl md:text-2xl leading-snug">
           राष्ट्रीय सड़क सुरक्षा माह
         </h2>
-        <p className="mt-1 text-yellow-200 text-sm md:text-base">
+        <p className="mt-1 text-yellow-200 text-xs sm:text-sm md:text-base">
           (1 जनवरी से 31 जनवरी, 2026 तक)
         </p>
-        <p className="mt-2 font-semibold text-yellow-300 text-base md:text-lg">
+        <p className="mt-2 font-semibold text-yellow-300 text-sm sm:text-base md:text-lg">
           हेलमेट छोड़ा स्टाइल में, यमराज आएंगे स्माइल में
         </p>
       </div>
 
       {/* Right side biker image (simple stylized) */}
-      <div className="hidden md:flex items-center">
-        <div className="relative w-28 h-28">
+      <div className="hidden sm:flex items-center">
+        <div className="relative w-20 h-20 sm:w-28 sm:h-28">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

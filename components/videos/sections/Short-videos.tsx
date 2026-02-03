@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
@@ -80,7 +80,20 @@ export const shortVideos = [
 
 export default function ShortsSection() {
   const [pageIndex, setPageIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const ITEMS_PER_VIEW = isMobile ? 2 : 6;
+  const CARD_WIDTH = isMobile ? 140 : 158;
+  const VIEW_WIDTH = ITEMS_PER_VIEW * CARD_WIDTH;
   const totalPages = Math.ceil(shortVideos.length / ITEMS_PER_VIEW);
 
   const handlePrev = () => {
@@ -92,13 +105,13 @@ export default function ShortsSection() {
   };
 
   return (
-    <section className="mb-6 max-w-[980px]">
-      <h2 className="text-[18px] font-bold mb-3">Short Videos</h2>
+    <section className="w-full max-w-[980px] mx-auto px-2 sm:px-0 mb-4 sm:mb-6">
+      <h2 className="text-[16px] sm:text-[18px] font-bold mb-3">Short Videos</h2>
 
       {/* Carousel */}
       <div className="relative overflow-hidden">
         <div
-          className="flex gap-2 transition-transform duration-300 ease-in-out"
+          className="flex gap-1.5 sm:gap-2 transition-transform duration-300 ease-in-out"
           style={{
             transform: `translateX(-${pageIndex * VIEW_WIDTH}px)`,
           }}
@@ -107,7 +120,7 @@ export default function ShortsSection() {
             <Link
               key={short.id}
               href="#"
-              className="flex-shrink-0 w-[150px]"
+              className="flex-shrink-0 w-[135px] sm:w-[150px]"
             >
               <div className="rounded-lg overflow-hidden bg-white">
                 <div className="relative aspect-[9/16]">
@@ -115,19 +128,18 @@ export default function ShortsSection() {
                     src={short.thumbnail}
                     alt={short.title}
                     fill
-                    // sizes="150px"
                     className="object-cover"
                   />
-                  <div className="absolute bottom-2 right-2 bg-black/70 w-12 h-6 flex items-center justify-center rounded-2xl">
-                    <Play className="w-4 h-4 text-white fill-white" />
+                  <div className="absolute bottom-1.5 sm:bottom-2 right-1.5 sm:right-2 bg-black/70 w-10 sm:w-12 h-5 sm:h-6 flex items-center justify-center rounded-2xl">
+                    <Play className="w-3 sm:w-4 h-3 sm:h-4 text-white fill-white" />
                   </div>
                 </div>
 
-                <div className="p-2">
-                  <p className="text-[10px] font-medium line-clamp-2">
+                <div className="p-1.5 sm:p-2">
+                  <p className="text-[9px] sm:text-[10px] font-medium line-clamp-2">
                     {short.title}
                   </p>
-                  <span className="text-[9px] text-gray-500">
+                  <span className="text-[8px] sm:text-[9px] text-gray-500">
                     {short.views} views
                   </span>
                 </div>
@@ -140,27 +152,27 @@ export default function ShortsSection() {
         <button
           onClick={handlePrev}
           disabled={pageIndex === 0}
-          className="absolute left-3 top-[120px] bg-white p-1.5 rounded-full shadow disabled:opacity-40"
+          className="absolute left-1 sm:left-3 top-[100px] sm:top-[120px] bg-white p-1 sm:p-1.5 rounded-full shadow disabled:opacity-40 z-10"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
         </button>
 
         <button
           onClick={handleNext}
           disabled={pageIndex === totalPages - 1}
-          className="absolute right-3 top-[120px] bg-white p-1.5 rounded-full shadow disabled:opacity-40"
+          className="absolute right-1 sm:right-3 top-[100px] sm:top-[120px] bg-white p-1 sm:p-1.5 rounded-full shadow disabled:opacity-40 z-10"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
         </button>
       </div>
 
-      {/* 🔵 DOTTED PAGINATION */}
-      <div className="flex justify-center gap-2 mt-3">
+      {/* DOTTED PAGINATION */}
+      <div className="flex justify-center gap-1.5 sm:gap-2 mt-3">
         {Array.from({ length: totalPages }).map((_, i) => (
           <button
             key={i}
             onClick={() => setPageIndex(i)}
-            className={`w-2 h-2 rounded-full transition ${
+            className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition ${
               i === pageIndex ? "bg-black" : "bg-gray-300"
             }`}
           />
