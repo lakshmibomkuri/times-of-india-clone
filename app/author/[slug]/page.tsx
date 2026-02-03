@@ -282,10 +282,10 @@ export default function AuthorPage() {
       {/* <SharedAdStrips /> */}
 
       {/* Main Content Area */}
-      <div className="xl:ml-[145px] xl:mr-[145px] px-2 lg:px-0">
+      <div className="xl:ml-[145px] xl:mr-[145px]">
         <Header />
 
-        <main className="bg-white md:p-4 sm:p-4">
+        <main className="bg-white md:p-4 sm:p-4 px-2 lg:px-0">
           <div className="max-w-[980px] w-full">
             {/* Breadcrumb */}
             <div className="flex items-center gap-1 text-[11px] text-gray-500 mb-4">
