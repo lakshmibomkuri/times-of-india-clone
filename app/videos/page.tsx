@@ -251,7 +251,7 @@ export default function VideosPage() {
       {/* <SharedAdStrips /> */}
 
       {/* Main Content Area */}
-      <div className="xl:ml-[145px] xl:mr-[145px] px-2">
+      <div className="xl:ml-[145px] xl:mr-[145px]">
         {/* Top Ad Banner - AU Bank */}
         <div className="w-full bg-gradient-to-r from-[#1a1a2e] to-[#2d2d44] py-2">
           <div className="max-w-[970px] mx-auto px-2 sm:px-4">
@@ -272,7 +272,7 @@ export default function VideosPage() {
         <Header />
 
         <main>
-          <div className="max-w-[980px] mx-auto">
+          <div className="max-w-[980px] mx-auto px-2 lg:p-0">
             {/* Page Header with Categories */}
             <div className="flex items-center justify-between mb-3 bg-white rounded">
               <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">

@@ -56,10 +56,10 @@ export default function VideoPage() {
       </div> */}
 
       {/* Main Content Area */}
-      <div className="px-2 sm:px-4 lg:px-6 xl:mx-[145px]">
+      <div className="sm:px-4 lg:px-6 xl:mx-[145px]">
         <Header />
 
-        <main className="bg-white mt-3 sm:mt-5">
+        <main className="bg-white mt-3 sm:mt-5 px-2 lg:p-0">
           <div className="max-w-[980px] mx-auto">
             <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
               {/* Left Content */}
